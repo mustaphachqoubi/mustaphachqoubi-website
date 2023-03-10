@@ -14,7 +14,7 @@ const MustaphaSVG = () => {
   });
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen bg-[#d79e67]">
       <div>
         <svg width="100%" viewBox="0 0 496 496">
           {/* 1 */}
@@ -26,7 +26,7 @@ const MustaphaSVG = () => {
             strokeDasharray={animation.strokeDasharray}
             strokeDashoffset={animation.strokeDashoffset}
             d="
-M331.138550,237.420593 
+	M331.138550,237.420593 
 	C320.837128,239.961838 310.782349,241.308456 300.572144,240.744873 
 	C297.982147,240.601913 296.594391,241.752853 295.052551,243.349060 
 	C277.882538,261.124603 250.308731,257.322968 238.563202,235.610413 
