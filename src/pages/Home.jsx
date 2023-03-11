@@ -10,11 +10,11 @@ const Home = () => {
   }, []);
   return (
     <>
-      <div className="absolute top-20 w-full flex justify-center md:justify-start">
+      <div className="hidden absolute top-20 w-full md:flex justify-center md:justify-start">
         {isRichaSvgTime === true && <RichaSVG />}
       </div>
       <MustaphaSVG />
-      <div className="absolute md:top-[25rem] top-[30rem] w-full flex justify-center md:justify-end">
+      <div className="hidden absolute top-[20rem] w-full md:flex justify-center md:justify-end">
         {isRichaSvgTime === true && <HorseSVG />}
       </div>
     </>

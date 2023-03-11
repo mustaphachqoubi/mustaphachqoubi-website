@@ -2,7 +2,7 @@ import React from "react";
 
 const RichaSVG = () => {
   return (
-    <div className="w-80 animate-[fade_1.5s_ease-in-out]">
+    <div className="w-80 animate-[fade_1.7s_ease-in-out]">
       <svg width="100%" viewBox="0 0 770 434">
         <path
           fill="#562F47"
