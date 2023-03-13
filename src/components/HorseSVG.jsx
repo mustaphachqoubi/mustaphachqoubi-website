@@ -3,7 +3,8 @@ import React from "react";
 const HorseSVG = ({horseOpacity}) => {
 
   return (
-    <div className="w-[10rem] animate-[fade_1.5s_ease-in-out]">
+    // <div className="w-[10rem] animate-[fade_1.5s_ease-in-out]">
+    <div className="w-[10rem] ">
       <svg width="100%" viewBox="0 0 236 333">
         <path
           fill="#4E2F24"
