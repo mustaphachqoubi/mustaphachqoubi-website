@@ -14,7 +14,7 @@ const MustaphaSVG = () => {
   });
 
   return (
-    <div className="flex justify-center items-center h-screen bg-[#d79e67]">
+    <div className="flex justify-center items-center h-screen">
       <div>
         <svg width="100%" viewBox="0 0 496 496">
           {/* 1 */}
