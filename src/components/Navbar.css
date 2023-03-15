@@ -1,48 +1,130 @@
 .range-input::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid black;
-    border-radius: 50%;
-    cursor: pointer;
-    background: #e5ac73;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #e5ac73;
+}
+
+.menu {
+  animation: menudrop 1.5s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+.speaker {
+  animation: speakerdrop 1s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+.volume {
+  position: fixed;
+  bottom: 2rem;
+  left: 8rem;
+}
+
+@media screen and (max-width: 768px){
+  .volume {
+    bottom: 4rem;
+    left: 5.5rem;
   }
+}
 
-
-  @keyframes menubouncer {
-    0%, 100% {
-    /* transform: translateY(-25%); */
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+@keyframes menudrop {
+  0% {
+    position: fixed;
+    bottom: 500px;
     border-radius: 100%;
-    }
-    50%{
-    transform: translateY(0);
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1)
-    }
-    0%{
-      bottom: 500px;
-    }
-    100%{
-      bottom: 20px;
-      transform: translateY(-25%);
-    }
   }
-
-  @keyframes speakerbouncer {
-    0%, 100% {
-      transform: translateY(-25%);
-      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-      border-radius: 100%
-      }
-    0%{
-      bottom: 150px;
-    }
-    50%{
-      bottom: 50px;
-    }
-    100%{
-      bottom: 20px;
-    }
+  30% {
+    position: fixed;
+    bottom: 20px;
   }
+  35% {
+    position: fixed;
+    bottom: 100px;
+  }
+  40% {
+    position: fixed;
+    bottom: 20px;
+  }
+  45% {
+    position: fixed;
+    bottom: 90px;
+  }
+  50% {
+    position: fixed;
+    bottom: 20px;
+  }
+  55% {
+    position: fixed;
+    bottom: 80px;
+  }
+  60% {
+    position: fixed;
+    bottom: 20px;
+  }
+  65% {
+    position: fixed;
+    bottom: 70px;
+  }
+  70% {
+    position: fixed;
+    bottom: 20px;
+  }
+  75% {
+    position: fixed;
+    bottom: 60px;
+  }
+  80% {
+    position: fixed;
+    bottom: 20px;
+  }
+  85% {
+    position: fixed;
+    bottom: 50px;
+  }
+  90% {
+    position: fixed;
+    bottom: 20px;
+  }
+  95% {
+    position: fixed;
+    bottom: 40px;
+  }
+  100% {
+    position: fixed;
+    bottom: 20px;
+  }
+}
 
+@keyframes speakerdrop {
+  0% {
+    position: fixed;
+    bottom: 500px;
+    border-radius: 100%;
+    left: 0;
+  }
+  30% {
+    transform: translateY(500%) translateX(5000%);
+  }
+  50% {
+    transform: translateY(700%) translateX(100%);
+  }
+  60% {
+    transform: translateY(900%) translateX(5000%);
+  }
+  70% {
+    transform: translateY(1100%) translateX(100%);
+  }
+  80% {
+    transform: translateY(1300%) translateX(5000%);
+  }
+  100% {
+    position: fixed;
+    bottom: 20px;
+    left: 5rem;
+  }
+}

@@ -14,6 +14,7 @@ const Navbar = ({ currentScroll }) => {
   const [isScroll, setIsScroll] = useState(false);
   const [menuPosition, setmenuPosition] = useState("");
   const [speakerPosition, setspeakerPosition] = useState("");
+  const [volumePosition, setVolumePosition] = useState("");
 
   const music =
     "https://dl.dropboxusercontent.com/s/jemqok069xq5j7j/backgroundmusic-2.mp3?dl=0";
@@ -34,24 +35,23 @@ const Navbar = ({ currentScroll }) => {
     }
 
     if (isScroll === true) {
-      setmenuPosition("fixed bottom-5 animate-[menubouncer_1.2s_ease-in-out_1]");
-      // bottom-5
-      setspeakerPosition(
-        "fixed bottom-5 left-20 animate-[_1.2s_ease-in-out_2.5]"
-      );
+      setmenuPosition("menu");
+      setspeakerPosition("speaker");
+      setVolumePosition('volume')
+      // fixed bottom-5 left-20
     } else {
       setmenuPosition("");
       setspeakerPosition("");
+      setVolumePosition("")
+      // absolute top-16 left-[6.2rem]
     }
-  });
+  }, [currentScroll, isScroll]);
 
   return (
     <div className="flex justify-between px-10 z-50 py-2 bg-none backdrop-blur-md">
-      {" "}
-      {/*absolute right-0 left-0 top-0*/}
       <div className="flex gap-4 items-center">
         <div
-          className={`${menuPosition} border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer`}
+          className={` ${menuPosition} border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer`}
         >
           <HiOutlineMenu />
         </div>
@@ -85,7 +85,7 @@ const Navbar = ({ currentScroll }) => {
         {!isSoundActive
           ? null
           : isSpeakerHovered && (
-              <div className="h-20 w-5 md:h-2 md:w-20 absolute md:static top-16 left-[6.2rem] flex justify-center items-center transition duration-700 ease-in-out">
+              <div className={`${volumePosition} h-20 w-5 md:h-2 md:w-20 md:static flex justify-center items-center transition duration-700 ease-in-out`}>
                 <input
                   onChange={(e) => {
                     setvolume(e.target.value);

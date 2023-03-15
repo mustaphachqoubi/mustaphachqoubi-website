@@ -31,7 +31,6 @@ function App() {
     window.addEventListener('scroll', throttle(() => {
       setcurrentScroll(window.pageYOffset)
     }, 100))
-    // currentScroll >= 10 && setRotate(8)  
   })
 
   return (
