@@ -1,49 +1,52 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Navbar } from "./components";
 import Home from "./pages/Home";
+import "./App.css";
 
 function App() {
   // const [rotate, setRotate] = useState(0);
-  const rvalues = [0, 1, 2, 3, 6, 12, 45, 90, 180];
+  // const rvalues = [0, 1, 2, 3, 6, 12, 45, 90, 180];
+  const [currentScroll, setcurrentScroll] = useState(0)
 
-  // let lastScrollPosition = window.pageYOffset;
+  function throttle(func, delay) {
+    let timeoutId;
+    let lastExecTime = 0;
+    return function(...args) {
+      const currentTime = new Date().getTime();
+      const timeSinceLastExec = currentTime - lastExecTime;
+      if (!timeoutId && timeSinceLastExec >= delay) {
+        func.apply(this, args);
+        lastExecTime = currentTime;
+      } else if (!timeoutId) {
+        timeoutId = setTimeout(() => {
+          timeoutId = null;
+          lastExecTime = new Date().getTime();
+          func.apply(this, args);
+        }, delay - timeSinceLastExec);
+      }
+    };
+  }
 
-  // window.addEventListener("scroll", () => {
-  //   const currentScrollPosition = window.pageYOffset;
-  //   if (currentScrollPosition > lastScrollPosition) {
-  //     rotate < rvalues.length ? setRotate(rotate + 1) : setRotate(rvalues.length)
-  //   } else if (currentScrollPosition < lastScrollPosition) {
-  //     rvalues >= rvalues.length && setRotate(rotate - 1)
-  //   }
-  //   lastScrollPosition = currentScrollPosition;
-  // });
+  useEffect(() => {
+    window.addEventListener('scroll', throttle(() => {
+      setcurrentScroll(window.pageYOffset)
+    }, 100))
+    // currentScroll >= 10 && setRotate(8)  
+  })
 
   return (
     <>
-      <div className="relative bg-[#d79e67]">
-        <Navbar />
+      <div
+        className={`bg-[#d79e67]`}
+      >
+        <Navbar currentScroll={currentScroll}/>
         <Home />
-        <div className="curl absolute bottom-0 left-0 w-[120px] h-[120px] bg-gradient-to-r from-[#8b6846] to-[#e5ac73] transition ease-in-out delay-100 drop-shadow-2xl 
-        
-        before:content-['']
-        before:z-[-1]
-        before:left-[12.5%]
-        before:bottom-[5.8%]
-        before:width-[70%]
-        before:h-[55%]
-        before:drop-shadow-xl
-        hover:w-[240px] h-[240px]
-
-        after:left-auto
-        after:right-[5.8%]
-        after:top-auto
-        after:bottom-[14.16%]
-        "></div>
       </div>
-      {/* <div className={`origin-bottom-right rotate-${rvalues[rotate]}`}>
-        <Navbar />
+      <div
+        className={`bg-[#d79e67]`}
+      >
         <Home />
-      </div> */}
+      </div>
     </>
   );
 }
