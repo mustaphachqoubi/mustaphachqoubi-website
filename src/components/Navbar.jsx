@@ -3,7 +3,6 @@ import Logo from "../assets/logo";
 import { HiOutlineMenu } from "react-icons/hi";
 import { GiSpeaker, GiSpeakerOff } from "react-icons/gi";
 import Sound from "react-sound";
-import "./Navbar.css";
 
 const Navbar = ({ currentScroll }) => {
   const [isSoundActive, setisSoundActive] = useState(false);
@@ -14,7 +13,9 @@ const Navbar = ({ currentScroll }) => {
   const [isScroll, setIsScroll] = useState(false);
   const [menuPosition, setmenuPosition] = useState("");
   const [speakerPosition, setspeakerPosition] = useState("");
-  const [volumePosition, setVolumePosition] = useState("");
+  const [volumePosition, setVolumePosition] = useState(
+    "absolute top-16 left-[6.2rem] md:static"
+  );
 
   const music =
     "https://dl.dropboxusercontent.com/s/jemqok069xq5j7j/backgroundmusic-2.mp3?dl=0";
@@ -37,24 +38,25 @@ const Navbar = ({ currentScroll }) => {
     if (isScroll === true) {
       setmenuPosition("menu");
       setspeakerPosition("speaker");
-      setVolumePosition('volume')
-      // fixed bottom-5 left-20
+      setVolumePosition(
+        "fixed bottom-16 ml-[3.3rem] md:bottom-8 md:ml-[5.5rem]"
+      );
     } else {
       setmenuPosition("");
       setspeakerPosition("");
-      setVolumePosition("")
-      // absolute top-16 left-[6.2rem]
+      setVolumePosition("absolute top-16 left-[6.2rem] md:static");
     }
   }, [currentScroll, isScroll]);
 
   return (
-    <div className="flex justify-between px-10 z-50 py-2 bg-none backdrop-blur-md">
+    <div className="flex justify-between px-10 z-50 py-2 bg-none backdrop-blur-md absolute top-0 left-0 right-0">
       <div className="flex gap-4 items-center">
         <div
-          className={` ${menuPosition} border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer`}
+          className={`${menuPosition}  border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer`}
         >
           <HiOutlineMenu />
         </div>
+
         <div
           onClick={() => {
             isSoundActive === false
@@ -85,7 +87,9 @@ const Navbar = ({ currentScroll }) => {
         {!isSoundActive
           ? null
           : isSpeakerHovered && (
-              <div className={`${volumePosition} h-20 w-5 md:h-2 md:w-20 md:static flex justify-center items-center transition duration-700 ease-in-out`}>
+              <div
+                className={`${volumePosition} h-20 w-5 md:h-2 md:w-20 flex justify-center items-center transition duration-700 ease-in-out`}
+              >
                 <input
                   onChange={(e) => {
                     setvolume(e.target.value);

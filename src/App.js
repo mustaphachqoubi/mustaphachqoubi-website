@@ -1,17 +1,14 @@
 import { React, useEffect, useState } from "react";
 import { Navbar } from "./components";
 import Home from "./pages/Home";
-import "./App.css";
 
 function App() {
-  // const [rotate, setRotate] = useState(0);
-  // const rvalues = [0, 1, 2, 3, 6, 12, 45, 90, 180];
-  const [currentScroll, setcurrentScroll] = useState(0)
+  const [currentScroll, setcurrentScroll] = useState(0);
 
   function throttle(func, delay) {
     let timeoutId;
     let lastExecTime = 0;
-    return function(...args) {
+    return function (...args) {
       const currentTime = new Date().getTime();
       const timeSinceLastExec = currentTime - lastExecTime;
       if (!timeoutId && timeSinceLastExec >= delay) {
@@ -28,25 +25,19 @@ function App() {
   }
 
   useEffect(() => {
-    window.addEventListener('scroll', throttle(() => {
-      setcurrentScroll(window.pageYOffset)
-    }, 100))
-  })
+    window.addEventListener(
+      "scroll",
+      throttle(() => {
+        setcurrentScroll(window.pageYOffset);
+      }, 100)
+    );
+  });
 
   return (
-    <>
-      <div
-        className={`bg-[#d79e67]`}
-      >
-        <Navbar currentScroll={currentScroll}/>
-        <Home />
-      </div>
-      <div
-        className={`bg-[#d79e67]`}
-      >
-        <Home />
-      </div>
-    </>
+    <div className="bg-[#d79e67] max-w-[1440px] mx-auto relative">
+      <Navbar currentScroll={currentScroll} />
+      <Home />
+    </div>
   );
 }
 
