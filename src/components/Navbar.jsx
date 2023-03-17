@@ -3,8 +3,13 @@ import Logo from "../assets/logo";
 import { HiOutlineMenu } from "react-icons/hi";
 import { GiSpeaker, GiSpeakerOff } from "react-icons/gi";
 import Sound from "react-sound";
+import { useSelector } from "react-redux";
 
-const Navbar = ({ currentScroll }) => {
+const Navbar = () => {
+  const { currentScrollingLevel } = useSelector(
+    (state) => state.currentScrollingLevel
+  );
+
   const [isSoundActive, setisSoundActive] = useState(false);
   const [isSpeakerHovered, setisSpeakerHovered] = useState(false);
   const [volume, setvolume] = useState(20);
@@ -29,7 +34,7 @@ const Navbar = ({ currentScroll }) => {
       setisSpeakerHovered(false);
     });
 
-    if (currentScroll >= 5) {
+    if (currentScrollingLevel >= 5) {
       setIsScroll(true);
     } else {
       setIsScroll(false);
@@ -46,7 +51,7 @@ const Navbar = ({ currentScroll }) => {
       setspeakerPosition("");
       setVolumePosition("absolute top-16 left-[6.2rem] md:static");
     }
-  }, [currentScroll, isScroll]);
+  }, [currentScrollingLevel, isScroll]);
 
   return (
     <div className="flex justify-between px-10 z-50 py-2 bg-none backdrop-blur-md absolute top-0 left-0 right-0">

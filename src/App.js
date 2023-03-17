@@ -1,9 +1,12 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect } from "react";
 import { Navbar } from "./components";
 import Home from "./pages/Home";
+import { useDispatch } from "react-redux";
+
+import { setCurrentScrollingLevel } from "./Redux/reducers/currentScrollingLevel";
 
 function App() {
-  const [currentScroll, setcurrentScroll] = useState(0);
+  const dispatch = useDispatch();
 
   function throttle(func, delay) {
     let timeoutId;
@@ -28,14 +31,14 @@ function App() {
     window.addEventListener(
       "scroll",
       throttle(() => {
-        setcurrentScroll(window.pageYOffset);
+        dispatch(setCurrentScrollingLevel(window.pageYOffset));
       }, 100)
     );
-  });
+  }, [dispatch]);
 
   return (
     <div className="bg-[#d79e67] max-w-[1440px] mx-auto relative">
-      <Navbar currentScroll={currentScroll} />
+      <Navbar />
       <Home />
     </div>
   );
