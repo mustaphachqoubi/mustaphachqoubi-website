@@ -91,7 +91,7 @@
   }
 }
 
-@keyframes speakerdrop {
+/* @keyframes speakerdrop {
   0% {
     position: fixed;
     bottom: 500px;
@@ -112,6 +112,29 @@
   }
   80% {
     transform: translateY(1300%) translateX(5000%);
+  }
+  100% {
+    position: fixed;
+    bottom: 20px;
+    margin-left: 45px;
+  }
+} */
+
+
+@keyframes speakerdrop {
+  0% {
+    position: fixed;
+    bottom: 500px;
+    border-radius: 100%;
+  }
+  50%{
+    position: fixed;
+    bottom: 100px;
+    margin-left: 10px
+  }
+  60%{
+    position: fixed;
+    bottom: 150px;
   }
   100% {
     position: fixed;
