@@ -53,11 +53,13 @@ const Navbar = () => {
     }
   }, [currentScrollingLevel, isScroll]);
 
+
+
   return (
     <div className="flex justify-between px-10 z-50 py-2 bg-none backdrop-blur-md absolute top-0 left-0 right-0">
       <div className="flex gap-4 items-center">
         <div
-          className={`${menuPosition}  border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer`}
+          className={`${menuPosition}  border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md`}
         >
           <HiOutlineMenu />
         </div>
@@ -73,7 +75,7 @@ const Navbar = () => {
               setisSpeakerHovered(true);
             }, 1000);
           }}
-          className={`${speakerPosition} border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer`}
+          className={`${speakerPosition} border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md`}
         >
           {isSoundActive === false ? <GiSpeakerOff /> : <GiSpeaker />}
           <Sound
@@ -86,6 +88,7 @@ const Navbar = () => {
             volume={volume}
             position={position}
             onPlaying={({ position }) => handlePosition(position)}
+            
           />
         </div>
 
