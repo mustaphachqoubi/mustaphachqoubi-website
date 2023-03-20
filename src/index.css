@@ -23,13 +23,17 @@
   animation-fill-mode: forwards;
 }
 
-.homeContainer{
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
+.volume {
+  animation: volume 4s ease-in-out 1;
 }
 
-.section{
-  scroll-snap-align: start;
+@keyframes volume {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes menudrop {
@@ -106,12 +110,12 @@
     bottom: 500px;
     border-radius: 100%;
   }
-  50%{
+  50% {
     position: fixed;
     bottom: 100px;
-    margin-left: 10px
+    margin-left: 10px;
   }
-  60%{
+  60% {
     position: fixed;
     bottom: 150px;
   }

@@ -6,21 +6,17 @@ import Sound from "react-sound";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const { currentScrollingLevel } = useSelector(
-    (state) => state.currentScrollingLevel
+  const [menuPosition, setmenuPosition] = useState("absolute top-5");
+  const [isScroll, setIsScroll] = useState(false);
+  const [speakerPosition, setspeakerPosition] = useState("absolute top-5");
+  const [volumePosition, setVolumePosition] = useState(
+    "fixed top-16 ml-[3.7rem] md:top-8 md:ml-[6rem]"
   );
 
   const [isSoundActive, setisSoundActive] = useState(false);
   const [isSpeakerHovered, setisSpeakerHovered] = useState(false);
   const [volume, setvolume] = useState(20);
   const [position, setPosition] = useState(0);
-
-  const [isScroll, setIsScroll] = useState(false);
-  const [menuPosition, setmenuPosition] = useState("");
-  const [speakerPosition, setspeakerPosition] = useState("");
-  const [volumePosition, setVolumePosition] = useState(
-    "absolute top-16 left-[6.2rem] md:static"
-  );
 
   const music =
     "https://dl.dropboxusercontent.com/s/jemqok069xq5j7j/backgroundmusic-2.mp3?dl=0";
@@ -29,10 +25,16 @@ const Navbar = () => {
     setPosition(newPosition);
   };
 
+  const { currentScrollingLevel } = useSelector(
+    (state) => state.currentScrollingLevel
+  );
+
   useEffect(() => {
-    window.addEventListener("click", () => {
-      setisSpeakerHovered(false);
-    });
+    if (currentScrollingLevel >= 5) {
+      setIsScroll(true);
+    } else {
+      setIsScroll(false);
+    }
 
     if (currentScrollingLevel >= 5) {
       setIsScroll(true);
@@ -41,31 +43,26 @@ const Navbar = () => {
     }
 
     if (isScroll === true) {
-      // setmenuPosition("absolute bottom-0");
-      // setmenuPosition("menu");
+      setmenuPosition("menu");
       setspeakerPosition("speaker");
       setVolumePosition(
-        "fixed bottom-16 ml-[3.3rem] md:bottom-8 md:ml-[5.5rem]"
+        "fixed bottom-16 ml-[3.3rem] md:bottom-8 md:ml-[5.5rem] volume"
       );
     } else {
       setmenuPosition("");
       setspeakerPosition("");
-      setVolumePosition("absolute top-16 left-[6.2rem] md:static");
+      setVolumePosition("fixed top-16 ml-[3.7rem] md:top-8 md:ml-[6rem]");
     }
-
   }, [currentScrollingLevel, isScroll]);
 
-
-
   return (
-    <div className="flex justify-between px-10 z-50 py-2 bg-none backdrop-blur-md absolute top-0 left-0 right-0">
-      <div className="flex gap-4 items-center">
+    <>
+      <div className={`flex gap-4 px-10 py-5  absolute top-0 left-0 right-0 `}>
         <div
-          className={`absolute bottom-0 left-0 right-0 border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md`}
+          className={`${menuPosition} z-50 border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md`}
         >
           <HiOutlineMenu />
         </div>
-
         <div
           onClick={() => {
             isSoundActive === false
@@ -77,7 +74,7 @@ const Navbar = () => {
               setisSpeakerHovered(true);
             }, 1000);
           }}
-          className={`${speakerPosition} border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md`}
+          className={`${speakerPosition} z-50 border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md`}
         >
           {isSoundActive === false ? <GiSpeakerOff /> : <GiSpeaker />}
           <Sound
@@ -90,15 +87,13 @@ const Navbar = () => {
             volume={volume}
             position={position}
             onPlaying={({ position }) => handlePosition(position)}
-            
           />
         </div>
-
         {!isSoundActive
           ? null
           : isSpeakerHovered && (
               <div
-                className={`${volumePosition} h-20 w-5 md:h-2 md:w-20 flex justify-center items-center transition duration-700 ease-in-out`}
+                className={`${volumePosition} z-50 h-20 w-5 md:h-2 md:w-20 flex justify-center items-center transition duration-700 ease-in-out`}
               >
                 <input
                   onChange={(e) => {
@@ -110,11 +105,11 @@ const Navbar = () => {
                 />
               </div>
             )}
+        <div className="w-12 absolute top-3 right-5">
+          <Logo />
+        </div>
       </div>
-      <div className="w-12">
-        <Logo />
-      </div>
-    </div>
+    </>
   );
 };
 
