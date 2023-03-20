@@ -100,36 +100,6 @@
   }
 }
 
-/* @keyframes speakerdrop {
-  0% {
-    position: fixed;
-    bottom: 500px;
-    border-radius: 100%;
-    left: 0;
-  }
-  30% {
-    transform: translateY(500%) translateX(5000%);
-  }
-  50% {
-    transform: translateY(700%) translateX(100%);
-  }
-  60% {
-    transform: translateY(900%) translateX(5000%);
-  }
-  70% {
-    transform: translateY(1100%) translateX(100%);
-  }
-  80% {
-    transform: translateY(1300%) translateX(5000%);
-  }
-  100% {
-    position: fixed;
-    bottom: 20px;
-    margin-left: 45px;
-  }
-} */
-
-
 @keyframes speakerdrop {
   0% {
     position: fixed;

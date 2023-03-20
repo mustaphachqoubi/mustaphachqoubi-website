@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MustaphaSVG, RichaSVG, HorseSVG, StoryIntro, ContinueStory } from "../components";
+import { MustaphaSVG, RichaSVG, HorseSVG, StoryIntro } from "../components";
 import { useSelector } from "react-redux";
 
 const Home = () => {
@@ -33,11 +33,6 @@ const Home = () => {
           <StoryIntro />
         </div>
 
-        {isStoryLinesDone === true && (
-          <div className="flex justify-center items-center">
-            <ContinueStory />
-          </div>
-        )}
       </>
   );
 };

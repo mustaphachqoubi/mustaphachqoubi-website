@@ -41,7 +41,8 @@ const Navbar = () => {
     }
 
     if (isScroll === true) {
-      setmenuPosition("menu");
+      // setmenuPosition("absolute bottom-0");
+      // setmenuPosition("menu");
       setspeakerPosition("speaker");
       setVolumePosition(
         "fixed bottom-16 ml-[3.3rem] md:bottom-8 md:ml-[5.5rem]"
@@ -51,6 +52,7 @@ const Navbar = () => {
       setspeakerPosition("");
       setVolumePosition("absolute top-16 left-[6.2rem] md:static");
     }
+
   }, [currentScrollingLevel, isScroll]);
 
 
@@ -59,7 +61,7 @@ const Navbar = () => {
     <div className="flex justify-between px-10 z-50 py-2 bg-none backdrop-blur-md absolute top-0 left-0 right-0">
       <div className="flex gap-4 items-center">
         <div
-          className={`${menuPosition}  border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md`}
+          className={`absolute bottom-0 left-0 right-0 border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md`}
         >
           <HiOutlineMenu />
         </div>
