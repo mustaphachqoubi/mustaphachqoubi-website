@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { storyIntroLines } from "../assets/storyIntroLines";
 import { setIsStoryLinesDone } from "../Redux/reducers/isStoryLinesDone";
 
-const StoryIntro = () => {
+const StoryIntro = ({storyHeight}) => {
   const { currentScrollingLevel } = useSelector(
     (state) => state.currentScrollingLevel
   );
@@ -12,7 +12,7 @@ const StoryIntro = () => {
 
   const [storyLineIndex, setstoryLineIndex] = useState(0);
   const [fade, setfade] = useState("fade_4s_ease-in-out");
-  const [startStory, setStartStory] = useState(false);
+  const [startStory, setStartStory] = useState(true);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -40,15 +40,15 @@ const StoryIntro = () => {
 
   return (
     <>
-      {
-        startStory && (
+      {/* {
+        startStory && ( */}
           <div className={`animate-[${fade}] text-center px-10`}>
         <h1 className="text-2xl font-bold tracking-wide">
           {storyIntroLines[storyLineIndex].line}
         </h1>
       </div>
-        )
-      }
+        {/* )
+      } */}
     </>
   );
 };

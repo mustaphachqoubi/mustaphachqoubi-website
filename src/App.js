@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 
 import { setCurrentScrollingLevel } from "./Redux/reducers/currentScrollingLevel";
 
-function App() {
+        function App() {
   const dispatch = useDispatch();
 
   function throttle(func, delay) {

@@ -9,9 +9,7 @@ const Navbar = () => {
   const [menuPosition, setmenuPosition] = useState("absolute top-5");
   const [isScroll, setIsScroll] = useState(false);
   const [speakerPosition, setspeakerPosition] = useState("absolute top-5");
-  const [volumePosition, setVolumePosition] = useState(
-    "fixed top-16 ml-[3.7rem] md:top-8 md:ml-[6rem]"
-  );
+  const [volumePosition, setVolumePosition] = useState("");
 
   const [isSoundActive, setisSoundActive] = useState(false);
   const [isSpeakerHovered, setisSpeakerHovered] = useState(false);
@@ -46,12 +44,14 @@ const Navbar = () => {
       setmenuPosition("menu");
       setspeakerPosition("speaker");
       setVolumePosition(
-        "fixed bottom-16 ml-[3.3rem] md:bottom-8 md:ml-[5.5rem] volume"
+        "fixed bottom-[-0.2rem] ml-[8rem] md:bottom-[2.1rem] md:ml-[6rem] volume"
       );
     } else {
       setmenuPosition("");
       setspeakerPosition("");
-      setVolumePosition("fixed top-16 ml-[3.7rem] md:top-8 md:ml-[6rem]");
+      setVolumePosition(
+        "fixed top-[-0.2rem] ml-[8rem] md:top-[2.1rem] md:ml-[6rem]"
+      );
     }
   }, [currentScrollingLevel, isScroll]);
 
@@ -72,7 +72,7 @@ const Navbar = () => {
           onMouseOver={() => {
             setTimeout(() => {
               setisSpeakerHovered(true);
-            }, 1000);
+            }, 200);
           }}
           className={`${speakerPosition} z-50 border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md`}
         >
@@ -98,10 +98,13 @@ const Navbar = () => {
                 <input
                   onChange={(e) => {
                     setvolume(e.target.value);
+                    setTimeout(() => {
+                      setisSpeakerHovered(false)
+                    }, 1000)
                   }}
                   value={volume}
                   type="range"
-                  className="range-input rotate-[-90deg] md:rotate-0 w-20 h-[0.3rem] bg-black rounded-lg appearance-none cursor-pointer"
+                  className="range-input w-20 h-[0.3rem] bg-black rounded-lg appearance-none cursor-pointer"
                 />
               </div>
             )}
