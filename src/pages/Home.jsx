@@ -1,44 +1,32 @@
-import React, { useState, useEffect } from "react";
-import { MustaphaSVG, RichaSVG, HorseSVG, StoryIntro } from "../components";
-import { useSelector } from "react-redux";
+import React from "react";
+import { HeroBanner, AboutMe } from "../components";
 
 const Home = () => {
-  const { isStoryLinesDone } = useSelector((state) => state.isStoryLinesDone);
-
-  const [isMustaphaSvgDone, setIsMustaphaSvgDone] = useState(false);
-  const [storyHeight, setstoryHeight] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsMustaphaSvgDone(true);
-    }, 3100);
-
-    const story = document.getElementById('story')
-    setstoryHeight(story.offsetHeight)
-  }, [isStoryLinesDone]);
-
   return (
     <>
-      <div className="relative h-screen flex justify-center items-center">
-        {isMustaphaSvgDone === true && (
-          <div className="absolute top-20 left-0 hidden md:block ">
-            <RichaSVG />
-          </div>
-        )}
-        <MustaphaSVG />
-        {isMustaphaSvgDone === true && (
-          <div className="absolute bottom-20 right-0 hidden md:block">
-            <HorseSVG />
-          </div>
-        )}
-      </div>
+      <HeroBanner />
+      <AboutMe />
 
-      <div id="story" className="h-screen text-center sticky top-0 flex-1 flex justify-center items-center">
-        <StoryIntro storyHeight={storyHeight}/>
-      </div>
-      <div className="h-screen text-center sticky top-0 flex-1 flex justify-center items-center">
-        text
-      </div>
+      {/* <div
+          id="story"
+          className={`${position} h-screen text-center flex justify-center items-center`}
+        >
+          <StoryIntro />
+        </div> */}
+
+      {/* <div className="flex flex-col md:flex-row">
+        <div className="h-screen text-center sticky top-0 flex-1 flex justify-center items-center">
+          <h1 className="text-2xl font-bold tracking-wide">In 2017</h1>
+        </div>
+        <div id="test" className="flex-1 flex justify-center items-center">
+          <div className="flex flex-col text-center">
+          <Fader progress={progress} >
+            <h1 className="text-lg font-bold">I was a cyber security guy</h1>
+          </Fader>
+            <img src={Mustapha} alt="me" className="w-80" />
+          </div>
+        </div>
+      </div> */}
     </>
   );
 };
