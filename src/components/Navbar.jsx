@@ -87,6 +87,7 @@ const Navbar = () => {
             volume={volume}
             position={position}
             onPlaying={({ position }) => handlePosition(position)}
+            
           />
         </div>
         {!isSoundActive

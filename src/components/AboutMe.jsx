@@ -1,49 +1,36 @@
-import { React, useState, useEffect, useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { storyIntroLines } from "../assets/storyIntroLines";
-import useIntersectionObserver from "../hooks/useIntersectionObsorver";
 
 const AboutMe = () => {
-  const [positionOfIntro, setPositionOfIntro] = useState("sticky top-0");
-  const [isTheIntroOfTheStoryDone, setIsTheIntroOfTheStoryDone] =
-    useState(false);
-  const [index, setIndex] = useState(0);
-  const [fade, setfade] = useState("fade_4s_ease-in-out");
-  const introRef = useRef(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [opacity, setOpacity] = useState(0);
 
-const intersecting = useIntersectionObserver(introRef, { threshold: 0.5 })
+  const LinesRef = useRef(storyIntroLines.map(() => React.createRef()));
 
-
-  // useEffect(() => {
-  //   isTheIntroOfTheStoryDone
-  //     ? setPositionOfIntro("")
-  //     : setPositionOfIntro("sticky top-0");
-  // }, [isTheIntroOfTheStoryDone]);
+  useEffect(() => {
+    const handleScroll = () => {
+      LinesRef.current.forEach((line, index) => {
+        const rect = line.current.getBoundingClientRect();
+        if (rect.top === 0) {
+          setCurrentPage(index + 1);
+        }
+      });
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
-      <div
-        id="intro"
-        ref={introRef}
-        className={`bg-red-500 animate-[${fade}] flex justify-center items-center h-screen text-center px-10`}
-      >
-        <h1 className=" text-2xl font-bold tracking-wide">
-          {storyIntroLines[index].line}
-        </h1>
-      </div>
-
-      <div className="flex bg-green-500 justify-center items-center h-screen">
-        <div className="flex-1 sticky top-0 flex justify-center items-center">
-          left
+      {storyIntroLines.map((line, index) => (
+        <div
+          ref={LinesRef.current[index]}
+          key={line.id}
+          className="px-8 h-screen text-center sticky top-0 flex justify-center items-center"
+        >
+          <h1 className={`opacity-[${opacity}] font-bold text-2xl tracking-wide`}>{line.line}</h1>
         </div>
-        <div className="flex-1 flex justify-center items-center">right</div>
-      </div>
-
-      <div className="flex bg-yellow-500 justify-center items-center h-screen">
-        <div className="flex-1 flex justify-center items-center">left</div>
-        <div className="flex-1 sticky top-0 flex justify-center items-center">
-          right
-        </div>
-      </div>
+      ))}
     </>
   );
 };
