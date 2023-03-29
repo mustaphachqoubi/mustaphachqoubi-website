@@ -57,7 +57,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={`flex gap-4 px-10 py-5  absolute top-0 left-0 right-0 `}>
+      <div className={`flex gap-4 px-10 py-5 absolute top-0 left-0 right-0 `}>
         <div
           className={`${menuPosition} z-50 border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md`}
         >
