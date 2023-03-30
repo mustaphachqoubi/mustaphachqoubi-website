@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import { storyIntroLines } from "../assets/storyIntroLines";
 
 const AboutMe = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [stickyPosition, setStickyPosition] = useState('top')
   const [progress, setProgress] = useState(0);
   const LinesRef = useRef(storyIntroLines.map(() => React.createRef()));
 
@@ -11,6 +13,14 @@ const AboutMe = () => {
       const currentPosition = window.pageYOffset;
       const maxProgress = windowHeight * (storyIntroLines.length - 1);
       setProgress(Math.min(currentPosition, maxProgress));
+      
+LinesRef.current.forEach((lineRef, index) => {
+        const rect = lineRef.current.getBoundingClientRect();
+        if (rect.top === 0) {
+          setCurrentPage(index + 1);
+        }
+      });
+
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -18,7 +28,20 @@ const AboutMe = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+
   }, []);
+
+  useEffect(() => {
+
+  if(currentPage === 6){
+  setStickyPosition('bottom')
+  }
+
+  if(currentPage === 1){
+  setStickyPosition('top')
+  }
+
+}, [currentPage])
 
   const calculateOpacity = (index) => {
   const windowHeight = window.innerHeight;
@@ -38,7 +61,7 @@ const AboutMe = () => {
         <div
           ref={LinesRef.current[index]}
           key={line.id}
-          className="px-8 h-screen text-center sticky top-0 flex justify-center items-center"
+          className={`px-8 h-screen text-center sticky ${stickyPosition}-0 flex justify-center items-center`}
         >
           <h1
             style={{
