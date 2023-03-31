@@ -2,25 +2,25 @@ import React, { useRef, useState, useEffect } from "react";
 import { storyIntroLines } from "../assets/storyIntroLines";
 
 const AboutMe = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [stickyPosition, setStickyPosition] = useState('top')
+  // const [currentPage, setCurrentPage] = useState(1);
+  const [stickyPosition, setStickyPosition] = useState('sticky top')
   const [progress, setProgress] = useState(0);
+  const [maxProgress, setMaxProgress] = useState(0);
   const LinesRef = useRef(storyIntroLines.map(() => React.createRef()));
 
   useEffect(() => {
     const handleScroll = () => {
       const windowHeight = window.innerHeight;
       const currentPosition = window.pageYOffset;
-      const maxProgress = windowHeight * (storyIntroLines.length - 1);
+      const maxProgress = windowHeight * (storyIntroLines.length);
       setProgress(Math.min(currentPosition, maxProgress));
-      
-LinesRef.current.forEach((lineRef, index) => {
-        const rect = lineRef.current.getBoundingClientRect();
-        if (rect.top === 0) {
-          setCurrentPage(index + 1);
-        }
-      });
-
+      setMaxProgress(maxProgress)
+      // LinesRef.current.forEach((line, index) => {
+      //   const rect = line.current.getBoundingClientRect();
+      //   if(rect.top === 0){
+      //     setCurrentPage(index + 1);
+      //   }
+      // })
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -31,17 +31,14 @@ LinesRef.current.forEach((lineRef, index) => {
 
   }, []);
 
-  useEffect(() => {
-
-  if(currentPage === 6){
-  setStickyPosition('bottom')
+  useEffect(() => { 
+  if(progress === maxProgress){
+  setStickyPosition(' ')
+  } 
+  else{
+  setStickyPosition('sticky top')
   }
-
-  if(currentPage === 1){
-  setStickyPosition('top')
-  }
-
-}, [currentPage])
+}, [progress, maxProgress])
 
   const calculateOpacity = (index) => {
   const windowHeight = window.innerHeight;
@@ -53,15 +50,14 @@ LinesRef.current.forEach((lineRef, index) => {
   const opacity = Math.max((distanceFromTop - distanceToNextLine) / windowHeight, 0);
   return opacity * (1 - adjustedOpacity);
   };
-
-
-    return (
+    
+  return (
     <>
       {storyIntroLines.map((line, index) => (
         <div
           ref={LinesRef.current[index]}
           key={line.id}
-          className={`px-8 h-screen text-center sticky ${stickyPosition}-0 flex justify-center items-center`}
+          className={`px-8 h-screen text-center ${stickyPosition}-0 flex justify-center items-center`}
         >
           <h1
             style={{
