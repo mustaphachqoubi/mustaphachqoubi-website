@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.thecontainer{
+  background-color: #d79e67;
+  background-image: url('./assets/background.jpeg')
+}
 .range-input::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;

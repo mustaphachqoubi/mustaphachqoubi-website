@@ -37,7 +37,7 @@ import { setCurrentScrollingLevel } from "./Redux/reducers/currentScrollingLevel
   }, [dispatch]);
 
   return (
-    <div className="bg-[#d79e67] max-w-[1440px] mx-auto relative">
+    <div className="thecontainer max-w-[1440px] mx-auto relative">
       <Navbar />
       <Home />
     </div>
