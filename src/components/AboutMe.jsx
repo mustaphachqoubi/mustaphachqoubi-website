@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { storyIntroLines } from "../assets/storyIntroLines";
-import {YearGraphProvider, Year, Graph} from './YearGraphProvider.jsx'
-import { HeWas, HeFound } from "./Window";
+import {YearWindowrovider, Year, Graph} from './YearWindowProvider.jsx'
+import { HeWas, HeFound, Window } from "./Window";
 
 const AboutMe = () => {
   const [stickyPosition, setStickyPosition] = useState("sticky top");
@@ -66,20 +66,9 @@ const AboutMe = () => {
           </h1>
         </div>
       ))}
-      <YearGraphProvider>
-        <Year>
-          <h1 className="text-3xl font-bold tracking-wide bg-gradient-to-r from-green-700 to-green-500 bg-clip-text text-transparent">2017</h1>
-        </Year>
-        <Graph>
-          <HeWas>
-            - A Cyber Security guy;
-            <br />
-            - He was doing some web buy bounty;
-            <br />
-            - and it was fun for a while;
-          </HeWas>
-        </Graph>
-      </YearGraphProvider>
+      <YearWindowrovider>
+        <Window />
+      </YearWindowrovider>
     </>
   );
 };
