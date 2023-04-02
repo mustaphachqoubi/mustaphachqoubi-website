@@ -1,11 +1,12 @@
 import React from "react";
-import { HeroBanner, AboutMe } from "../components";
+import { HeroBanner, AboutMe, PicturesAndWork } from "../components";
 
 const Home = () => {
   return (
     <>
       <HeroBanner />
       <AboutMe />
+      <PicturesAndWork />
    </>
   );
 };

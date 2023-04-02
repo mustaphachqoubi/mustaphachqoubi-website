@@ -121,9 +121,10 @@ useEffect(() => {
         </HeWas>
       ) : activeYear === 1 ? (
         <HeFound>
-           But he Found his passion in web development,
+           But he Found his passion in web development, 
+          especially
           <br />
-          especially in Frontend development.
+          in Frontend development.
           <br />
           - and he decided to make creative web apps
           <br />
@@ -133,7 +134,7 @@ useEffect(() => {
           <HeStartWorking>
             - at AIOX-Labs and DeepEcho in Rabat, morocco. <br />
             - and now he is trying to make products/apps <br />
-            that he like.
+            that he likes.
           </HeStartWorking>
         )
       }
