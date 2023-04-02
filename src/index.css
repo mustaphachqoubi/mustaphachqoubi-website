@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+#arrowLine{
+  stroke-dasharray: 228;
+  stroke-dashoffset: 228;
+  animation: arrowline 2.5s ease infinite;
+  animation-fill-mode: forwards;
+}
+
+#arrowHead{
+  stroke-dasharray: 13;
+  stroke-dashoffset: 13;
+  animation: arrowhead 2.5s ease infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes arrowline {
+  to{
+  stroke-dashoffset: 0
+}
+}
+
+@keyframes arrowhead {
+to{
+  stroke-dashoffset: 0
+}
+}
+
 .thecontainer{
   background-color: #d79e67;
   background-image: url('./assets/background.jpeg')

@@ -57,7 +57,7 @@ export const HeStartWorking = ({ children }) => {
           <h3 className="text-purple-500">Const</h3>
           <h3 className="text-yellow-500">HeStartWorking</h3>
           <h3>=</h3>
-          <h3 className="text-white">({' '})</h3>
+          <h3 className="text-white">()</h3>
           <h3>{'=>'}</h3>
           <h3 className="text-white">{"{"}</h3>
         </div>

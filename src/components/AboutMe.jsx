@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { storyIntroLines } from "../assets/storyIntroLines";
 import {YearWindowrovider, Year, Graph} from './YearWindowProvider.jsx'
 import { HeWas, HeFound, Window } from "./Window";
+import { Arrow } from '../assets/Arrow.jsx'
 
 const AboutMe = () => {
   const [stickyPosition, setStickyPosition] = useState("sticky top");
@@ -67,6 +68,10 @@ const AboutMe = () => {
         </div>
       ))}
       <YearWindowrovider>
+      <div className="relative flex flex-col justify-center items-center text-center">
+        <h1 className="font-bold text-sm">You can switch between years of experience.</h1>
+        <Arrow />
+      </div>
         <Window />
       </YearWindowrovider>
     </>
