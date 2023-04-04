@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react'
 import { ClosedPicturesFolder } from '../assets/ClosedPictureFolder.jsx'
 import { OpenedPicturesFolder } from '../assets/OpenedPictureFolder.jsx'
+import { POne, PTwo, PThree } from '../assets/MyPictures'
+import { PictureCard } from './PictureCard.jsx'
 
 export const Pictures = () => {
   const [isClicked, setIsClicked] = useState(false);
+
+  const MyPictures = [POne, PTwo, PThree]
 
 const handleMove = (m) => {
   const folder = document.getElementById('folder');
@@ -11,7 +15,7 @@ const handleMove = (m) => {
 
   let x = m.pageX- rect.width / 2;
   let y = m.pageY - rect.height / 2;
-
+ 
   requestAnimationFrame(() => {
     folder.style.position = 'absolute';
     folder.style.left = x + 'px';
@@ -42,6 +46,20 @@ return (
     <>
       <div
       className="flex flex-col gap-5 items-center cursor-pointer ">
+        <div className="w-80 h-80 p-4 relative">
+        {
+        isClicked ? (
+        <div className="select-none grid grid-cols-2 md:grid-cols-3 place-items-center absolute bottom-0 left-0">
+        {MyPictures.map((picture, index) => (
+          <PictureCard key={index} index={index}>
+            <img src={picture} alt="me"/> 
+          </PictureCard>
+        ))}
+        </div>
+
+        ) : null
+        }
+        </div>
         <div onClick={() => {
           isClicked === false ? setIsClicked(true) : setIsClicked(false)
         }}>
