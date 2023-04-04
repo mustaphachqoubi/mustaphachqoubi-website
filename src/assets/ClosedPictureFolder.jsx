@@ -1,4 +1,4 @@
-export const ClosedFolder = () => {
+export const ClosedPicturesFolder = () => {
   return (
   <>
              <svg
