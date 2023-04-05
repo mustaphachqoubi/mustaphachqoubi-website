@@ -8,10 +8,6 @@ const Home = () => {
       <HeroBanner />
       <AboutMe />
       <PicturesAndWork />
-      {/* <div className="h-screen flex justify-center">
-      <ClosedWorkFolder />
-
-      </div> */}
    </>
   );
 };

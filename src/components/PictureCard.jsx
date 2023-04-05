@@ -7,10 +7,10 @@ export const PictureCard = ({children, index}) => {
     if(index === 2) {
       setRotate(12)
     }
-  }, [rotate])
+  }, [rotate, index])
 
   return (
-      <div className={`rounded-lg border-4 border-white cursor-pointer w-40 md:w-48 overflow-hidden hover:z-50 rotate-${rotate}`}>
+      <div className={`rounded-lg border-4 border-white cursor-pointer w-40 md:w-48 overflow-hidden hover:z-10 rotate-${rotate}`}>
         {children}
     </div>
   )
