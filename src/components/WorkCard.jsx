@@ -2,20 +2,14 @@ import { useState, useEffect } from 'react'
 import {BsGithub, BsFillEyeFill} from 'react-icons/bs'
 
 export const WorkCard = ({children, id, github, live}) => {
-    const [rotate, setRotate] = useState(0)
     const [z, setZ] = useState(0);
     const [isCardHovered, setIsCardHovered] = useState('hidden')
 
-useEffect(() => {
-  if(id === 2){
-    setRotate(12)
-  }
-})
   return (
     <div 
       onMouseOver={() => setIsCardHovered('')}
       onMouseOut={() => setIsCardHovered('hidden')}
-      className={`rotate-${rotate} relative rounded-lg border-4 border-white w-40 md:w-60 lg:w-80 overflow-hidden z-${z} hover:z-10`}>
+      className={`${id === 2 ? 'rotate-12' : ''} relative rounded-lg border-4 border-white w-40 md:w-60 lg:w-80 overflow-hidden z-${z} hover:z-10`}>
 
       <div className={`${isCardHovered} absolute bg-black/50 backdrop-blur-xs w-full h-full flex gap-5 items-center justify-center`}>
 

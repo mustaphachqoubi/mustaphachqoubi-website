@@ -6,7 +6,7 @@ export const CartoonGuy = () => {
         y="0px"
         width="100%"
         viewBox="0 0 672 896"
-        enable-background="new 0 0 672 896"
+        enableBackground="new 0 0 672 896"
       >
         <path
           fill="#000000"

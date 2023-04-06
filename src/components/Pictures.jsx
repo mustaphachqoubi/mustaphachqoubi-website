@@ -48,7 +48,7 @@ export const Pictures = () => {
           {isClicked ? (
             <div className="select-none grid grid-cols-2 md:gap-20 md:grid-cols-3 place-items-center absolute bottom-0 left-0">
               {MyPictures.map((picture, index) => (
-                <PictureCard key={index} index={index}>
+                <PictureCard key={index} index={index} >
                   <img src={picture} alt="me" />
                 </PictureCard>
               ))}
