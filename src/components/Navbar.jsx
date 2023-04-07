@@ -4,6 +4,7 @@ import { HiOutlineMenu } from "react-icons/hi";
 import { GiSpeaker, GiSpeakerOff } from "react-icons/gi";
 import Sound from "react-sound";
 import { useSelector } from "react-redux";
+import { NavList } from './NavList.jsx'
 
 const Navbar = () => {
   const [menuPosition, setmenuPosition] = useState("absolute top-5");
@@ -15,6 +16,8 @@ const Navbar = () => {
   const [isSpeakerHovered, setisSpeakerHovered] = useState(false);
   const [volume, setvolume] = useState(20);
   const [position, setPosition] = useState(0);
+  const [navListStatus, setNavListStatus] = useState('hidden')
+  const [navListPosition, setNavListPosition] = useState('absolute top-16 left-10')
 
   const music =
     "https://dl.dropboxusercontent.com/s/jemqok069xq5j7j/backgroundmusic-2.mp3?dl=0";
@@ -46,19 +49,29 @@ const Navbar = () => {
       setVolumePosition(
         "fixed bottom-[-0.2rem] ml-[8rem] md:bottom-[2.1rem] md:ml-[6rem] volume"
       );
+      setNavListPosition('fixed bottom-16 left-10')
+      setNavListStatus('hidden')
     } else {
       setmenuPosition("");
       setspeakerPosition("");
       setVolumePosition(
         "fixed top-[-0.2rem] ml-[8rem] md:top-[2.1rem] md:ml-[6rem]"
       );
+      setNavListPosition('absolute top-16 left-10')
     }
   }, [currentScrollingLevel, isScroll]);
 
   return (
     <>
+      <div className={`${navListStatus} ${navListPosition} z-50`}>
+        <NavList />
+      </div>
+
       <div className={`flex gap-4 px-10 py-5 absolute top-0 left-0 right-0 `}>
         <div
+          onClick={() => {
+            navListStatus === 'hidden' ? setNavListStatus('') : setNavListStatus('hidden')
+          }}
           className={`${menuPosition} z-50 border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md`}
         >
           <HiOutlineMenu />
