@@ -13,6 +13,8 @@ const Fader = ({ children, progress }) => {
 //     }
 //   }, [progress]);
 
+// i still have a complex problem with npm and i need to fix it then i am gonna complete the project
+
   return (
     <>
       <div className={`opacity-[${progress}]`}>
