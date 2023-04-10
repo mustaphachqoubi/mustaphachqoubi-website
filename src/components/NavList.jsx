@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import { Link } from 'react-router-dom'
 
 export const NavList = () => {
   const [selectedId, setSelectedId] = useState(1)
@@ -17,7 +18,19 @@ export const NavList = () => {
   return (
     <div className="z-50 bg-[#e5ac73]/50 backdrop-blur border-2 border-black rounded-md overflow-hidden w-40 md:w-53">
       {
-        List.map((list) => (
+        List.map((list) => list.list === 'Home' ? (
+        <Link to="/">
+        <div
+        onClick={() => {
+          handleSelectedList(list.id)
+        }}
+        key={list.id}
+        className={`${selectedId === list.id ? bg : null} ${list.id === List.length ? '' : 'border-b-2 border-black'} cursor-pointer h-10 flex justify-start items-center px-6 font-bold text-xs tracking-wide`}>
+        <h3>{list.list}</h3>
+        </div>
+        </Link>
+        ) : list.list === 'Contact me'? (
+        <a href="#contactme">
           <div
         onClick={() => {
           handleSelectedList(list.id)
@@ -25,10 +38,43 @@ export const NavList = () => {
         key={list.id}
         className={`${selectedId === list.id ? bg : null} ${list.id === List.length ? '' : 'border-b-2 border-black'} cursor-pointer h-10 flex justify-start items-center px-6 font-bold text-xs tracking-wide`}>
         <h3>{list.list}</h3>
-      </div>
-
+        </div>
+</a>
+        ): (
+        <Link to="/services">
+        <div
+        onClick={() => {
+          handleSelectedList(list.id)
+        }}
+        key={list.id}
+        className={`${selectedId === list.id ? bg : null} ${list.id === List.length ? '' : 'border-b-2 border-black'} cursor-pointer h-10 flex justify-start items-center px-6 font-bold text-xs tracking-wide`}>
+        <h3>{list.list}</h3>
+        </div>
+</Link>
         ))
-      }
+      } 
     </div>
   )
 }
+
+
+
+
+
+
+ // <div className="z-50 bg-[#e5ac73]/50 backdrop-blur border-2 border-black rounded-md overflow-hidden w-40 md:w-53">
+ //      {
+ //        List.map((list) => (
+ //          <div
+ //        onClick={() => {
+ //          handleSelectedList(list.id)
+ //        }}
+ //        key={list.id}
+ //        className={`${selectedId === list.id ? bg : null} ${list.id === List.length ? '' : 'border-b-2 border-black'} cursor-pointer h-10 flex justify-start items-center px-6 font-bold text-xs tracking-wide`}>
+ //        <h3>{list.list}</h3>
+ //      </div>
+ //
+ //        ))
+ //      }
+ //    </div>
+ //

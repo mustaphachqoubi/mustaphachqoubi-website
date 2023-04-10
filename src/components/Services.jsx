@@ -1,7 +1,9 @@
 export const Services = () => {
   return (
-    <>
-      <h1>Services</h1>
-    <>
+    <div className="h-[300vh]">
+      <h1>
+        Services
+      </h1>
+    </div>
   )
 }

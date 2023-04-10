@@ -13,7 +13,6 @@ const HeroBanner = () => {
   return (
     <>
       <div
-        id="test"
         className="relative h-screen flex justify-center items-center"
       >
         {isMustaphaSvgDone === true && (
