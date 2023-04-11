@@ -27,7 +27,6 @@ import { setCurrentScrollingLevel } from "./Redux/reducers/currentScrollingLevel
       }
     };
   }
-
   useEffect(() => {
     window.addEventListener(
       "scroll",

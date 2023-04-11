@@ -1,9 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
 import { HeroBanner, AboutMe, PicturesAndWork, ContactMe } from "../components";
+import useSound from 'use-sound'
+import bulb from '../assets/bulb.mp3'
 
 const Home = () => {
   const [bg, setBg] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
+
+  const bulpSound = bulb;
+
+  const [play] = useSound(
+    bulpSound,
+    {volume: 0.05}
+  )
 
   useEffect(() => {
     const bgone = document.getElementById("bgone");
@@ -34,6 +43,7 @@ const Home = () => {
       setBg("#d79e67");
       setTimeout(() => {
         setBg("");
+        play()
       }, 200);
     }
 
@@ -41,12 +51,14 @@ const Home = () => {
       setBg("#d79e67");
       setTimeout(() => {
         setBg("");
+        play()
       }, 200);
       setTimeout(() => {
         setBg("#d79e67");
       }, 300);
       setTimeout(() => {
         setBg("");
+        play()
       }, 400);
     }
 
@@ -54,18 +66,21 @@ const Home = () => {
       setBg("#d79e67");
       setTimeout(() => {
         setBg("");
+        play()
       }, 200);
       setTimeout(() => {
         setBg("#d79e67");
       }, 300);
       setTimeout(() => {
         setBg("");
+        play()
       }, 400);
       setTimeout(() => {
         setBg("#d79e67");
       }, 500);
       setTimeout(() => {
         setBg("");
+        play()
       }, 600);
       setTimeout(() => {
         setBg("#d79e67");

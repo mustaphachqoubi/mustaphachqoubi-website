@@ -1,6 +1,7 @@
 import { BsLinkedin, BsGithub } from 'react-icons/bs'
 import {InkPen} from '../assets/InkPen.jsx'
 import {CartoonGuy} from '../assets/CartoonGuy.jsx'
+import useSound from 'use-sound'
 
 export const ContactMe = () => {
   return (
