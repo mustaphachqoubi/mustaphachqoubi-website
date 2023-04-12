@@ -34,31 +34,14 @@ const AboutMe = () => {
     }
   }, [progress, maxProgress]);
 
-  //  const calculateOpacity = (index) => {
-  //   const windowHeight = window.innerHeight;
-  //   const linePosition = index * windowHeight;
-  //   const distanceFromTop = Math.max(progress - linePosition , 0);
-  //   const nextLinePosition = (index + 1) * windowHeight - (windowHeight/1.30);
-  //   const distanceToNextLine = Math.max(progress - nextLinePosition - (windowHeight/1.20) , 0);
-  //   const adjustedOpacity = Math.min(distanceToNextLine / windowHeight , 1);
-  //   const opacity = Math.max(
-  //     (distanceFromTop - distanceToNextLine - (windowHeight/1.30) ) / windowHeight,
-  //     0
-  //   );
-  //   return opacity * (1 - adjustedOpacity);
-  // };
-
   const calculateOpacity = (index) => {
     const windowHeight = window.innerHeight;
     const linePosition = index * windowHeight ;
-    const distanceFromTop = Math.max(progress - linePosition - (windowHeight/1.30) , 0);
+    const distanceFromTop = Math.max(progress - linePosition - (windowHeight/1.20) , 0);
     const nextLinePosition = (index + 1) * windowHeight - (windowHeight/2);
     const distanceToNextLine = Math.max(progress - nextLinePosition - (windowHeight/1.30) , 0);
     const adjustedOpacity = Math.min(distanceToNextLine / (windowHeight/1.50) , 1);
-    const opacity = Math.max(
-      (distanceFromTop - distanceToNextLine ) / windowHeight,
-      0
-    );
+    const opacity = Math.max((distanceFromTop - distanceToNextLine) / (windowHeight/2), 0);
     return opacity * (1 - adjustedOpacity);
   };
 
@@ -74,7 +57,7 @@ const AboutMe = () => {
             style={{
               opacity: calculateOpacity(index),
             }}
-            className={`font-bold text-2xl tracking-wide`}
+            className={`font-bold text-2xl tracking-wide `}
           >
             {line.line}
           </h1>

@@ -23,4 +23,9 @@ export const storyIntroLines = [
     id:6,
     line: 'His reputation grew throughout the land, inspiring generations of developers to come.',
   },
+  {
+    id:7,
+    line: ' '
+  },
+
 ]

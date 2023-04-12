@@ -27,7 +27,7 @@ export const ContactMe = () => {
       </div>
 
       <div className="w-full flex justify-center absolute bottom-0">
-        <div className='w-[13rem]'>
+        <div className='w-[10rem] sm:w-[13rem]'>
         <CartoonGuy />
         </div>
       </div>
