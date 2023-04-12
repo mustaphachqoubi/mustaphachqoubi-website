@@ -22,7 +22,7 @@ export const NavList = () => {
       {location.pathname !== "/"
         ? List.map((list) =>
             list.list === "Home" ? (
-              <Link to="/">
+              <Link to="/" >
                 <div
                   onClick={() => {
                     handleSelectedList(list.id);

@@ -14,7 +14,6 @@ const MustaphaSVG = () => {
   });
 
   return (
-    // <div className="flex justify-center items-center bg-green-500">
       <div className="w-96">
         <svg width="100%" viewBox="0 0 496 496">
           {/* 1 */}

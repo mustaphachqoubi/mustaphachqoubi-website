@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ClosedPicturesFolder } from "../assets/ClosedPictureFolder.jsx";
 import { OpenedPicturesFolder } from "../assets/OpenedPictureFolder.jsx";
 import { POne, PTwo, PThree } from "../assets/MyPictures";
@@ -35,11 +35,6 @@ export const Pictures = () => {
     window.removeEventListener("mousemove", handleMove);
     window.removeEventListener("mouseup", handlePreviousPosition);
   };
-
-  document.addEventListener("mouseup", () => {
-    const folder = document.getElementById("folder");
-    folder.style.position = "static";
-  });
 
   return (
     <>

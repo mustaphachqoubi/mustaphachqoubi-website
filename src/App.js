@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { Navbar, Services } from "./components";
 import Home from "./pages/Home";
 import { useDispatch } from "react-redux";
-import { Routes, BrowserRouter, Route} from 'react-router-dom'
+import { Routes, BrowserRouter, Route } from "react-router-dom";
 
 import { setCurrentScrollingLevel } from "./Redux/reducers/currentScrollingLevel";
 
-        function App() {
+function App() {
   const dispatch = useDispatch();
 
   function throttle(func, delay) {
@@ -20,7 +20,7 @@ import { setCurrentScrollingLevel } from "./Redux/reducers/currentScrollingLevel
         lastExecTime = currentTime;
       } else if (!timeoutId) {
         timeoutId = setTimeout(() => {
-        timeoutId = null;
+          timeoutId = null;
           lastExecTime = new Date().getTime();
           func.apply(this, args);
         }, delay - timeSinceLastExec);
@@ -39,10 +39,10 @@ import { setCurrentScrollingLevel } from "./Redux/reducers/currentScrollingLevel
   return (
     <div className="thecontainer max-w-[1440px] mx-auto relative">
       <BrowserRouter>
-      <Navbar />
+        <Navbar />
         <Routes>
-         <Route path="/" element={<Home />} />
-         <Route path="/services" element={<Services />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
         </Routes>
       </BrowserRouter>
     </div>

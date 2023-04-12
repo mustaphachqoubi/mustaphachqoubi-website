@@ -6,8 +6,6 @@ import { WOne, WTwo, WThree} from "../assets/MyWork/";
 
 export const Work = () => {
   const [isClicked, setIsClicked] = useState(false);
-
-  // const MyWork = [WOne, WOne, WOne];
   
   const MyWork = [
 
@@ -57,11 +55,6 @@ export const Work = () => {
     window.removeEventListener("mousemove", handleMove);
     window.removeEventListener("mouseup", handlePreviousWorkFolderPosition);
   };
-
-  document.addEventListener("mouseup", () => {
-    const folder = document.getElementById("workfolder");
-    folder.style.position = "static";
-  });
 
   return (
     <>

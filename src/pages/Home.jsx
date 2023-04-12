@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { HeroBanner, AboutMe, PicturesAndWork, ContactMe } from "../components";
-import useSound from 'use-sound'
-import bulb from '../assets/bulb.mp3'
+import useSound from "use-sound";
+import bulb from "../assets/bulb.mp3";
 
 const Home = () => {
   const [bg, setBg] = useState("");
@@ -9,10 +9,7 @@ const Home = () => {
 
   const bulpSound = bulb;
 
-  const [play] = useSound(
-    bulpSound,
-    {volume: 0.05}
-  )
+  const [play] = useSound(bulpSound, { volume: 0.05 });
 
   useEffect(() => {
     const bgone = document.getElementById("bgone");
@@ -43,7 +40,7 @@ const Home = () => {
       setBg("#d79e67");
       setTimeout(() => {
         setBg("");
-        play()
+        play();
       }, 200);
     }
 
@@ -51,14 +48,14 @@ const Home = () => {
       setBg("#d79e67");
       setTimeout(() => {
         setBg("");
-        play()
+        play();
       }, 200);
       setTimeout(() => {
         setBg("#d79e67");
       }, 300);
       setTimeout(() => {
         setBg("");
-        play()
+        play();
       }, 400);
     }
 
@@ -66,27 +63,27 @@ const Home = () => {
       setBg("#d79e67");
       setTimeout(() => {
         setBg("");
-        play()
+        play();
       }, 200);
       setTimeout(() => {
         setBg("#d79e67");
       }, 300);
       setTimeout(() => {
         setBg("");
-        play()
+        play();
       }, 400);
       setTimeout(() => {
         setBg("#d79e67");
       }, 500);
       setTimeout(() => {
         setBg("");
-        play()
+        play();
       }, 600);
       setTimeout(() => {
         setBg("#d79e67");
       }, 700);
     }
-  }, [pageNumber]);
+  }, [pageNumber, play]);
 
   return (
     <>

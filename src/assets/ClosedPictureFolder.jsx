@@ -1,7 +1,7 @@
 export const ClosedPicturesFolder = () => {
   return (
   <>
-             <svg
+          <svg
           width="120"
           height="77"
           fill="none"

@@ -5,8 +5,20 @@ import { GiSpeaker, GiSpeakerOff } from "react-icons/gi";
 import Sound from "react-sound";
 import { useSelector } from "react-redux";
 import { NavList } from './NavList.jsx'
+import useSound from 'use-sound'
+import click from '../assets/click.mp3'
 
 const Navbar = () => {
+
+  const clickSound = click;
+  const music =
+  "https://dl.dropboxusercontent.com/s/jemqok069xq5j7j/backgroundmusic-2.mp3?dl=0";
+
+  const [play] = useSound(
+    clickSound,
+    {volume: 0.8}
+  )
+  
   const [menuPosition, setmenuPosition] = useState("absolute top-5");
   const [isScroll, setIsScroll] = useState(false);
   const [speakerPosition, setspeakerPosition] = useState("absolute top-5");
@@ -19,8 +31,7 @@ const Navbar = () => {
   const [navListStatus, setNavListStatus] = useState('hidden')
   const [navListPosition, setNavListPosition] = useState('absolute top-16 left-10')
 
-  const music =
-    "https://dl.dropboxusercontent.com/s/jemqok069xq5j7j/backgroundmusic-2.mp3?dl=0";
+
 
   const handlePosition = (newPosition) => {
     setPosition(newPosition);
@@ -70,6 +81,7 @@ const Navbar = () => {
       <div className={`flex gap-4 px-10 py-5 absolute top-0 left-0 right-0 `}>
         <div
           onClick={() => {
+            play()
             navListStatus === 'hidden' ? setNavListStatus('') : setNavListStatus('hidden')
           }}
           className={`${menuPosition} z-50 border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md`}
@@ -78,6 +90,7 @@ const Navbar = () => {
         </div>
         <div
           onClick={() => {
+            play()
             isSoundActive === false
               ? setisSoundActive(true)
               : setisSoundActive(false);

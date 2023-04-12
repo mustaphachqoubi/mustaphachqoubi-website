@@ -76,7 +76,7 @@ export const HeStartWorking = ({ children }) => {
 
 
 
-export const Window = ({ children }) => {
+export const Window = () => {
 
 const [selectedYearColor, setSelectedYearColor] = useState('bg-[#1e1e1e]');
 const [activeYear, setActiveYear] = useState(0);

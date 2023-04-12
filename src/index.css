@@ -2,14 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-#arrowLine{
+#arrowLine {
   stroke-dasharray: 228;
   stroke-dashoffset: 228;
   animation: arrowline 2.5s ease infinite;
   animation-fill-mode: forwards;
 }
 
-#arrowHead{
+#arrowHead {
   stroke-dasharray: 13;
   stroke-dashoffset: 13;
   animation: arrowhead 2.5s ease infinite;
@@ -17,20 +17,20 @@
 }
 
 @keyframes arrowline {
-  to{
-  stroke-dashoffset: 0
-}
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes arrowhead {
-to{
-  stroke-dashoffset: 0
-}
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
-.thecontainer{
+.thecontainer {
   background-color: #d79e67;
-  background-image: url('./assets/background.jpeg')
+  background-image: url("./assets/background.jpeg");
 }
 .range-input::-webkit-slider-thumb {
   -webkit-appearance: none;
