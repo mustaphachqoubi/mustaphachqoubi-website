@@ -82,6 +82,8 @@ const Home = () => {
       setTimeout(() => {
         setBg("#d79e67");
       }, 700);
+      setBg("#d79e67");
+
     }
   }, [pageNumber, play]);
 
@@ -113,9 +115,9 @@ const Home = () => {
       ></div>
       <div
         id="bgsix"
-        className={`h-[50vh] mix-blend-difference bg-[#d79e67]`}
+        className={`h-[50vh] mix-blend-difference bg-[${bg}]`}
       ></div>
-      <ContactMe />
+      <ContactMe bg={bg}/>
     </>
   );
 };

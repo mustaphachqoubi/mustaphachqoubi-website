@@ -2,9 +2,9 @@ import { BsLinkedin, BsGithub } from 'react-icons/bs'
 import {InkPen} from '../assets/InkPen.jsx'
 import {CartoonGuy} from '../assets/CartoonGuy.jsx'
 
-export const ContactMe = () => {
+export const ContactMe = ({bg}) => {
   return (
-    <div id="contactme" className="relative h-screen flex flex-col justify-center gap-20 items-center bg-[#d79e67] mix-blend-difference">
+    <div id="contactme" className={`relative h-screen flex flex-col justify-center gap-20 items-center bg-[${bg}] mix-blend-difference`}>
       
       <div className="w-full flex justify-end absolute top-0">
         <div className='w-60'>
