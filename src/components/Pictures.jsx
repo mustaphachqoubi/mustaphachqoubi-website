@@ -7,7 +7,23 @@ import { PictureCard } from "./PictureCard.jsx";
 export const Pictures = () => {
   const [isClicked, setIsClicked] = useState(false);
 
-  const MyPictures = [POne, PTwo, PThree];
+  const MyPictures = [
+    {
+      id: 1,
+      hash: 'LEE|@gMz4G-V25nP-:Sd9itj}uSz',
+      picture: POne
+    },
+    {
+      id: 2,
+      hash: 'LiIrEQM_%$x^_NRjozogE1ogROaK', 
+      picture: PTwo
+    },
+    {
+      id: 3,
+      hash: 'LFC?W5ksBl%g?w%hSi%M0W%h-WV]', 
+      picture: PThree 
+    },
+  ];
 
   const handleMove = (m) => {
     const folder = document.getElementById("folder");
@@ -42,9 +58,9 @@ export const Pictures = () => {
         <div className=" p-4 relative">
           {isClicked ? (
             <div className="select-none grid grid-cols-2 md:gap-20 md:grid-cols-3 place-items-center absolute bottom-0 left-0">
-              {MyPictures.map((picture, index) => (
-                <PictureCard key={index} index={index} >
-                  <img src={picture} alt="me" />
+              {MyPictures.map((picture) => (
+                <PictureCard key={picture.id} id={picture.id}>
+                  <img src={picture.picture} alt="me" />
                 </PictureCard>
               ))}
             </div>

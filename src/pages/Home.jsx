@@ -6,6 +6,8 @@ import bulb from "../assets/bulb.mp3";
 const Home = () => {
   const [bg, setBg] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
+  const [stickerPosition, setStickerPosition] = useState("")
+  const [stickerAnimation, setStickerAnimation] = useState("hidesticker")
 
   const bulpSound = bulb;
 
@@ -37,7 +39,7 @@ const Home = () => {
 
   useEffect(() => {
     if (pageNumber === 1) {
-      setBg("#d79e67");
+      setBg("bg-[#d79e67]");
       setTimeout(() => {
         setBg("");
         play();
@@ -45,13 +47,13 @@ const Home = () => {
     }
 
     if (pageNumber === 2) {
-      setBg("#d79e67");
+      setBg("bg-[#d79e67]");
       setTimeout(() => {
         setBg("");
         play();
       }, 200);
       setTimeout(() => {
-        setBg("#d79e67");
+        setBg("bg-[#d79e67]");
       }, 300);
       setTimeout(() => {
         setBg("");
@@ -60,63 +62,96 @@ const Home = () => {
     }
 
     if (pageNumber === 3) {
-      setBg("#d79e67");
+      setBg("bg-[#d79e67]");
       setTimeout(() => {
         setBg("");
         play();
       }, 200);
       setTimeout(() => {
-        setBg("#d79e67");
+        setBg("bg-[#d79e67]");
       }, 300);
       setTimeout(() => {
         setBg("");
         play();
       }, 400);
       setTimeout(() => {
-        setBg("#d79e67");
+        setBg("bg-[#d79e67]");
       }, 500);
       setTimeout(() => {
         setBg("");
         play();
       }, 600);
       setTimeout(() => {
-        setBg("#d79e67");
+        setBg("bg-[#d79e67]");
       }, 700);
-      setBg("#d79e67");
+      setBg("bg-[#d79e67]");
 
     }
   }, [pageNumber, play]);
+
+
+  const addStickerOnThePage = () => {
+  window.addEventListener('click', (m) => {
+
+    const sticker = document.getElementById('sticker')
+    const x = m.pageX;
+    const y = m.pageY;
+
+    sticker.style.position = 'absolute'
+    sticker.style.left = x + 'px'
+    sticker.style.top = y + 'px'
+    sticker.style.background = 'red'
+    sticker.style.display= 'block'
+
+    // setTimeout(() => {
+    //   dv.style.display = 'none'
+    // }, 2000)
+  })
+
+  }
+
+  const canIAddStickerOnTopOfYou = (boolean) => {
+    if(boolean === true) {
+      addStickerOnThePage()
+    }
+    else{
+      return;
+    }
+  }
+
+  window.addEventListener('click', () => {
+    canIAddStickerOnTopOfYou(true)
+  })
 
   return (
     <>
       <HeroBanner />
       <AboutMe />
       <PicturesAndWork />
-      <div className={`h-screen mix-blend-difference bg-[${bg}]`}></div>
+
+       <div id="sticker" className={`w-10 h-10 hidden ${stickerPosition} ${stickerAnimation}`}>
+       </div>
+
+      <div className={`${bg} mix-blend-difference`}>
+      <div className={`h-screen `}></div>
       <div
         id="bgone"
-        className={`h-[50vh] mix-blend-difference bg-[${bg}]`}
+        className="h-[50vh]"
       ></div>
       <div
         id="bgtwo"
-        className={`h-[50vh] mix-blend-difference bg-[${bg}]`}
+        className="h-[50vh]"
       ></div>
       <div
         id="bgthree"
-        className={`h-[50vh] mix-blend-difference bg-[${bg}]`}
+        className="h-[50vh]"
       ></div>
       <div
         id="bgfour"
-        className={`h-[50vh] mix-blend-difference bg-[${bg}]`}
+        className="h-[50vh]"
       ></div>
-      <div
-        id="bgfive"
-        className={`h-[50vh] mix-blend-difference bg-[${bg}]`}
-      ></div>
-      <div
-        id="bgsix"
-        className={`h-[50vh] mix-blend-difference bg-[${bg}]`}
-      ></div>
+
+      </div>
       <ContactMe bg={bg}/>
     </>
   );

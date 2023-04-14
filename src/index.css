@@ -191,3 +191,7 @@
     opacity: 0;
   }
 }
+
+.hidesticker{
+  display: none
+}
