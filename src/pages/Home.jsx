@@ -6,8 +6,6 @@ import bulb from "../assets/bulb.mp3";
 const Home = () => {
   const [bg, setBg] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
-  const [stickerPosition, setStickerPosition] = useState("")
-  const [stickerAnimation, setStickerAnimation] = useState("hidesticker")
 
   const bulpSound = bulb;
 
@@ -90,47 +88,11 @@ const Home = () => {
   }, [pageNumber, play]);
 
 
-  const addStickerOnThePage = () => {
-  window.addEventListener('click', (m) => {
-
-    const sticker = document.getElementById('sticker')
-    const x = m.pageX;
-    const y = m.pageY;
-
-    sticker.style.position = 'absolute'
-    sticker.style.left = x + 'px'
-    sticker.style.top = y + 'px'
-    sticker.style.background = 'red'
-    sticker.style.display= 'block'
-
-    // setTimeout(() => {
-    //   dv.style.display = 'none'
-    // }, 2000)
-  })
-
-  }
-
-  const canIAddStickerOnTopOfYou = (boolean) => {
-    if(boolean === true) {
-      addStickerOnThePage()
-    }
-    else{
-      return;
-    }
-  }
-
-  window.addEventListener('click', () => {
-    canIAddStickerOnTopOfYou(true)
-  })
-
   return (
     <>
       <HeroBanner />
       <AboutMe />
       <PicturesAndWork />
-
-       <div id="sticker" className={`w-10 h-10 hidden ${stickerPosition} ${stickerAnimation}`}>
-       </div>
 
       <div className={`${bg} mix-blend-difference`}>
       <div className={`h-screen `}></div>

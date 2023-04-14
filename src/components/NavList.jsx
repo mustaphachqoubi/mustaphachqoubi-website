@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 export const NavList = () => {
@@ -17,12 +17,18 @@ export const NavList = () => {
     setSelectedId(id);
   };
 
+  useEffect(() => {
+    selectedId === 1 && window.scrollTo({
+      top: 0
+    }) 
+  }, [selectedId])
+
   return (
     <div className="z-50 bg-[#e5ac73]/50 backdrop-blur border-2 border-black rounded-md overflow-hidden w-40 md:w-53">
       {location.pathname !== "/"
         ? List.map((list) =>
             list.list === "Home" ? (
-              <Link to="/" >
+              <Link to="/" > 
                 <div
                   onClick={() => {
                     handleSelectedList(list.id);
