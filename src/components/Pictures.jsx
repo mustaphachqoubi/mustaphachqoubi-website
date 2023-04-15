@@ -60,7 +60,11 @@ export const Pictures = () => {
             <div className="select-none grid grid-cols-2 md:gap-20 md:grid-cols-3 place-items-center absolute bottom-0 left-0">
               {MyPictures.map((picture) => (
                 <PictureCard key={picture.id} id={picture.id}>
-                  <img src={picture.picture} alt="me" />
+                  <img
+                    width="500"
+                    height="500"
+                    loading="lazy"
+                    src={picture.picture} alt="me" />
                 </PictureCard>
               ))}
             </div>
