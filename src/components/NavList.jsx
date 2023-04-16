@@ -18,17 +18,18 @@ export const NavList = () => {
   };
 
   useEffect(() => {
-    selectedId === 1 && window.scrollTo({
-      top: 0
-    }) 
-  }, [selectedId])
+    selectedId === 1 &&
+      window.scrollTo({
+        top: 0,
+      });
+  }, [selectedId]);
 
   return (
     <div className="z-50 bg-[#e5ac73]/50 backdrop-blur border-2 border-black rounded-md overflow-hidden w-40 md:w-53">
       {location.pathname !== "/"
         ? List.map((list) =>
             list.list === "Home" ? (
-              <Link to="/" > 
+              <Link to="/" key={list.id}>
                 <div
                   onClick={() => {
                     handleSelectedList(list.id);
@@ -44,7 +45,7 @@ export const NavList = () => {
             ) : list.list === "Contact me" ? (
               ""
             ) : (
-              <Link to="/services">
+              <Link to="/services" key={list.id}>
                 <div
                   onClick={() => {
                     handleSelectedList(list.id);
@@ -61,7 +62,7 @@ export const NavList = () => {
           )
         : List.map((list) =>
             list.list === "Home" ? (
-              <Link to="/">
+              <Link to="/" key={list.id}>
                 <div
                   onClick={() => {
                     handleSelectedList(list.id);
@@ -89,7 +90,7 @@ export const NavList = () => {
                 </div>
               </a>
             ) : (
-              <Link to="/services">
+              <Link to="/services" key={list.id}>
                 <div
                   onClick={() => {
                     handleSelectedList(list.id);

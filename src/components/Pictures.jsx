@@ -10,17 +10,14 @@ export const Pictures = () => {
   const MyPictures = [
     {
       id: 1,
-      hash: 'LEE|@gMz4G-V25nP-:Sd9itj}uSz',
       picture: POne
     },
     {
       id: 2,
-      hash: 'LiIrEQM_%$x^_NRjozogE1ogROaK', 
       picture: PTwo
     },
     {
       id: 3,
-      hash: 'LFC?W5ksBl%g?w%hSi%M0W%h-WV]', 
       picture: PThree 
     },
   ];
@@ -61,10 +58,13 @@ export const Pictures = () => {
               {MyPictures.map((picture) => (
                 <PictureCard key={picture.id} id={picture.id}>
                   <img
+                    id="mypictures"
                     width="500"
                     height="500"
                     loading="lazy"
-                    src={picture.picture} alt="me" />
+                    src={picture.picture}
+                    alt="me"
+                  />
                 </PictureCard>
               ))}
             </div>

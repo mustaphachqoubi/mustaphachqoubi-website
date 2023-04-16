@@ -64,7 +64,13 @@ export const Work = () => {
             <div className="select-none grid gap-10 grid-cols-3 place-items-center absolute bottom-0 left-0">
               {MyWork.map((work, index) => (
                 <WorkCard key={work.id} id={work.id} github={work.github} live={work.live}>
-                  <img src={work.project} alt="portfolio" />
+                  <img 
+                  id="myprojects" 
+                  width="500"
+                  height="500"
+                  loading="lazy"
+                  src={work.project} 
+                  alt="portfolio" />
                 </WorkCard>
               ))}
             </div>
