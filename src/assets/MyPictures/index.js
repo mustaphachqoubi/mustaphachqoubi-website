@@ -1,5 +1,5 @@
-export { default as POne } from './POne.jpg'
+export { default as POne } from './POne.webp'
 
-export { default as PTwo } from './PTwo.jpg'
+export { default as PTwo } from './PTwo.webp'
 
-export { default as PThree } from './PThree.jpg'
+export { default as PThree } from './PThree.webp'
