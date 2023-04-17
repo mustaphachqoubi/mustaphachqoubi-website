@@ -36,54 +36,22 @@ const Home = () => {
   });
 
   useEffect(() => {
-    if (pageNumber === 1) {
-      setBg("bg-[#d79e67]");
-      setTimeout(() => {
-        setBg("");
-        play();
-      }, 200);
-    }
-
     if (pageNumber === 2) {
       setBg("bg-[#d79e67]");
       setTimeout(() => {
         setBg("");
         play();
+      }, 100);
+      setTimeout(() => {
+        setBg("bg-[#d79e67]");
       }, 200);
       setTimeout(() => {
-        setBg("bg-[#d79e67]");
+        setBg("");
+        play();
       }, 300);
       setTimeout(() => {
-        setBg("");
-        play();
+        setBg("bg-[#d79e67]");
       }, 400);
-    }
-
-    if (pageNumber === 3) {
-      setBg("bg-[#d79e67]");
-      setTimeout(() => {
-        setBg("");
-        play();
-      }, 200);
-      setTimeout(() => {
-        setBg("bg-[#d79e67]");
-      }, 300);
-      setTimeout(() => {
-        setBg("");
-        play();
-      }, 400);
-      setTimeout(() => {
-        setBg("bg-[#d79e67]");
-      }, 500);
-      setTimeout(() => {
-        setBg("");
-        play();
-      }, 600);
-      setTimeout(() => {
-        setBg("bg-[#d79e67]");
-      }, 700);
-      setBg("bg-[#d79e67]");
-
     }
   }, [pageNumber, play]);
 
