@@ -15,6 +15,8 @@ const HeroBanner = () => {
       <div
         className="relative h-screen flex justify-center items-center"
       >
+	  test
+	  test
         {isMustaphaSvgDone === true && (
           <div className="absolute top-20 left-0 hidden md:block ">
             <RichaSVG />
