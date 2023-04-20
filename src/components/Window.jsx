@@ -115,7 +115,7 @@ useEffect(() => {
         <HeWas>
           - A Cyber Security guy;
             <br />
-            - He was doing some web buy bounty;
+            - He was doing some web bug bounty;
             <br />
             - and it was fun for a while;
         </HeWas>
