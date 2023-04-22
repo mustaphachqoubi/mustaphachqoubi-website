@@ -2,6 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
+#waves{
+  background: transparent;
+  animation: bigwave 1s ease infinite;
+  background: transparent;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+#smallWave{
+  animation: smallwave 1s ease infinite;
+  background: transparent;
+  border-radius: 100%;
+}
+
+
+@keyframes smallwave{
+0%{
+  width: 20px;
+  height: 8px;
+  border: black 1px solid;
+}
+100%{
+  width: 30px;
+  height: 18px
+}
+}
+
+@keyframes bigwave{
+0%{
+  width: 30px;
+  height: 18px
+}
+50%{
+    border: black 1px solid;
+}
+100%{
+  width: 40px;
+  height: 28px;
+  opacity: 0
+}
+}
 
 #mypictures{
   background: rgb(238,174,202);

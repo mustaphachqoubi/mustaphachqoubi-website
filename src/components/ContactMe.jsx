@@ -2,21 +2,35 @@ import { BsLinkedin, BsGithub } from 'react-icons/bs'
 import {InkPen} from '../assets/InkPen.jsx'
 import {CartoonGuy} from '../assets/CartoonGuy.jsx'
 import { useState, useEffect} from 'react'
+import {gsap} from 'gsap'
+import { useSound } from 'use-sound'
+import waterDrop from '../assets/waterdrop.mp3'
 
 export const ContactMe = ({bg}) => {
+  const [play] = useSound(
+    waterDrop,
+    {volume: 0.8}
+  )
   window.addEventListener('resize', () => {
     const waves = document.getElementById('waves')
     const inkpen = document.getElementById('inkpen')
+    const drop = document.getElementById('drop')
+    const lastBottom = document.getElementById('lastBottom')
 
     waves.style.position = 'absolute';
-    waves.style.left = inkpen.offsetLeft + 'px'
+    waves.style.left = inkpen.offsetLeft - 10 + 'px'
+    drop.style.left = inkpen.offsetLeft + 'px'
   })
   useEffect(() => {
     const waves = document.getElementById('waves')
     const inkpen = document.getElementById('inkpen')
+    const drop = document.getElementById('drop')
+    const lastBottom = document.getElementById('lastBottom')
 
     waves.style.position = 'absolute';
-    waves.style.left = inkpen.offsetLeft + 'px'
+    waves.style.left = inkpen.offsetLeft - 10 + 'px'
+    drop.style.left = inkpen.offsetLeft + 'px'
+    gsap.to(drop, {bottom: `${-lastBottom.offsetTop/1.8}px`, opacity: 0, duration: 1, repeat: -1})
   }, [])
 
   return (
@@ -25,6 +39,9 @@ export const ContactMe = ({bg}) => {
       <div className="w-full flex justify-end absolute top-0 ">
         <div id="inkpen" className='w-60'>
         <InkPen />
+        </div>
+        <div id="drop" className="bg-black w-2 h-2 rounded-full absolute bottom-2">
+          
         </div>
       </div>
       
@@ -42,11 +59,12 @@ export const ContactMe = ({bg}) => {
         </a>
       </div>
 
-      <div className="w-full flex justify-center absolute bottom-0 bg-red-500">
-        <div id='waves' className="bg-green-500 w-20 h-8">
-          
+      <div id="lastBottom" className="w-full flex justify-center absolute bottom-0 ">
+        <div id='waves' className="">
+          <div id="smallWave" >
+          </div>
         </div>
-        <div className='w-[10rem] sm:w-[13rem]'>
+        <div className='w-[10rem] '>
         <CartoonGuy />
         </div>
       </div>

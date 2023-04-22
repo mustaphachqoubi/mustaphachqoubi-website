@@ -34,7 +34,6 @@ export const NavList = () => {
                   onClick={() => {
                     handleSelectedList(list.id);
                   }}
-                  key={list.id}
                   className={`${selectedId === list.id ? bg : null} ${
                     list.id === List.length ? "" : "border-b-2 border-black"
                   } cursor-pointer h-10 flex justify-start items-center px-6 font-bold text-xs tracking-wide`}
@@ -50,7 +49,6 @@ export const NavList = () => {
                   onClick={() => {
                     handleSelectedList(list.id);
                   }}
-                  key={list.id}
                   className={`${selectedId === list.id ? bg : null} ${
                     list.id === List.length ? "" : "border-b-2 border-black"
                   } cursor-pointer h-10 flex justify-start items-center px-6 font-bold text-xs tracking-wide`}
@@ -67,7 +65,6 @@ export const NavList = () => {
                   onClick={() => {
                     handleSelectedList(list.id);
                   }}
-                  key={list.id}
                   className={`${selectedId === list.id ? bg : null} ${
                     list.id === List.length ? "" : "border-b-2 border-black"
                   } cursor-pointer h-10 flex justify-start items-center px-6 font-bold text-xs tracking-wide`}
@@ -76,12 +73,11 @@ export const NavList = () => {
                 </div>
               </Link>
             ) : list.list === "Contact me" ? (
-              <a href="#contactme">
+              <a href="#contactme" key={list.id}>
                 <div
                   onClick={() => {
                     handleSelectedList(list.id);
                   }}
-                  key={list.id}
                   className={`${selectedId === list.id ? bg : null} ${
                     list.id === List.length ? "" : "border-b-2 border-black"
                   } cursor-pointer h-10 flex justify-start items-center px-6 font-bold text-xs tracking-wide`}
@@ -95,7 +91,6 @@ export const NavList = () => {
                   onClick={() => {
                     handleSelectedList(list.id);
                   }}
-                  key={list.id}
                   className={`${selectedId === list.id ? bg : null} ${
                     list.id === List.length ? "" : "border-b-2 border-black"
                   } cursor-pointer h-10 flex justify-start items-center px-6 font-bold text-xs tracking-wide`}
