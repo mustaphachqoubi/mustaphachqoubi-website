@@ -5,15 +5,9 @@ import { useState, useEffect} from 'react'
 import {gsap} from 'gsap'
 import { useSound } from 'use-sound'
 import waterDrop from '../assets/waterdrop.mp3'
-import {Sound} from 'react-sound'
 
 export const ContactMe = ({bg}) => {
  
-  const [play] = useSound(
-    waterDrop,
-    {volume: 0.5}
-  )
-
   window.addEventListener('resize', () => {
     const waves = document.getElementById('waves')
     const inkpen = document.getElementById('inkpen')
@@ -64,7 +58,7 @@ export const ContactMe = ({bg}) => {
       </div>
 
       <div id="lastBottom" className="w-full flex justify-center absolute bottom-0 ">
-        <div id='waves' className="">
+        <div id='waves'> 
           <div id="smallWave" >
           </div>
         </div>

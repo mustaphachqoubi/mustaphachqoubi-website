@@ -61,10 +61,6 @@ const Home = () => {
   window.addEventListener('scroll', () => {
     if((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 2){
       setBg("bg-[#d79e67]")
-      <Sound
-        url={sound}
-        playStatus={Sound.status.PLAYING}
-      />
 
     }
   })
