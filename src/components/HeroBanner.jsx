@@ -1,8 +1,9 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect} from "react";
 import { RichaSVG, MustaphaSVG, HorseSVG } from "../components";
 
 const HeroBanner = () => {
   const [isMustaphaSvgDone, setIsMustaphaSvgDone] = useState(false);
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
     setTimeout(() => {

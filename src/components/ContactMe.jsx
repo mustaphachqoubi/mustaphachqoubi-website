@@ -5,12 +5,15 @@ import { useState, useEffect} from 'react'
 import {gsap} from 'gsap'
 import { useSound } from 'use-sound'
 import waterDrop from '../assets/waterdrop.mp3'
+import {Sound} from 'react-sound'
 
 export const ContactMe = ({bg}) => {
+ 
   const [play] = useSound(
     waterDrop,
-    {volume: 0.8}
+    {volume: 0.5}
   )
+
   window.addEventListener('resize', () => {
     const waves = document.getElementById('waves')
     const inkpen = document.getElementById('inkpen')
@@ -21,6 +24,7 @@ export const ContactMe = ({bg}) => {
     waves.style.left = inkpen.offsetLeft - 10 + 'px'
     drop.style.left = inkpen.offsetLeft + 'px'
   })
+
   useEffect(() => {
     const waves = document.getElementById('waves')
     const inkpen = document.getElementById('inkpen')
@@ -35,7 +39,7 @@ export const ContactMe = ({bg}) => {
 
   return (
     <div id="contactme" className={`relative h-screen flex flex-col justify-center gap-20 items-center ${bg} mix-blend-difference`}>
-      
+
       <div className="w-full flex justify-end absolute top-0 ">
         <div id="inkpen" className='w-60'>
         <InkPen />

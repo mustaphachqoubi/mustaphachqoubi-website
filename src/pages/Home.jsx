@@ -2,15 +2,18 @@ import React, { useState, useEffect } from "react";
 import { HeroBanner, AboutMe, PicturesAndWork, ContactMe } from "../components";
 import useSound from "use-sound";
 import bulb from "../assets/bulb.mp3";
+import Sound from 'react-sound'
+import waterDrop from '../assets/waterdrop.mp3'
 
 const Home = () => {
   const [bg, setBg] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
+  const sound = waterDrop
 
   const bulpSound = bulb;
 
   const [play] = useSound(bulpSound, { volume: 0.05 });
-
+ 
   useEffect(() => {
     const bgone = document.getElementById("bgone");
     const bgtwo = document.getElementById("bgtwo");
@@ -58,6 +61,11 @@ const Home = () => {
   window.addEventListener('scroll', () => {
     if((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 2){
       setBg("bg-[#d79e67]")
+      <Sound
+        url={sound}
+        playStatus={Sound.status.PLAYING}
+      />
+
     }
   })
 
