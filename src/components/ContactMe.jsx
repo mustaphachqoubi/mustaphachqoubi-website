@@ -1,36 +1,62 @@
 import { BsLinkedin, BsGithub } from 'react-icons/bs'
 import {InkPen} from '../assets/InkPen.jsx'
 import {CartoonGuy} from '../assets/CartoonGuy.jsx'
-import { useState, useEffect} from 'react'
+import { useState, useEffect, useCallback} from 'react'
 import {gsap} from 'gsap'
 import { useSound } from 'use-sound'
 import waterDrop from '../assets/waterdrop.mp3'
 
 export const ContactMe = ({bg}) => {
- 
+  const [play] = useSound(
+    waterDrop,
+    {volume: 0.1}
+  )
+
   window.addEventListener('resize', () => {
-    const waves = document.getElementById('waves')
-    const inkpen = document.getElementById('inkpen')
     const drop = document.getElementById('drop')
+    const pen = document.getElementById('inkpen')
     const lastBottom = document.getElementById('lastBottom')
 
-    waves.style.position = 'absolute';
-    waves.style.left = inkpen.offsetLeft - 10 + 'px'
-    drop.style.left = inkpen.offsetLeft + 'px'
+    drop.style.position = 'absolute';
+    drop.style.bottom = 7 + 'px' 
+    drop.style.left = pen.offsetLeft + 'px' 
+
   })
 
   useEffect(() => {
-    const waves = document.getElementById('waves')
-    const inkpen = document.getElementById('inkpen')
     const drop = document.getElementById('drop')
+    const pen = document.getElementById('inkpen')
     const lastBottom = document.getElementById('lastBottom')
+    const smallWave = document.getElementById('smallWave')
 
-    waves.style.position = 'absolute';
-    waves.style.left = inkpen.offsetLeft - 10 + 'px'
-    drop.style.left = inkpen.offsetLeft + 'px'
-    gsap.to(drop, {bottom: `${-lastBottom.offsetTop/1.8}px`, opacity: 0, duration: 1, repeat: -1})
+    gsap.to(smallWave, {
+      keyframes: [
+        { border: '1px solid black', width: '20px', height: '8px' }, 
+        { width: '30px', height: '18px' } 
+      ],
+      duration: 3,
+      repeat: -1,
+      ease: 'power2.inOut',
+    })
+
+    drop.style.position = 'absolute';
+    drop.style.bottom = 7 + 'px' 
+    drop.style.left = pen.offsetLeft + 'px' 
+     
+    gsap.to(drop, {
+      keyframes: [
+        {bottom: `${-lastBottom.offsetTop/1.8}px`, opacity: 0}, 
+        {bottom: `${-lastBottom.offsetTop/1.8}px`, opacity: 1, background: 'transparent', border: '1px solid black', width: '40px', height: '28px', borderRadius: '50%'},
+        {bottom: `${-lastBottom.offsetTop/1.8}px`, opacity: 0} 
+
+      ],
+      duration: 3,
+      repeat: -1,
+      ease: 'power2.inOut',
+      onRepeat: () => console.log('start'),
+    })
   }, [])
-
+ 
   return (
     <div id="contactme" className={`relative h-screen flex flex-col justify-center gap-20 items-center ${bg} mix-blend-difference`}>
 
@@ -38,9 +64,11 @@ export const ContactMe = ({bg}) => {
         <div id="inkpen" className='w-60'>
         <InkPen />
         </div>
-        <div id="drop" className="bg-black w-2 h-2 rounded-full absolute bottom-2">
-          
+
+        <div id="drop" className="rounded-full bg-black w-2 h-2 flex justify-center items-center">
+        <div id="smallWave" className="rounded-[50%] "/>
         </div>
+
       </div>
       
       <div className="font-bold flex flex-col items-center justify-center text-center gap-2 text-black ">
@@ -58,10 +86,6 @@ export const ContactMe = ({bg}) => {
       </div>
 
       <div id="lastBottom" className="w-full flex justify-center absolute bottom-0 ">
-        <div id='waves'> 
-          <div id="smallWave" >
-          </div>
-        </div>
         <div className='w-[10rem] '>
         <CartoonGuy />
         </div>
