@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+#sticker{
+  filter: drop-shadow(3px 0 0 white) 
+        drop-shadow(0 3px 0 white)
+        drop-shadow(-3px 0 0 white) 
+        drop-shadow(0 -3px 0 white);
+}
 
 #inkSource{
   animation: inksource 1s ease-in-out infinite;

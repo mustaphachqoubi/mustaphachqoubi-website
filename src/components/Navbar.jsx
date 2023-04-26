@@ -75,7 +75,7 @@ const Navbar = () => {
   }, [currentScrollingLevel, isScroll]);
 
   return (
-    <>
+    <div id="dontPutStickerOnMe">
       <div className={`${navListStatus} ${navListPosition} z-50`}>
         <NavList />
       </div>
@@ -141,7 +141,7 @@ const Navbar = () => {
           <Logo />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

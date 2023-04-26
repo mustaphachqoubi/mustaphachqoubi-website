@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 export const NavList = () => {
   const [selectedId, setSelectedId] = useState(1);
-  const [bg, setBg] = useState("bg-[#e5ac73]");
+  const [bg] = useState("bg-[#e5ac73]");
 
   const List = [
     { id: 1, list: "Home" },

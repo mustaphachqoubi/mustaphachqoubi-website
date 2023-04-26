@@ -68,7 +68,7 @@ const Home = () => {
     if (pageNumber < 2){
       dispatch(setOutOfInkBg(''))
     }
-  }, [pageNumber, play]);
+  }, [pageNumber, play, dispatch]);
 
   window.addEventListener('scroll', () => {
     if((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 2){

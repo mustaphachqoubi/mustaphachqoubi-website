@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect} from "react";
 import { Navbar, Services } from "./components";
 import Home from "./pages/Home";
 import { useDispatch } from "react-redux";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
-
 import { setCurrentScrollingLevel } from "./Redux/reducers/currentScrollingLevel";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="thecontainer max-w-[1440px] mx-auto relative">
       <BrowserRouter>
-        <Navbar />
+        <Navbar /> 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
