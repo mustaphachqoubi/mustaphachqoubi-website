@@ -2,13 +2,10 @@ import React, { useState, useEffect } from "react";
 import { HeroBanner, AboutMe, PicturesAndWork, ContactMe } from "../components";
 import useSound from "use-sound";
 import bulb from "../assets/bulb.mp3";
-import Sound from 'react-sound'
-import waterDrop from '../assets/waterdrop.mp3'
 
 const Home = () => {
   const [bg, setBg] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
-  const sound = waterDrop
 
   const bulpSound = bulb;
 

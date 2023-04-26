@@ -1,21 +1,19 @@
 import { BsLinkedin, BsGithub } from 'react-icons/bs'
 import {InkPen} from '../assets/InkPen.jsx'
 import {CartoonGuy} from '../assets/CartoonGuy.jsx'
-import { useState, useEffect, useCallback} from 'react'
+import { useEffect} from 'react'
 import {gsap} from 'gsap'
-import { useSound } from 'use-sound'
-import waterDrop from '../assets/waterdrop.mp3'
 
 export const ContactMe = ({bg}) => {
-  const [play] = useSound(
-    waterDrop,
-    {volume: 0.1}
-  )
 
   window.addEventListener('resize', () => {
     const drop = document.getElementById('drop')
     const pen = document.getElementById('inkpen')
-    const lastBottom = document.getElementById('lastBottom')
+    const inkSource = document.getElementById('inkSource')
+
+    inkSource.style.position = 'absolute';
+    inkSource.style.bottom = 5 + 'px' 
+    inkSource.style.left = pen.offsetLeft + 'px' 
 
     drop.style.position = 'absolute';
     drop.style.bottom = 7 + 'px' 
@@ -28,10 +26,15 @@ export const ContactMe = ({bg}) => {
     const pen = document.getElementById('inkpen')
     const lastBottom = document.getElementById('lastBottom')
     const smallWave = document.getElementById('smallWave')
+    const inkSource = document.getElementById('inkSource')
+
+    inkSource.style.position = 'absolute';
+    inkSource.style.top = pen.offsetHeight - 18 + 'px' 
+    inkSource.style.left = pen.offsetLeft + 8.5 + 'px' 
 
     gsap.to(smallWave, {
       keyframes: [
-        { border: '1px solid black', width: '20px', height: '8px' }, 
+        { background: 'transparent', borderRight: '1px solid black', borderLeft: '1px solid black', width: '20px', height: '8px' }, 
         { width: '30px', height: '18px' } 
       ],
       duration: 3,
@@ -46,23 +49,25 @@ export const ContactMe = ({bg}) => {
     gsap.to(drop, {
       keyframes: [
         {bottom: `${-lastBottom.offsetTop/1.8}px`, opacity: 0}, 
-        {bottom: `${-lastBottom.offsetTop/1.8}px`, opacity: 1, background: 'transparent', border: '1px solid black', width: '40px', height: '28px', borderRadius: '50%'},
+        {bottom: `${-lastBottom.offsetTop/1.8}px`, opacity: 1, background: 'transparent', borderTop: '1px solid black', borderBottom: '1px solid black', width: '40px', height: '28px', borderRadius: '50%'},
         {bottom: `${-lastBottom.offsetTop/1.8}px`, opacity: 0} 
 
       ],
       duration: 3,
       repeat: -1,
       ease: 'power2.inOut',
-      onRepeat: () => console.log('start'),
     })
   }, [])
  
   return (
     <div id="contactme" className={`relative h-screen flex flex-col justify-center gap-20 items-center ${bg} mix-blend-difference`}>
 
-      <div className="w-full flex justify-end absolute top-0 ">
-        <div id="inkpen" className='w-60'>
+      <div className="w-full flex justify-end absolute top-0">
+        <div id="inkpen" className='w-60 '>
         <InkPen />
+        </div>
+
+        <div id="inkSource" className="bg-black" > 
         </div>
 
         <div id="drop" className="rounded-full bg-black w-2 h-2 flex justify-center items-center">

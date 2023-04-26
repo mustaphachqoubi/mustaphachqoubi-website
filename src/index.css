@@ -3,6 +3,34 @@
 @tailwind utilities;
 
 
+#inkSource{
+  animation: inksource 1s ease-in-out infinite;
+}
+
+@keyframes inksource{
+0%{
+  width: 0.4rem;
+  height: 0.8rem;
+  border-radius: 50%;
+}  
+50%{
+  width: 0.4rem;
+  height: 0.5rem;
+  border-radius: 100%
+}
+80%{
+  width: 0.4rem;
+  height: 0.7rem;
+  border-radius: 50%
+}
+100%{
+  width: 0.4rem;
+  height: 0.8rem;
+  border-radius: 100%
+}
+}
+
+
 #mypictures{
   background: rgb(238,174,202);
 background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
