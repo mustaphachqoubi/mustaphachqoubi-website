@@ -13,6 +13,8 @@ const HeroBanner = () => {
     }, 3100);
  }, []);
 
+
+
   useEffect(() => {
       const scientists = [ khawarizmi, khalidibnyazid, jabirbnhayan, ibnsina, almajriti, alkindi, abbasbnfarnas ]
 
@@ -48,7 +50,7 @@ const HeroBanner = () => {
     <>
       <div
         id="heroBanner"
-        className="relative h-screen flex justify-center items-center"
+        className="relative h-screen flex justify-center items-center flex-col"
       >
         {isMustaphaSvgDone === true && (
           <div className="absolute top-20 left-0 hidden md:block ">
