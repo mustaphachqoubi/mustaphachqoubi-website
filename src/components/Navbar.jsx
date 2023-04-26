@@ -10,6 +10,8 @@ import click from '../assets/click.mp3'
 
 const Navbar = () => {
 
+  const { outOfInkBg } = useSelector(state => state.outOfInkBg)
+
   const clickSound = click;
   const music =
   "https://dl.dropboxusercontent.com/s/jemqok069xq5j7j/backgroundmusic-2.mp3?dl=0";
@@ -84,7 +86,7 @@ const Navbar = () => {
             play()
             navListStatus === 'hidden' ? setNavListStatus('') : setNavListStatus('hidden')
           }}
-          className={`${menuPosition} z-50 border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md`}
+          className={`${menuPosition} z-50 border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md ${outOfInkBg === '' ? '' : 'bg-[#e5ac73]/60'}`}
         >
           <HiOutlineMenu />
         </div>
@@ -100,7 +102,7 @@ const Navbar = () => {
               setisSpeakerHovered(true);
             }, 200);
           }}
-          className={`${speakerPosition} z-50 border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md`}
+          className={`${speakerPosition} z-50 border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md ${outOfInkBg === '' ? '' : 'bg-[#e5ac73]/60'}`}
         >
           {isSoundActive === false ? <GiSpeakerOff /> : <GiSpeaker />}
           <Sound

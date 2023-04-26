@@ -2,12 +2,16 @@ import React, { useState, useEffect } from "react";
 import { HeroBanner, AboutMe, PicturesAndWork, ContactMe } from "../components";
 import useSound from "use-sound";
 import bulb from "../assets/bulb.mp3";
+import {useDispatch} from 'react-redux'
+import {setOutOfInkBg} from '../Redux/reducers/outOfInkBg.js'
 
 const Home = () => {
   const [bg, setBg] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
 
   const bulpSound = bulb;
+
+  const dispatch = useDispatch()
 
   const [play] = useSound(bulpSound, { volume: 0.05 });
  
@@ -38,20 +42,31 @@ const Home = () => {
   useEffect(() => {
     if (pageNumber === 2) {
       setBg("bg-[#d79e67]");
+       dispatch(setOutOfInkBg('bg-[#d79e67]'))
       setTimeout(() => {
         setBg("");
+        dispatch(setOutOfInkBg(''))
         play();
       }, 100);
       setTimeout(() => {
         setBg("bg-[#d79e67]");
+        dispatch(setOutOfInkBg('bg-[#d79e67]'))
       }, 200);
       setTimeout(() => {
         setBg("");
+        dispatch(setOutOfInkBg(''))
         play();
       }, 300);
       setTimeout(() => {
         setBg("bg-[#d79e67]");
+        dispatch(setOutOfInkBg('bg-[#d79e67]'))
       }, 400);
+    }
+    if (pageNumber > 2){
+      dispatch(setOutOfInkBg('bg-[#d79e67]'))
+    }
+    if (pageNumber < 2){
+      dispatch(setOutOfInkBg(''))
     }
   }, [pageNumber, play]);
 
