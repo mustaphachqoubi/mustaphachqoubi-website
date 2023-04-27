@@ -76,12 +76,12 @@ export const ContactMe = ({bg}) => {
 
       </div>
       
-      <div className="font-bold flex flex-col items-center justify-center text-center gap-2 text-black ">
+      <div className="font-bold flex flex-col items-center justify-center text-center gap-2 text-black z-50">
         <h1 className="text-3xl lg:text-3xl">You are out of Ink</h1>
         <h3 className="text-xs lg:text-md underline underline-offset-2 decoration-2">Contact me if you want more.</h3>
       </div>
 
-      <div className="flex gap-5 justify-center items-center text-2xl xl:text-3xl ">
+      <div className="flex gap-5 justify-center items-center text-2xl xl:text-3xl z-50">
         <a href="https://www.linkedin.com/in/mustapha-chqoubi/" target="_blank" rel="noreferrer" className="cursor-pointer">
           <BsLinkedin />
         </a>

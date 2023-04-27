@@ -37,7 +37,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="thecontainer max-w-[1440px] mx-auto relative">
+    <div className="thecontainer max-w-[1536px] mx-auto relative">
       <BrowserRouter>
         <Navbar /> 
         <Routes>
