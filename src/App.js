@@ -1,10 +1,12 @@
-import React, { useEffect} from "react";
-import { Navbar, Services } from "./components";
+import React, { useEffect, lazy } from "react";
+import { Navbar} from "./components";
 import Home from "./pages/Home";
 import { useDispatch } from "react-redux";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import { setCurrentScrollingLevel } from "./Redux/reducers/currentScrollingLevel";
 
+
+const Services = lazy(() => import('./components/Services.jsx'))
 
 function App() {
   const dispatch = useDispatch();
@@ -36,13 +38,21 @@ function App() {
     );
   }, [dispatch]);
 
+
   return (
     <div className="thecontainer max-w-[1536px] mx-auto relative">
       <BrowserRouter>
         <Navbar /> 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
+          <Route 
+            path="/services"
+            element={
+            <React.Suspense fallback={<h1>Loading</h1>}>
+            <Services />
+            </React.Suspense>
+          } 
+          />
         </Routes>
       </BrowserRouter>
     </div>

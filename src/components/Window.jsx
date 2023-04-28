@@ -6,22 +6,22 @@ export const HeWas = ({ children }) => {
   return (
     <div className="text-red-500 leading-loose">
       <div className="flex gap-2">
-        <h3 className="text-purple-500">Const</h3>
-        <h3 className="text-yellow-500">HeWas</h3>
-        <h3>=</h3>
-        <h3 className="text-white">({`{props}`})</h3>
-        <h3>{'=>'}</h3>
-        <h3 className="text-white">{"{"}</h3>
+        <p className="text-purple-500">Const</p>
+        <p className="text-yellow-500">HeWas</p>
+        <p>=</p>
+        <p className="text-white">({`{props}`})</p>
+        <p>{'=>'}</p>
+        <p className="text-white">{"{"}</p>
       </div>
       <div className="flex gap-2 mx-2">
-      <div className="text-purple-500">return</div>
+      <p className="text-purple-500">return</p>
       <div className="text-white">(</div>
       </div>
       <div className="mx-4 text-green-500">
         {children}
       </div>
       <div className="text-white mx-2">)</div>
-      <h3 className="text-white">{"};"}</h3>
+      <p className="text-white">{"};"}</p>
     </div>
   );
 };
@@ -30,22 +30,22 @@ export const HeFound = ({ children }) => {
     return (
       <div className="text-red-500 leading-loose">
         <div className="flex gap-2">
-          <h3 className="text-purple-500">Const</h3>
-          <h3 className="text-yellow-500">HeFound</h3>
-          <h3>=</h3>
-          <h3 className="text-white">({`{props}`})</h3>
-          <h3>{'=>'}</h3>
-          <h3 className="text-white">{"{"}</h3>
+          <p className="text-purple-500">Const</p>
+          <p className="text-yellow-500">HeFound</p>
+          <p>=</p>
+          <p className="text-white">({`{props}`})</p>
+          <p>{'=>'}</p>
+          <p className="text-white">{"{"}</p>
         </div>
         <div className="flex gap-2 mx-2">
-        <div className="text-purple-500">return</div>
+        <p className="text-purple-500">return</p>
         <div className="text-white">(</div>
         </div>
         <div className="mx-4 text-green-500 ">
           {children}
         </div>
         <div className="text-white mx-2">)</div>
-        <h3 className="text-white">{"};"}</h3>
+        <p className="text-white">{"};"}</p>
       </div>
     );
   };
@@ -54,7 +54,7 @@ export const HeStartWorking = ({ children }) => {
     return (
       <div className="text-red-500 leading-loose">
         <div className="flex gap-2">
-          <h3 className="text-purple-500">Const</h3>
+          <p className="text-purple-500">Const</p>
           <h3 className="text-yellow-500">HeStartWorking</h3>
           <h3>=</h3>
           <h3 className="text-white">()</h3>
@@ -62,7 +62,7 @@ export const HeStartWorking = ({ children }) => {
           <h3 className="text-white">{"{"}</h3>
         </div>
         <div className="flex gap-2 mx-2">
-        <div className="text-purple-500">return</div>
+        <p className="text-purple-500">return</p>
         <div className="text-white">(</div>
         </div>
         <div className="mx-4 text-green-500 ">

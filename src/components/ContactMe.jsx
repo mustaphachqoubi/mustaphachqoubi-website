@@ -78,14 +78,14 @@ export const ContactMe = ({bg}) => {
       
       <div className="font-bold flex flex-col items-center justify-center text-center gap-2 text-black z-50">
         <h1 className="text-3xl lg:text-3xl">You are out of Ink</h1>
-        <h3 className="text-xs lg:text-md underline underline-offset-2 decoration-2">Contact me if you want more.</h3>
+        <p className="text-xs lg:text-md underline underline-offset-2 decoration-2">Contact me if you want more.</p>
       </div>
 
       <div className="flex gap-5 justify-center items-center text-2xl xl:text-3xl z-50">
-        <a href="https://www.linkedin.com/in/mustapha-chqoubi/" target="_blank" rel="noreferrer" className="cursor-pointer">
+        <a href="https://www.linkedin.com/in/mustapha-chqoubi/" aria-label="linkedin" target="_blank" rel="noreferrer" className="cursor-pointer">
           <BsLinkedin />
         </a>
-         <a href="https://github.com/mustaphachqoubi" target="_blank" rel="noreferrer" className="cursor-pointer">
+         <a href="https://github.com/mustaphachqoubi" aria-label="github" target="_blank" rel="noreferrer" className="cursor-pointer">
           <BsGithub />
         </a>
       </div>
