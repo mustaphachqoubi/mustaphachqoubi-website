@@ -6,7 +6,7 @@ import {gsap} from 'gsap'
 
 export const ContactMe = ({bg}) => {
 
-  window.addEventListener('resize', () => {
+  const handleResize = () => {
     const drop = document.getElementById('drop')
     const pen = document.getElementById('inkpen')
     const inkSource = document.getElementById('inkSource')
@@ -17,9 +17,17 @@ export const ContactMe = ({bg}) => {
 
     drop.style.position = 'absolute';
     drop.style.bottom = 7 + 'px' 
-    drop.style.left = pen.offsetLeft + 'px' 
+    drop.style.left = pen.offsetLeft + 'px'
+  }
 
-  })
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+    window.removeEventListener('resize', handleResize)
+    }
+
+  }, [])
 
   useEffect(() => {
     const drop = document.getElementById('drop')
