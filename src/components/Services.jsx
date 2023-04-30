@@ -1,38 +1,12 @@
 import { BsLightningCharge, BsLightningChargeFill } from "react-icons/bs";
 import { SiStarship } from "react-icons/si";
-import { MdDone } from 'react-icons/md'
+import { MdDone, MdClose } from "react-icons/md";
+import { useState } from 'react'
+import { services, features } from '../assets/dummy.js'
 
 export const Services = () => {
-  const services = [
-    {
-      id: 1,
-      servicesTitle: "Landing Pages",
-      services: [
-        {
-          id: 1,
-          name: "Simple landing page",
-          price: 500,
-          deadline: 10,
-          features: [
-            {id: 1, name: 'Minimalistic design'}, 
-            {id: 2, name: 'Unique design'}, 
-            {id: 3, name: '3D graphics'}, 
-          ] 
-        },
-        { id: 2, name: "Complex landing page", price: 1000, deadline: 20 },
-        { id: 3, name: "Unachievable", price: 3000, deadline: 30 },
-      ],
-    },
-    {
-      id: 2,
-      servicesTitle: "Portfolio Websites",
-      services: [
-        { id: 1, name: "Portfolio One", price: 899, pricePhour: 5 },
-        { id: 2, name: "Portfolio two", price: 999, pricePhour: 6 },
-        { id: 3, name: "portfolio three", price: 1999, pricePhour: 7 },
-      ],
-    },
-  ];
+  const [featuresNumber, setFeaturesNumber] = useState(4)
+  const [showMoreOrLess, setShowMoreOrLess] = useState('more')
   return (
     <div className="flex flex-col justify-center items-center p-10 gap-20 pt-36">
       {services.map((service) => (
@@ -44,8 +18,8 @@ export const Services = () => {
                 key={s.id}
                 className={`${
                   s.id === 2 ? "w-80 h-[29rem]" : "w-72 h-[27rem]"
-                } flex flex-col gap-4 p-4 border-4 hover:border-[#8eddff] border-transparent rounded-lg ${
-                  s.id === 2 ? "bg-[#131313] text-white" : "bg-white"
+                } flex flex-col gap-5 p-4 rounded-lg ${
+                  s.id === 2 ? "bg-[#131313] text-white" : "bg-white" 
                 }`}
               >
                 <div className="flex justify-between w-full ">
@@ -67,11 +41,44 @@ export const Services = () => {
                   </div>
                 </div>
 
-                <div className="text-xs tracking-widest flex flex-col gap-4">{s.features?.map(f => (
-                <div key={f.id} className="flex gap-2">
-                  {f.name}
+                <div className="text-xs tracking-widest flex flex-col gap-4 overflow-auto h-40 snap-y">
+                  {features.slice(0, featuresNumber).map((f) => (
+                    <div key={f.id} className="flex gap-2 items-center">
+                    <div className=" bg-[#131313] p-1 rounded-full text-white ">
+                        {s.fullFeatures === true ? <MdDone /> : s.features?.map((feature) => feature.name === f.name ? (
+                        <MdDone />
+                        ) : (<MdClose />)
+                        )}
+                    </div>
+                    {f.name}
+                  </div>
+                  ))}
+                  <p className="cursor-pointer " onClick={() => {
+                    showMoreOrLess === 'more' ? setFeaturesNumber(features.length) : setFeaturesNumber(4);
+                    showMoreOrLess === 'more' ? setShowMoreOrLess('less') : setShowMoreOrLess('more')
+                  }}>Show {showMoreOrLess}</p>
                 </div>
-                ))}</div>
+
+                <div>
+                <hr />
+
+                <div className={`flex justify-between items-center ${s.id === 2 ? 'py-4' : 'py-2'} text-xs`}>
+                  <div>
+                    <p>option</p>
+                    <p className="font-bold">price</p>
+                  </div>
+
+                  <div className="bg-slate-200 text-gray-500 py-1 px-2 rounded-full">
+                    Options
+                  </div>
+                </div>
+
+                <hr />
+                </div>
+
+                <div> 
+                  <button className="p-2 w-full border-white border-2 rounded-md hover:text-[#131313] hover:bg-white hover:border-[#131313] bg-[#131313] text-white">I Need This</button>
+                </div>
               </div>
             ))}
           </div>
