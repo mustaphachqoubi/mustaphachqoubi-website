@@ -14,9 +14,8 @@ export const services = [
         ]
         },
         { id: 2, name: "Complex landing page", price: 1000, deadline: 20, fullFeatures: false, features: [
-          { id: 1, name: "Minimalistic design" },
-          { id: 2, name: "Unique design" },
-          { id: 4, name: "Animations" },
+          { id: 1, name: "Unique design" },
+          { id: 2, name: "3D graphics" },
         ]
 },
         { id: 3, name: "Unachievable", price: ' +3000', deadline: 30, fullFeatures: true},

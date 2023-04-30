@@ -19,7 +19,7 @@ export const Services = () => {
                 className={`${
                   s.id === 2 ? "w-80 h-[29rem]" : "w-72 h-[27rem]"
                 } flex flex-col gap-5 p-4 rounded-lg ${
-                  s.id === 2 ? "bg-[#131313] text-white" : "bg-white" 
+                  s.id === 2 ? "bg-black text-white" : "bg-white" 
                 }`}
               >
                 <div className="flex justify-between w-full ">
@@ -30,7 +30,7 @@ export const Services = () => {
                       <div> {s.deadline} Days</div>
                     </p>
                   </div>
-                  <div className="flex justify-center items-center bg-[#131313] text-white text-lg w-10 h-10 rounded-full border-2 border-white">
+                  <div className="flex justify-center items-center bg-black text-white text-lg w-10 h-10 rounded-full border-2 border-white">
                     {s.id === 1 ? (
                       <BsLightningCharge />
                     ) : s.id === 2 ? (
@@ -43,14 +43,10 @@ export const Services = () => {
 
                 <div className="text-xs tracking-widest flex flex-col gap-4 overflow-auto h-40 snap-y">
                   {features.slice(0, featuresNumber).map((f) => (
-                    <div key={f.id} className="flex gap-2 items-center">
-                    <div className=" bg-[#131313] p-1 rounded-full text-white ">
-                        {s.fullFeatures === true ? <MdDone /> : s.features?.map((feature) => feature.name === f.name ? (
-                        <MdDone />
-                        ) : (<MdClose />)
-                        )}
-                    </div>
-                    {f.name}
+                  <div key={f.id} className="flex gap-2 items-center">
+                    {s.fullFeatures === true &&  <div className="bg-black p-1 rounded-full text-white"><MdDone /></div> }
+                    {s.features?.map(feature => feature.name === f.name ? <div className="bg-black p-1 rounded-full text-white"><MdDone /></div> : <div className="bg-black p-1 rounded-full text-white"><MdClose /></div>)} 
+                    <p>{f.name}</p>
                   </div>
                   ))}
                   <p className="cursor-pointer " onClick={() => {
@@ -68,7 +64,7 @@ export const Services = () => {
                     <p className="font-bold">price</p>
                   </div>
 
-                  <div className="bg-slate-200 text-gray-500 py-1 px-2 rounded-full">
+                  <div className={`${s.id === 2 ? 'bg-gray-300/30 text-slate-300' : 'bg-slate-200'} text-gray-500 py-1 px-2 rounded-full`}>
                     Options
                   </div>
                 </div>
@@ -77,7 +73,7 @@ export const Services = () => {
                 </div>
 
                 <div> 
-                  <button className="p-2 w-full border-white border-2 rounded-md hover:text-[#131313] hover:bg-white hover:border-[#131313] bg-[#131313] text-white">I Need This</button>
+                  <button className="p-2 w-full border-white border-2 rounded-md hover:text-black hover:bg-white hover:border-black bg-black text-white">I Need This</button>
                 </div>
               </div>
             ))}
