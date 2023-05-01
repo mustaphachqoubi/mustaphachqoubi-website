@@ -25,10 +25,10 @@ export const Services = () => {
                 <div className="flex justify-between w-full ">
                   <div className="flex flex-col gap-2">
                     <p className="text-xs font-bold">{s.name}</p>
-                    <p className="text-xl font-bold flex flex-col md:flex-row">
-                      <div>${s.price}&nbsp;/&nbsp;</div>{" "}
-                      <div> {s.deadline} Days</div>
-                    </p>
+                    <div className="text-xl font-bold flex flex-col md:flex-row">
+                      <p>${s.price}&nbsp;/&nbsp;</p>{" "}
+                      <p> {s.deadline} Days</p>
+                    </div>
                   </div>
                   <div className="flex justify-center items-center bg-black text-white text-lg w-10 h-10 rounded-full border-2 border-white">
                     {s.id === 1 ? (
@@ -44,8 +44,8 @@ export const Services = () => {
                 <div className="text-xs tracking-widest flex flex-col gap-4 overflow-auto h-40 snap-y">
                   {features.slice(0, featuresNumber).map((f) => (
                   <div key={f.id} className="flex gap-2 items-center">
-                    {s.fullFeatures === true &&  <div className="bg-black p-1 rounded-full text-white"><MdDone /></div> }
-                    {s.features?.map(feature => feature.name === f.name ? <div className="bg-black p-1 rounded-full text-white"><MdDone /></div> : <div className="bg-black p-1 rounded-full text-white"><MdClose /></div>)} 
+
+                      {s.features?.some(feature => feature.id === f.id) ? (<div className="bg-black p-1 rounded-full text-white"><MdDone /></div>) : (<div className="bg-black p-1 rounded-full text-white"><MdClose /></div>)}
                     <p>{f.name}</p>
                   </div>
                   ))}
