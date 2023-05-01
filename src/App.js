@@ -4,8 +4,7 @@ import Home from "./pages/Home";
 import { useDispatch } from "react-redux";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import { setCurrentScrollingLevel } from "./Redux/reducers/currentScrollingLevel";
-import { Analytics } from '@vercel/analytics/react'
-;
+
 function App() {
   const dispatch = useDispatch();
 
@@ -49,7 +48,6 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
-      <Analytics />
     </div>
   );
 }
