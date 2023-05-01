@@ -1,11 +1,3 @@
-export  const features = [
-    { id: 1, name: "Minimalistic design" },
-    { id: 2, name: "Unique design" },
-    { id: 3, name: "3D graphics" },
-    { id: 4, name: "Animations" },
-    { id: 5, name: "test" },
-];
-
 export const services = [
     {
       id: 1,
@@ -16,19 +8,17 @@ export const services = [
           name: "Simple landing page",
           price: 500,
           deadline: 10,
+        fullFeatures: false,
           features: [
           { id: 1, name: "Minimalistic design" },
-          { id: 4, name: "Animations" },
         ]
         },
-        { id: 2, name: "Complex landing page", price: 1000, deadline: 20, features: [
-
-        { id: 2, name: "Unique design" },
-        { id: 3, name: "3D graphics" },
-
+        { id: 2, name: "Complex landing page", price: 1000, deadline: 20, fullFeatures: false, features: [
+          { id: 1, name: "Unique design" },
+          { id: 2, name: "3D graphics" },
         ]
 },
-        { id: 3, name: "Unachievable", price: ' +3000', deadline: 30, features: [...features]},
+        { id: 3, name: "Unachievable", price: ' +3000', deadline: 30, fullFeatures: true},
       ],
     },
     {
@@ -41,3 +31,12 @@ export const services = [
       ],
     },
   ];
+
+export  const features = [
+    { id: 1, name: "Minimalistic design" },
+    { id: 2, name: "Unique design" },
+    { id: 3, name: "3D graphics" },
+    { id: 4, name: "Animations" },
+    { id: 5, name: "test" },
+  ];
+
