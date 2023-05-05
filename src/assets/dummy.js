@@ -1,4 +1,3 @@
-
 export const services = [
   {
     id: 1,
@@ -14,6 +13,9 @@ export const services = [
           "Basic SEO optimization"
         ],
         price: "$500",
+        options: [
+          {id: 1, name: 'Animations', price: '$50'} 
+        ]
       },
       {
         id: 2,
@@ -39,8 +41,95 @@ export const services = [
       }
     ]
   },
-  {
+   {
     id: 2,
+    title: "Portfolio Website",
+    items: [
+      {
+        id: 1,
+        title: "Basic Portfolio",
+        features: [
+          "Simple design that showcases your work",
+          "Easy-to-use contact form that lets potential clients get in touch with you",
+          "Mobile-friendly design that looks great on any device",
+          "Quick turnaround time that gets you online quickly"
+        ],
+        price: "$750",
+        options: [
+          {id: 1, name: 'Customized contact form', price: "$40"}
+        ]
+      },
+      {
+        id: 2,
+        title: "Advanced Portfolio",
+        features: [
+          "Eye-catching design with animations or video backgrounds to make a memorable impression",
+          "Customized blog section to showcase your expertise and generate more traffic",
+          "Integration with third-party tools to showcase your portfolio on other platforms",
+          "Customized SEO optimization to improve your search engine ranking"
+        ],
+        price: "$1,450",
+         options: [
+          {id: 1, name: 'platform for selling your products', price: "$149"}
+        ]
+
+      },
+      {
+        id: 3,
+        title: "Custom Portfolio",
+        features: [
+          "Unique design that reflects your brand's personality and values",
+          "Customized content management system to make it easy to manage your portfolio",
+          "Customized analytics and reporting to measure the success of your portfolio",
+          "Integration with social media platforms to showcase your portfolio and generate more leads"
+        ],
+        price: "$2,950"
+      }
+    ]
+  },
+
+     {
+    id: 3,
+    title: "E-commerce Website",
+    items: [
+      {
+        id: 1,
+        title: "Basic E-commerce Website",
+        features: [
+          "Simple design that showcases your products",
+          "Easy-to-use checkout process that lets customers buy your products quickly",
+          "Mobile-friendly design that looks great on any device",
+          "Quick turnaround time that gets you online quickly"
+        ],
+        price: "$1,500",
+      },
+      {
+        id: 2,
+        title: "Advanced E-commerce Website",
+        features: [
+          "Eye-catching design with customized product pages to showcase your products in detail",
+          "Inventory management and order tracking to make it easy to manage your products",
+          "Integration with third-party shipping carriers to make shipping easy",
+          "Integration with third-party tools to generate more product reviews and ratings"
+        ],
+        price: "$3,500"
+      },
+      {
+        id: 3,
+        title: "Custom E-commerce Website",
+        features: [
+          "Unique design that reflects your brand's personality and values",
+          "Customized loyalty programs or product personalization to keep customers coming back",
+          "Advanced analytics and reporting to measure the success of your e-commerce store",
+          "Subscription-based services or membership programs to generate recurring revenue"
+        ],
+        price: "$5,000"
+      }
+    ]
+  },
+
+  {
+    id: 4,
     title: "Website Maintenance",
     items: [
       {
@@ -79,7 +168,7 @@ export const services = [
     ]
   },
   {
-    id: 3,
+    id: 5,
     title: "Search Engine Optimization",
     items: [
       {
@@ -118,7 +207,7 @@ export const services = [
     ]
   },
   {
-    id: 4,
+    id: 6,
     title: "Website Design & Development",
     items: [
       {
@@ -130,7 +219,10 @@ export const services = [
           "Easy-to-use content management system",
           "Quick turnaround time"
         ],
-        price: "$1,500"
+        price: "$1,500",
+        options: [
+          {id: 1, name: 'Multi-language support', price: '$39'} 
+        ]
       },
       {
         id: 2,
@@ -141,7 +233,10 @@ export const services = [
           "Advanced content management system",
           "Integration with third-party tools"
         ],
-        price: "Starting at $3,000"
+        price: "Starting at $3,000",
+        options: [
+          {id: 1, name: 'Multi-language support', price: '$39'},
+        ]
       },
       {
         id: 3,
@@ -152,9 +247,12 @@ export const services = [
           "Comprehensive website strategy and planning",
           "Ongoing website optimization and support"
         ],
-        price: "Starting at $5,000"
+        price: "Starting at $5,000",
+         options: [
+          {id: 1, name: 'Advanced security and data protection measures', price: '$69'},
+        ]
+
       }
     ]
   }
 ];
-

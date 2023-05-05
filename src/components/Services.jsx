@@ -17,7 +17,7 @@ export const Services = () => {
                   item.id === 2 ? "w-80 h-[29rem]" : "w-72 h-[27rem]"
                 } flex flex-col gap-5 p-4 rounded-lg ${
                   item.id === 2 ? "bg-black text-white" : "bg-white" 
-                }`}
+                } relative`}
               >
                 <div className="flex justify-between w-full h-20 ">
                   <div className="flex flex-col gap-2">
@@ -27,48 +27,65 @@ export const Services = () => {
                         <p>{item.price}&nbsp;/&nbsp;</p>{" "}
                         <p>in {item.deadline} Days</p>  
                         </div>
-                        
                       ) : (
                         <div className="text-xl font-bold flex flex-col md:flex-row">
                         <p>{item.price}</p>
                         </div>
                       )}
                   </div>
-                  <div className="flex justify-center items-center bg-black text-white text-lg w-10 h-10 rounded-full border-2 border-white">
+                  <div className="flex justify-center items-center bg-black text-white text-lg w-10 h-10 rounded-full border-2 border-white absolute -right-5 md:static ">
                     {item.id === 1 ? (
                       <BsLightningCharge />
                     ) : item.id === 2 ? (
                       <BsLightningChargeFill />
                     ) : (
-                      <SiStarship />
+                      <SiStarship />    
                     )}
                   </div>
                 </div>
 
-                <div className="text-xs tracking-widest flex flex-col gap-4 overflow-auto h-40 snap-y">
+                <div className="text-xs tracking-widest flex flex-col gap-4 overflow-auto h-40 snap-y ">
                   {item.features?.map((feature, index) => (
                   <div key={index} className="flex gap-2 items-center"><div className="bg-black text-white p-1 rounded-full"><MdDone /></div> {feature}</div>
                   ))}
                 </div>
 
-                <div>
+                {item.options ? item.options.map(option => (
+                  <div key={option.id}>
                 <hr />
 
-                <div className={`flex justify-between items-center ${item.id === 2 ? 'py-4' : 'py-2'} text-xs`}>
+                <div className={`flex justify-between items-center ${item.id === 2 ? 'py-4' : 'py-2'} text-xs `}>
                   <div>
-                    <p>option</p>
-                    <p className="font-bold">price</p>
+                    <p> {option.name}</p>
+                    <p className="font-bold">+ {option.price}</p>
                   </div>
 
                   <div className={`${item.id === 2 ? 'bg-gray-300/30 text-slate-300' : 'bg-slate-200'} text-gray-500 py-1 px-2 rounded-full`}>
-                    Options
+                    Option
+                  </div>
+                </div>
+
+                <hr />
+                </div>
+                )) : (
+                      <div> 
+                <hr />
+
+                <div className={`flex justify-between items-center ${item.id === 2 ? 'py-4' : 'py-2'} text-xs `}>
+                  <div>
+                    <p> There is no other options </p>
+                  </div>
+
+                  <div className={`${item.id === 2 ? 'bg-gray-300/30 text-slate-300' : 'bg-slate-200'} text-gray-500 py-1 px-2 rounded-full`}>
+                    Option
                   </div>
                 </div>
 
                 <hr />
                 </div>
 
-                <div> 
+                )} 
+                 <div> 
                   <button className="p-2 w-full border-white border-2 rounded-md hover:text-black hover:bg-white hover:border-black bg-black text-white">I Need This</button>
                 </div>
               </div>
