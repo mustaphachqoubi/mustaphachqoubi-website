@@ -2,6 +2,7 @@ import { BsLightningCharge, BsLightningChargeFill } from "react-icons/bs";
 import { SiStarship } from "react-icons/si";
 import { MdDone } from "react-icons/md";
 import { services } from '../assets/dummy.js'
+import { Link } from 'react-router-dom'
 
 export const Services = () => {
   return (
@@ -19,6 +20,7 @@ export const Services = () => {
                   item.id === 2 ? "bg-black text-white" : "bg-white" 
                 } relative`}
               >
+               <div>
                 <div className="flex justify-between w-full h-20 ">
                   <div className="flex flex-col gap-2">
                     <p className="text-xs font-bold">{item.title}</p>
@@ -49,6 +51,7 @@ export const Services = () => {
                   <div key={index} className="flex gap-2 items-center"><div className="bg-black text-white p-1 rounded-full"><MdDone /></div> {feature}</div>
                   ))}
                 </div>
+               </div> 
 
                 {item.options ? item.options.map(option => (
                   <div key={option.id}>
@@ -86,7 +89,9 @@ export const Services = () => {
 
                 )} 
                  <div> 
+                  <Link to={`/${service.title}/${item.id}`}>
                   <button className="p-2 w-full border-white border-2 rounded-md hover:text-black hover:bg-white hover:border-black bg-black text-white">I Need This</button>
+                  </Link>
                 </div>
               </div>
             ))}

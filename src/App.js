@@ -1,5 +1,5 @@
 import React, { useEffect} from "react";
-import { Navbar, Services} from "./components";
+import { Navbar, Services, Service} from "./components";
 import Home from "./pages/Home";
 import { useDispatch } from "react-redux";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
@@ -44,8 +44,8 @@ function App() {
         <Navbar /> 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} 
-          />
+          <Route path="/services" element={<Services />} />
+          <Route path="/:service/:itemId" element={<Service />}/>
         </Routes>
       </BrowserRouter>
     </div>
