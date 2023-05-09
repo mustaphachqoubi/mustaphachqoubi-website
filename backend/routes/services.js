@@ -4,36 +4,32 @@ const router = express.Router()
 
 const Services = require('../models/servicesModel')
 
+const {  
+  getAllServices,
+  getASingleService,
+  getASingleItemInsideASingleService,
+  createANewService
+} = require('../controllers/serviceController.js')
+
 // get all services
-router.get('/', (req, res) => {
-  res.json({services: ['s1', 's2']})
-})
+router.get('/', getAllServices) 
 
 // get a single service
-router.get('/:service/:id', (req, res) => {
-  res.json({service: {serviceName: 'landing page', serviceId: 3}})
-})
+router.get('/:id', getASingleService)
 
-// post a single service
-router.post('/:service/:id', async (req, res) => {
+// get a single item inside a single service
+router.get('/:serviceId/items/:itemId', getASingleItemInsideASingleService)
 
-  const { title, items } = req.body
-
-  try{
-    const services = await Services.create({ title, items})
-    res.status(200).json(services)
-  } catch (err){
-    res.status(400).json({err: err.message})
-  }
-})
+// create a new service
+router.post('/:id', createANewService)
 
 // delete a single service
-router.delete('/:service/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   res.json({msg: 'delete a single service'})
 })
 
 // update a single service
-router.patch('/:service/:id', (req, res) => {
+router.patch('/:id', (req, res) => {
   res.json({msg: 'update a single service'})
 })
 
