@@ -7,6 +7,15 @@ const uri = process.env.MONGODBURI
 const port = process.env.PORT
 const services = require('./routes/services.js')
 
+
+// middleWare
+app.use(express.json())
+app.use((req, res, next) => {
+  console.log(req.path, req.method)
+  next()
+})
+// middleWare
+
 app.use('/api/services', services)
 
 mongoose.connect(uri)
