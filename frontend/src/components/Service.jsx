@@ -50,7 +50,7 @@ export const Service = () => {
 
           <div>
             <p 
-              onMouseOver={() => {
+              onClick={() => {
                 featuresOpened === true ? setFeaturesOpened(false) : setFeaturesOpened(true)
               }}
               className="text-sm flex gap-1 justify-center items-center underline hover:no-underline cursor-pointer">{!featuresOpened ? <AiFillCaretRight /> : <AiOutlineCaretDown />} See features</p>
@@ -63,9 +63,9 @@ export const Service = () => {
             </div>
 
             <div 
-              onClick={() => setSrcChanger(srcChanger => srcChanger + 1)}
+              onMouseOver={() => setSrcChanger(srcChanger => srcChanger + 1)}
             className="cursor-pointer bg-black flex justify-center overflow-hidden items-center w-full relative sm:w-96 h-20 rounded-lg text-white font-bold">
-              <video className="absolute top-0 left-0 bottom-0 right-0 " autoPlay muted loop>
+              <video className="absolute top-0 left-0 bottom-0 right-0" autoPlay muted loop>
                 <source src={videoSrc} type="video/mp4" />
               </video>
               <p className="z-20">Let's talk</p>

@@ -8,7 +8,9 @@ const {
   getAllServices,
   getASingleService,
   getASingleItemInsideASingleService,
-  createANewService
+  createANewService,
+  deleteAService,
+  updateAService
 } = require('../controllers/serviceController.js')
 
 // get all services
@@ -24,13 +26,9 @@ router.get('/:serviceId/items/:itemId', getASingleItemInsideASingleService)
 router.post('/:id', createANewService)
 
 // delete a single service
-router.delete('/:id', (req, res) => {
-  res.json({msg: 'delete a single service'})
-})
+router.delete('/:id', deleteAService)
 
 // update a single service
-router.patch('/:id', (req, res) => {
-  res.json({msg: 'update a single service'})
-})
+router.patch('/:id', updateAService)
 
 module.exports = router
