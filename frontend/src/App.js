@@ -1,5 +1,5 @@
 import React, { useEffect} from "react";
-import { Navbar, Services, Service} from "./components";
+import { Navbar, Services, Service, Admin} from "./components";
 import Home from "./pages/Home";
 import { useDispatch } from "react-redux";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
@@ -45,7 +45,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/:service/:itemId" element={<Service />}/>
+          <Route path="/:serviceId/:itemId" element={<Service />}/>
+          <Route path="/admin" element={<Admin />}/>
         </Routes>
       </BrowserRouter>
     </div>
