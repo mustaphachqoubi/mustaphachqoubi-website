@@ -20,7 +20,7 @@ app.use('/api/services', services)
 
 mongoose.connect(uri)
 .then(() => {    
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log(`Connected to MongoDb && start server on port ${port}`)
 })
 })
