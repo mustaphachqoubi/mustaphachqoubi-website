@@ -26,6 +26,7 @@ function App() {
       }
     };
   }
+
   useEffect(() => {
     window.addEventListener(
       "scroll",
@@ -35,11 +36,10 @@ function App() {
     );
   }, [dispatch]);
 
-
-
+   //  max-w-[1536px] mx-auto
 
   return (
-    <div className="thecontainer max-w-[1536px] mx-auto relative">
+    <div className="thecontainer relative">
       <BrowserRouter>
         <Navbar /> 
         <Routes>

@@ -31,7 +31,7 @@ const Navbar = () => {
   const [volume, setvolume] = useState(20);
   const [position, setPosition] = useState(0);
   const [navListStatus, setNavListStatus] = useState('hidden')
-  const [navListPosition, setNavListPosition] = useState('absolute top-16 left-10')
+  const [navListPosition, setNavListPosition] = useState('absolute top-12 -left-[0.1rem]')
 
 
 
@@ -62,7 +62,7 @@ const Navbar = () => {
       setVolumePosition(
         "fixed bottom-[-0.2rem] ml-[8rem] md:bottom-[2.1rem] md:ml-[6rem] volume"
       );
-      setNavListPosition('fixed bottom-16 left-10')
+      setNavListPosition('fixed bottom-12 -left-[0.1rem]')
       setNavListStatus('hidden')
     } else {
       setmenuPosition("");
@@ -70,25 +70,26 @@ const Navbar = () => {
       setVolumePosition(
         "fixed top-[-0.2rem] ml-[8rem] md:top-[2.1rem] md:ml-[6rem]"
       );
-      setNavListPosition('absolute top-16 left-10')
+      setNavListPosition('absolute top-12 -left-[0.1rem]')
     }
   }, [currentScrollingLevel, isScroll]);
 
   return (
-    <div id="dontPutStickerOnMe">
-      <div className={`${navListStatus} ${navListPosition} z-50`}>
-        <NavList />
-      </div>
+    <div>
 
       <div className={`flex gap-4 px-10 py-5 absolute top-0 left-0 right-0 `}>
+
         <div
           onClick={() => {
             play()
             navListStatus === 'hidden' ? setNavListStatus('') : setNavListStatus('hidden')
           }}
-          className={`${menuPosition} z-50 border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md ${outOfInkBg === '' ? '' : 'bg-[#e5ac73]/60'}`}
+          className={`${menuPosition} z-50 border-2 border-black relative rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md ${outOfInkBg === '' ? '' : 'bg-[#e5ac73]/60'}`}
         >
           <HiOutlineMenu />
+      <div className={`${navListStatus} ${navListPosition} z-50`}>
+        <NavList />
+      </div>
         </div>
         <div
           onClick={() => {

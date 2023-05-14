@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# babel loder caches
+/frontend/node_modules/.cache
+
 # testing
 /coverage
 

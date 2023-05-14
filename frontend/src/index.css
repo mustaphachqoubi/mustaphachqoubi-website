@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html,body{
+  background: #d79e67
+}
+
 #sticker{
   filter: drop-shadow(3px 0 0 white) 
         drop-shadow(0 3px 0 white)

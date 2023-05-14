@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 export const Services = () => {
   return (
-    <div className="flex flex-col justify-center items-center p-10 gap-20 pt-36">
+    <div className="flex flex-col justify-center items-center p-10 gap-20 pt-36 max-w-[1536px] mx-auto">
       {services.map((service) => (
         <div key={service.id} className="flex flex-col gap-8 text-sm w-full">
           <h1 className="font-bold text-lg ">{service.title}</h1>

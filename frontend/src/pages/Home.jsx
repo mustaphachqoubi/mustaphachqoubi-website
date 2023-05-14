@@ -77,7 +77,7 @@ const Home = () => {
   })
 
   return (
-    <>
+    <div> 
       <HeroBanner />
       <AboutMe />
       <PicturesAndWork />
@@ -103,7 +103,7 @@ const Home = () => {
 
       </div>
       <ContactMe bg={bg}/>
-    </>
+    </div>
   );
 };
 

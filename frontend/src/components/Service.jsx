@@ -27,7 +27,7 @@ export const Service = () => {
   }, [srcChanger])
 
   return (
-    <div className="h-full flex justify-center items-center p-10 py-32 ">
+    <div className="h-screen flex justify-center items-center p-10 py-32 max-w-[1536px] mx-auto">
       {
         !itemOfService ? <div>Loading...</div> : <div className="flex flex-col w-full gap-10 items-center">
           <div className="overflow-hidden bg-white w-full sm:w-96 h-20 text-black rounded-lg flex gap-6 justify-center items-center font-bold tracking-wide">
