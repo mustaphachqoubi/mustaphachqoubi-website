@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const uri = process.env.MONGODBURI
 const port = process.env.PORT
 const services = require('./routes/services.js')
+const projects = require('./routes/projects.js')
 
 
 // middleWare
@@ -17,6 +18,8 @@ app.use((req, res, next) => {
 // middleWare
 
 app.use('/api/services', services)
+
+app.use('/api/projects', projects)
 
 mongoose.connect(uri)
 .then(() => {    

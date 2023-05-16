@@ -2,8 +2,6 @@ const express = require('express');
 
 const router = express.Router()
 
-const Services = require('../models/servicesModel')
-
 const {  
   getAllServices,
   getASingleService,
@@ -30,5 +28,7 @@ router.delete('/:id', deleteAService)
 
 // update a single service
 router.patch('/:id', updateAService)
+
+
 
 module.exports = router
