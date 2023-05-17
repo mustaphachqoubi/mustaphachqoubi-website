@@ -3,7 +3,9 @@ const router = express.Router()
 const { 
   getAllProjects,
   createNewProject,
-  getSingleProject
+  getSingleProject,
+  updateProject,
+  deleteProject
 } = require('../controllers/projectController.js')
 
 
@@ -14,6 +16,8 @@ router.get('/:id', getSingleProject)
 // create a signle project 
 router.post('/', createNewProject)
 // update a single project 
+router.patch('/:id', updateProject)
 // delete a single project 
+router.delete('/:id', deleteProject)
 
 module.exports = router

@@ -8,7 +8,7 @@ const getAllProjects = async (req, res) => {
   res.status(200).json(projects)
 }
 
-// get a single prooject 
+// get a single project 
 const getSingleProject = async (req, res) => {
   const { id } = req.params
   if(!mongoose.Types.ObjectId.isValid(id)){
@@ -41,10 +41,43 @@ const createNewProject = async (req, res) => {
 }
 
 // update a single project 
+const updateProject = async (req, res) => {
+  const { id } = req.params
+
+  if(!mongoose.Types.ObjectId.isValid(id)){
+    res.status(404).json({error: "id is not valid"})
+  }
+
+  const project = await Projects.findOneAndUpdate({_id: id}, {...req.body})
+  
+  if(!project){
+    return res.status(404).json({error: 'There is no project found'})
+  }
+
+  res.status(200).json(project)
+}
+
 // delete a single project 
+const deleteProject = async (req, res) => {
+  const { id } = req.params;
+
+  if(!mongoose.Types.ObjectId.isValid(id)){
+    res.status(404).json( { error: "id is not valid" } )
+  }
+
+  const project = await Projects.findOneAndDelete( { _id : id} )
+
+  if(!project){
+    return res.status(404).json( { error: "no project found" } )
+  }
+
+  res.status(200).json(project)
+} 
 
 module.exports = {
   getAllProjects,
   createNewProject,
-  getSingleProject
+  getSingleProject,
+  updateProject,
+  deleteProject
 }
