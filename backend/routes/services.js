@@ -21,7 +21,7 @@ router.get('/:id', getASingleService)
 router.get('/:serviceId/items/:itemId', getASingleItemInsideASingleService)
 
 // create a new service
-router.post('/:id', createANewService)
+router.post('/', createANewService)
 
 // delete a single service
 router.delete('/:id', deleteAService)

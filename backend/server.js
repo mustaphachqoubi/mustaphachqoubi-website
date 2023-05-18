@@ -7,7 +7,7 @@ const uri = process.env.MONGODBURI
 const port = process.env.PORT
 const services = require('./routes/services.js')
 const projects = require('./routes/projects.js')
-
+const cors = require('cors')
 
 // middleWare
 app.use(express.json())
@@ -16,6 +16,8 @@ app.use((req, res, next) => {
   next()
 })
 // middleWare
+
+app.use(cors())
 
 app.use('/api/services', services)
 
