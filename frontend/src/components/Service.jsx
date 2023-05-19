@@ -5,6 +5,8 @@ import { FaGreaterThan } from 'react-icons/fa'
 import { AiOutlineCaretDown, AiFillCaretRight } from 'react-icons/ai'
 import starBackground from '../assets/starBackground.mp4'
 import galaxyBackground from '../assets/galaxyBackground.mp4'
+import { useLocation } from 'react-router-dom'
+import { MdDone } from "react-icons/md";
 
 export const Service = () => {
   const { service, itemId} = useParams();
@@ -14,52 +16,94 @@ export const Service = () => {
   const [featuresOpened, setFeaturesOpened] = useState(false)
   const [videoSrc, setVideoSrc] = useState(starBackground)
   const [srcChanger, setSrcChanger] = useState(1)
+  const [optionId, setOptionId] = useState(-1)
 
+    const location = useLocation()
   useEffect(() => {
  if(videoSrc === galaxyBackground){
       setVideoSrc(starBackground)
-      console.log("star",starBackground)
     }else{
       setVideoSrc(galaxyBackground)
-      console.log("galaxy",galaxyBackground)
     }
 
   }, [srcChanger])
 
-  return (
-    <div className="h-screen flex justify-center items-center p-10 py-32 max-w-[1536px] mx-auto">
-      {
-        !itemOfService ? <div>Loading...</div> : <div className="flex flex-col w-full gap-10 items-center">
-          <div className="overflow-hidden bg-white w-full sm:w-96 h-20 text-black rounded-lg flex gap-6 justify-center items-center font-bold tracking-wide">
-           Basic Landing Page 
-          </div>
+  useEffect(() => {
+    const getItemOfService = async () => {
+      const item = await fetch(`http://localhost:4000/api/services/${location.pathname}`)
+      const data = await item.json()
+      if(item.ok){
+        setItemOfService(data)
+      }
+    }
+    getItemOfService()
+  }, [])
 
-          <div className="flex flex-col items-center gap-4 w-full">
-            <h3 className="text-sm underline">Do you want to add an option ?</h3>
-             <div 
-              onClick={() => optionSelected === false ? setIsOptionSelected(true) : setIsOptionSelected(false)}
+
+  return (
+    <div className="flex justify-center items-center py-10 w-full ">
+      <div className="w-full flex justify-center items-center p-10 overflow-auto ">
+        
+       {
+        !itemOfService ? <div>Loading...</div> : <div className="flex flex-col w-full gap-10 items-center">
+          <div className="overflow-hidden bg-white w-full sm:w-96 h-20 text-black rounded-lg flex gap-6 justify-center items-center font-bold tracking-wide text-sm md:text-lg">
+          {itemOfService.title} 
+          </div>
+            {itemOfService.options?.length > 0 ? itemOfService.options?.map(option => (
+          <div key={option._id} className="flex flex-col items-center gap-4 w-full">
+                <h3 className="text-sm underline">Do you want to add an option ?</h3>
+            <div 
+              onClick={() => {
+                  optionSelected === false ? setIsOptionSelected(true) : setIsOptionSelected(false)
+                  setOptionId(option._id)
+                }}
               className={`${optionSelected ? "border-black" : " border-transparent"} cursor-pointer border-4 overflow-hidden bg-white w-full sm:w-96 h-20 text-black rounded-lg flex text-xs sm:text-md gap-6 px-6 justify-between items-center font-bold tracking-wide`}>
-              <div className="flex flex-col lg:flex-row gap-1"><p>Customized contact form</p> <p>(+ $50)</p></div>
+              <div className="flex flex-col lg:flex-row gap-1"><p>{option.name}</p> <p>(+ {option.price})</p></div>
               {
                 optionSelected ? <input type="radio" checked /> : <input type="radio" />
               }
             </div>
+
+              </div>
+              )) : (
+              <div className="flex flex-col items-center gap-4 w-full">
+                <h3 className="text-sm underline">Do you want to add an option ?</h3>
+            <div 
+              className={` cursor-pointer border-4 overflow-hidden bg-white w-full sm:w-96 h-20 text-black rounded-lg flex text-xs sm:text-md gap-6 px-6 justify-center items-center font-bold tracking-wide`}>
+              <div className="flex text-center"><p>This service has no options !</p></div>
+                          </div>
+
+              </div>
+              ) } 
             <div>
             </div>
-          </div>
 
-          <div>
+          <div className="flex flex-col gap-2 w-full items-center">
             <p 
               onClick={() => {
                 featuresOpened === true ? setFeaturesOpened(false) : setFeaturesOpened(true)
               }}
-              className="text-sm flex gap-1 justify-center items-center underline hover:no-underline cursor-pointer">{!featuresOpened ? <AiFillCaretRight /> : <AiOutlineCaretDown />} See features</p>
-          </div>
+              className="text-sm flex gap-1 justify-center items-center underline hover:no-underline cursor-pointer">{!featuresOpened ? <AiFillCaretRight /> : <AiOutlineCaretDown />} {featuresOpened ? "Hide" : "See"} features</p>
+
+              {featuresOpened ? (
+                <div className="overflow-hidden bg-white w-full sm:w-96 text-black rounded-lg flex flex-col items-start gap-6 p-6 text-xs font-bold">
+                {itemOfService.features.map(feature => (
+                <div key={feature._id} className="flex gap-2 items-center">
+                  <div className="bg-black rounded-full p-1 text-white">
+                  <MdDone /> 
+                </div>
+                  {feature.name}
+                  </div>
+                ))}  
+              </div>
+
+              ) : null}
+                      </div>
 
           <div className="flex flex-col items-center gap-16 w-full">
             <div className="font-bold bg-white h-20 sm:w-96 p-6 w-full rounded-lg flex flex-col gap-2 justify-center items-center text-center">
               <p className="text-xs">Are you happy with this Total ?</p>
-              <p className="text-md">$ 1500</p>
+              <p className="text-md">$ {optionSelected ? itemOfService.options.map(option => itemOfService.price + option.price) : itemOfService.price}</p>
             </div>
 
             <div 
@@ -73,6 +117,8 @@ export const Service = () => {
           </div>
         </div>
       }
+ 
+      </div>
     </div>
   )
 }

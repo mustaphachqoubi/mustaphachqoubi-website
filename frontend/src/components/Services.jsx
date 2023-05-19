@@ -1,7 +1,6 @@
 import { BsLightningCharge, BsLightningChargeFill } from "react-icons/bs";
 import { SiStarship } from "react-icons/si";
 import { MdDone } from "react-icons/md";
-// import { services } from '../assets/dummy.js'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
@@ -104,7 +103,7 @@ export const Services = () => {
   
                   )} 
                    <div> 
-                    <Link to={`/${service.title}/${item._id}`}>
+                    <Link to={`/${service._id}/items/${item._id}`}>
                     <button className="p-2 w-full border-white border-2 rounded-md hover:text-black hover:bg-white hover:border-black bg-black text-white">I Need This</button>
                     </Link>
                   </div>

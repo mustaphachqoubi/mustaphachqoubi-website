@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 export const TitleAndInput = ({ title }) => {
   return (
   <div className="flex flex-col gap-1">
@@ -8,8 +10,20 @@ export const TitleAndInput = ({ title }) => {
 }
 
 export const CreateService = () => {
+
+  const handleSubmit = () => {}
+
+  useEffect(() => {
+    const createService = async () => {
+      const respense = await fetch('http://localhost:4000/api/services/', {
+        method: "POST",
+        body: JSON.stringify()
+      })
+    }
+  })
+
   return (
-    <form method="POST" className="h-screen w-full flex md:items-center justify-center p-10 flex-col pt-20 gap-10">
+    <form onSubmit={() => handleSubmit()} method="POST" className="h-screen w-full flex md:items-center justify-center p-10 flex-col pt-20 gap-10">
       <TitleAndInput title={"Service Title"} />
       <TitleAndInput title={"Service number"} />
       

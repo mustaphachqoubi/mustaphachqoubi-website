@@ -43,7 +43,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/:serviceId/:itemId" element={<Service />}/>
+          <Route path="/:serviceId/items/:itemId" element={<Service />}/>
           <Route path="/admin" element={<Admin />}/>
           <Route path="/postService" element={<CreateService />}/>
         </Routes>
