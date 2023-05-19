@@ -1,5 +1,5 @@
 import React, { useEffect} from "react";
-import { Navbar, Services, Service, Admin} from "./components";
+import { Navbar, Services, Service, Admin, CreateService} from "./components";
 import Home from "./pages/Home";
 import { useDispatch } from "react-redux";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
@@ -36,8 +36,6 @@ function App() {
     );
   }, [dispatch]);
 
-   //  max-w-[1536px] mx-auto
-
   return (
     <div className="thecontainer relative">
       <BrowserRouter>
@@ -47,6 +45,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/:serviceId/:itemId" element={<Service />}/>
           <Route path="/admin" element={<Admin />}/>
+          <Route path="/postService" element={<CreateService />}/>
         </Routes>
       </BrowserRouter>
     </div>
