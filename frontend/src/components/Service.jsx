@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { services } from '../assets/dummy.js'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { FaGreaterThan } from 'react-icons/fa'
 import { AiOutlineCaretDown, AiFillCaretRight } from 'react-icons/ai'
 import starBackground from '../assets/starBackground.mp4'
@@ -18,7 +18,8 @@ export const Service = () => {
   const [srcChanger, setSrcChanger] = useState(1)
   const [optionId, setOptionId] = useState(-1)
 
-    const location = useLocation()
+  const location = useLocation()
+
   useEffect(() => {
  if(videoSrc === galaxyBackground){
       setVideoSrc(starBackground)
@@ -39,6 +40,11 @@ export const Service = () => {
     getItemOfService()
   }, [])
 
+  const HandleRadio = () => {
+    return (
+    <input type="radio" checked readOnly/>
+    )
+  }
 
   return (
     <div className="flex justify-center items-center py-10 w-full ">
@@ -58,9 +64,9 @@ export const Service = () => {
                   setOptionId(option._id)
                 }}
               className={`${optionSelected ? "border-black" : " border-transparent"} cursor-pointer border-4 overflow-hidden bg-white w-full sm:w-96 h-20 text-black rounded-lg flex text-xs sm:text-md gap-6 px-6 justify-between items-center font-bold tracking-wide`}>
-              <div className="flex flex-col lg:flex-row gap-1"><p>{option.name}</p> <p>(+ {option.price})</p></div>
+              <div className="flex flex-col lg:flex-row gap-1"><p>{option.name}</p> <p>(+ ${option.price})</p></div>
               {
-                optionSelected ? <input type="radio" checked /> : <input type="radio" />
+                optionSelected ? <HandleRadio /> : <input type="radio"  />
               }
             </div>
 
@@ -71,8 +77,7 @@ export const Service = () => {
             <div 
               className={` cursor-pointer border-4 overflow-hidden bg-white w-full sm:w-96 h-20 text-black rounded-lg flex text-xs sm:text-md gap-6 px-6 justify-center items-center font-bold tracking-wide`}>
               <div className="flex text-center"><p>This service has no options !</p></div>
-                          </div>
-
+              </div>
               </div>
               ) } 
             <div>
@@ -98,19 +103,19 @@ export const Service = () => {
               </div>
 
               ) : null}
-                      </div>
+          </div>
 
           <div className="flex flex-col items-center gap-16 w-full">
             <div className="font-bold bg-white h-20 sm:w-96 p-6 w-full rounded-lg flex flex-col gap-2 justify-center items-center text-center">
               <p className="text-xs">Are you happy with this Total ?</p>
-              <p className="text-md">$ {optionSelected ? itemOfService.options.map(option => itemOfService.price + option.price) : itemOfService.price}</p>
+              <p className="text-md">$ {optionSelected ? itemOfService.options.map(option => parseFloat(itemOfService.price) + parseFloat(option.price)) : itemOfService.price}</p>
             </div>
 
             <div 
               onMouseOver={() => setSrcChanger(srcChanger => srcChanger + 1)}
-            className="cursor-pointer bg-black flex justify-center overflow-hidden items-center w-full relative sm:w-96 h-20 rounded-lg text-white font-bold">
+            className="cursor-pointer bg-black flex justify-center border-4 border-transparent hover:border-white overflow-hidden items-center w-full relative sm:w-96 h-20 rounded-lg text-white font-bold">
               <video className="absolute top-0 left-0 bottom-0 right-0" autoPlay muted loop>
-                <source src={videoSrc} type="video/mp4" />
+                <source src={starBackground} type="video/mp4" />
               </video>
               <p className="z-20">Let's talk</p>
             </div>

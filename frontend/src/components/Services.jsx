@@ -21,7 +21,7 @@ export const Services = () => {
   return (
     <div className="flex flex-col justify-center items-center p-10 gap-20 pt-36 max-w-[1536px] mx-auto">
       {
-        services && services.map((service) => (
+         services.length > 0 ? services.map((service) => (
           <div key={service._id} className="flex flex-col gap-8 text-sm w-full">
             <h1 className="font-bold text-lg ">{service.title}</h1>
             <div className="flex flex-wrap gap-10 justify-center items-center">
@@ -45,7 +45,7 @@ export const Services = () => {
                           </div>
                         ) : (
                           <div className="text-xl font-bold flex flex-col md:flex-row">
-                          <p>{item.price}</p>
+                          <p>$ {item.price}</p>
                           </div>
                         )}
                     </div>
@@ -74,7 +74,7 @@ export const Services = () => {
                   <div className={`flex justify-between items-center ${item.number === "2" ? 'py-4' : 'py-2'} text-xs `}>
                     <div>
                       <p> {option.name}</p>
-                      <p className="font-bold">+ {option.price}</p>
+                      <p className="font-bold">+ ${option.price}</p>
                     </div>
   
                     <div className={`${item.number === "2" ? 'bg-gray-300/30 text-slate-300' : 'bg-slate-200'} text-gray-500 py-1 px-2 rounded-full`}>
@@ -111,7 +111,9 @@ export const Services = () => {
               ))}
             </div>
           </div>
-        ))
+        )) : <div className="h-[75vh] font-bold flex items-center justify-center w-full">
+        Loading...
+      </div> 
       }
     </div>
   );
