@@ -8,7 +8,8 @@ const {
   getASingleItemInsideASingleService,
   createANewService,
   deleteAService,
-  updateAService
+  updateAService,
+  deleteAllServices
 } = require('../controllers/serviceController.js')
 
 // get all services
@@ -25,6 +26,9 @@ router.post('/', createANewService)
 
 // delete a single service
 router.delete('/:id', deleteAService)
+
+// delete all services
+router.delete('/', deleteAllServices)
 
 // update a single service
 router.patch('/:id', updateAService)

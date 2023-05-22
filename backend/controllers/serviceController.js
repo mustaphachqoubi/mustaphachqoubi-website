@@ -71,6 +71,17 @@ const deleteAService = async (req, res) => {
   res.status(200).json(service)
 }
 
+// DELETE all services
+const deleteAllServices = async (req, res) => {
+  const services = await Services.deleteMany({})
+
+  if(!services){
+    return res.status(404).json({ error: "the delete process failed !" })
+  }
+
+  res.status(200).json(services)
+}
+
 // PATCH a service
 const updateAService = async (req, res) => {
   const { id } = req.params;
@@ -95,5 +106,6 @@ module.exports = {
   getASingleItemInsideASingleService,
   createANewService,
   deleteAService,
-  updateAService
+  updateAService,
+  deleteAllServices
 }
