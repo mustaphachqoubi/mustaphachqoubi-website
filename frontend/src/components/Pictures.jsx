@@ -10,15 +10,15 @@ export const Pictures = () => {
   const MyPictures = [
     {
       id: 1,
-      picture: POne
+      picture: POne,
     },
     {
       id: 2,
-      picture: PTwo
+      picture: PTwo,
     },
     {
       id: 3,
-      picture: PThree 
+      picture: PThree,
     },
   ];
 

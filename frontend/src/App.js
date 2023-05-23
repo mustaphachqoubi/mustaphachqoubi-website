@@ -1,5 +1,5 @@
-import React, { useEffect} from "react";
-import { Navbar, Services, Service, Admin, CreateService} from "./components";
+import React, { useEffect } from "react";
+import { Navbar, Services, Service, Admin, CreateService } from "./components";
 import Home from "./pages/Home";
 import { useDispatch } from "react-redux";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
@@ -39,13 +39,13 @@ function App() {
   return (
     <div className="thecontainer relative">
       <BrowserRouter>
-        <Navbar /> 
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/:serviceId/items/:itemId" element={<Service />}/>
-          <Route path="/admin" element={<Admin />}/>
-          <Route path="/postService" element={<CreateService />}/>
+          <Route path="/:serviceId/items/:itemId" element={<Service />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/postService" element={<CreateService />} />
         </Routes>
       </BrowserRouter>
     </div>

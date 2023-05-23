@@ -4,23 +4,19 @@ import { HiOutlineMenu } from "react-icons/hi";
 import { GiSpeaker, GiSpeakerOff } from "react-icons/gi";
 import Sound from "react-sound";
 import { useSelector } from "react-redux";
-import { NavList } from './NavList.jsx'
-import useSound from 'use-sound'
-import click from '../assets/click.mp3'
+import { NavList } from "./NavList.jsx";
+import useSound from "use-sound";
+import click from "../assets/click.mp3";
 
 const Navbar = () => {
-
-  const { outOfInkBg } = useSelector(state => state.outOfInkBg)
+  const { outOfInkBg } = useSelector((state) => state.outOfInkBg);
 
   const clickSound = click;
   const music =
-  "https://dl.dropboxusercontent.com/s/jemqok069xq5j7j/backgroundmusic-2.mp3?dl=0";
+    "https://dl.dropboxusercontent.com/s/jemqok069xq5j7j/backgroundmusic-2.mp3?dl=0";
 
-  const [play] = useSound(
-    clickSound,
-    {volume: 0.8}
-  )
-  
+  const [play] = useSound(clickSound, { volume: 0.8 });
+
   const [menuPosition, setmenuPosition] = useState("absolute top-5");
   const [isScroll, setIsScroll] = useState(false);
   const [speakerPosition, setspeakerPosition] = useState("absolute top-5");
@@ -30,10 +26,10 @@ const Navbar = () => {
   const [isSpeakerHovered, setisSpeakerHovered] = useState(false);
   const [volume, setvolume] = useState(20);
   const [position, setPosition] = useState(0);
-  const [navListStatus, setNavListStatus] = useState('hidden')
-  const [navListPosition, setNavListPosition] = useState('absolute top-12 -left-[0.1rem]')
-
-
+  const [navListStatus, setNavListStatus] = useState("hidden");
+  const [navListPosition, setNavListPosition] = useState(
+    "absolute top-12 -left-[0.1rem]"
+  );
 
   const handlePosition = (newPosition) => {
     setPosition(newPosition);
@@ -62,38 +58,40 @@ const Navbar = () => {
       setVolumePosition(
         "fixed bottom-[-0.2rem] ml-[8rem] md:bottom-[2.1rem] md:ml-[6rem] volume"
       );
-      setNavListPosition('fixed bottom-12 -left-[0.1rem]')
-      setNavListStatus('hidden')
+      setNavListPosition("fixed bottom-12 -left-[0.1rem]");
+      setNavListStatus("hidden");
     } else {
       setmenuPosition("");
       setspeakerPosition("");
       setVolumePosition(
         "fixed top-[-0.2rem] ml-[8rem] md:top-[2.1rem] md:ml-[6rem]"
       );
-      setNavListPosition('absolute top-12 -left-[0.1rem]')
+      setNavListPosition("absolute top-12 -left-[0.1rem]");
     }
   }, [currentScrollingLevel, isScroll]);
 
   return (
     <div>
-
       <div className={`flex gap-4 px-10 py-5 absolute top-0 left-0 right-0 `}>
-
         <div
           onClick={() => {
-            play()
-            navListStatus === 'hidden' ? setNavListStatus('') : setNavListStatus('hidden')
+            play();
+            navListStatus === "hidden"
+              ? setNavListStatus("")
+              : setNavListStatus("hidden");
           }}
-          className={`${menuPosition} z-50 border-2 border-black relative rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md ${outOfInkBg === '' ? '' : 'bg-[#e5ac73]/60'}`}
+          className={`${menuPosition} z-50 border-2 border-black relative rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md ${
+            outOfInkBg === "" ? "" : "bg-[#e5ac73]/60"
+          }`}
         >
           <HiOutlineMenu />
-      <div className={`${navListStatus} ${navListPosition} z-50`}>
-        <NavList />
-      </div>
+          <div className={`${navListStatus} ${navListPosition} z-50`}>
+            <NavList />
+          </div>
         </div>
         <div
           onClick={() => {
-            play()
+            play();
             isSoundActive === false
               ? setisSoundActive(true)
               : setisSoundActive(false);
@@ -103,7 +101,9 @@ const Navbar = () => {
               setisSpeakerHovered(true);
             }, 200);
           }}
-          className={`${speakerPosition} z-50 border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md ${outOfInkBg === '' ? '' : 'bg-[#e5ac73]/60'}`}
+          className={`${speakerPosition} z-50 border-2 border-black rounded-md p-2 hover:bg-[#e5ac73] cursor-pointer backdrop-blur-md ${
+            outOfInkBg === "" ? "" : "bg-[#e5ac73]/60"
+          }`}
         >
           {isSoundActive === false ? <GiSpeakerOff /> : <GiSpeaker />}
           <Sound
@@ -116,7 +116,6 @@ const Navbar = () => {
             volume={volume}
             position={position}
             onPlaying={({ position }) => handlePosition(position)}
-            
           />
         </div>
         {!isSoundActive
@@ -129,8 +128,8 @@ const Navbar = () => {
                   onChange={(e) => {
                     setvolume(e.target.value);
                     setTimeout(() => {
-                      setisSpeakerHovered(false)
-                    }, 1000)
+                      setisSpeakerHovered(false);
+                    }, 1000);
                   }}
                   value={volume}
                   type="range"

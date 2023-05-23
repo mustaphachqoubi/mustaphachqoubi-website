@@ -1,4 +1,4 @@
-import { React, useState, useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import { RichaSVG, MustaphaSVG, HorseSVG } from "../components";
 
 const HeroBanner = () => {
@@ -8,13 +8,11 @@ const HeroBanner = () => {
     setTimeout(() => {
       setIsMustaphaSvgDone(true);
     }, 3100);
- }, []);
+  }, []);
 
   return (
     <>
-      <div
-        className="relative h-screen flex justify-center items-center "
-      >
+      <div className="relative h-screen flex justify-center items-center ">
         {isMustaphaSvgDone === true && (
           <div className="absolute top-20 left-0 hidden md:block ">
             <RichaSVG />

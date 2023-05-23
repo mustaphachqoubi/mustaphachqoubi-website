@@ -1,9 +1,7 @@
 export const AdminLogin = () => {
   return (
     <>
-      <div>
-        
-      </div>
+      <div></div>
     </>
-  )
-}
+  );
+};

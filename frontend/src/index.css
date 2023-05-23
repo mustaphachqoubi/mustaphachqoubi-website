@@ -2,53 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-html,body{
-  background: #d79e67
+html,
+body {
+  background: #d79e67;
 }
 
-#sticker{
-  filter: drop-shadow(3px 0 0 white) 
-        drop-shadow(0 3px 0 white)
-        drop-shadow(-3px 0 0 white) 
-        drop-shadow(0 -3px 0 white);
+#sticker {
+  filter: drop-shadow(3px 0 0 white) drop-shadow(0 3px 0 white)
+    drop-shadow(-3px 0 0 white) drop-shadow(0 -3px 0 white);
 }
 
-#inkSource{
+#inkSource {
   animation: inksource 1s ease-in-out infinite;
 }
 
-@keyframes inksource{
-0%{
-  width: 0.4rem;
-  height: 0.8rem;
-  border-radius: 50%;
-}  
-50%{
-  width: 0.4rem;
-  height: 0.5rem;
-  border-radius: 100%
-}
-80%{
-  width: 0.4rem;
-  height: 0.7rem;
-  border-radius: 50%
-}
-100%{
-  width: 0.4rem;
-  height: 0.8rem;
-  border-radius: 100%
-}
-}
-
-
-#mypictures{
-  background: rgb(238,174,202);
-background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+@keyframes inksource {
+  0% {
+    width: 0.4rem;
+    height: 0.8rem;
+    border-radius: 50%;
+  }
+  50% {
+    width: 0.4rem;
+    height: 0.5rem;
+    border-radius: 100%;
+  }
+  80% {
+    width: 0.4rem;
+    height: 0.7rem;
+    border-radius: 50%;
+  }
+  100% {
+    width: 0.4rem;
+    height: 0.8rem;
+    border-radius: 100%;
+  }
 }
 
-#myprojects{
-  background: rgb(131,58,180);
-background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+#mypictures {
+  background: rgb(238, 174, 202);
+  background: linear-gradient(
+    90deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+}
+
+#myprojects {
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
 }
 
 #arrowLine {
@@ -241,6 +248,6 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%,
   }
 }
 
-.hidesticker{
-  display: none
+.hidesticker {
+  display: none;
 }

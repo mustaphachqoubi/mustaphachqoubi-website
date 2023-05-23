@@ -2,32 +2,30 @@ import { useState } from "react";
 import { ClosedWorkFolder } from "../assets/ClosedWorkFolder.jsx";
 import { OpenedWorkFolder } from "../assets/OpenedWorkFolder.jsx";
 import { WorkCard } from "./WorkCard.jsx";
-import { WOne, WTwo, WThree} from "../assets/MyWork/";
+import { WOne, WTwo, WThree } from "../assets/MyWork/";
 
 export const Work = () => {
   const [isClicked, setIsClicked] = useState(false);
-  
-  const MyWork = [
 
+  const MyWork = [
     {
       id: 1,
-      github: 'https://github.com/mustaphachqoubi/SOLJ',
-      live: 'https://solj.vercel.app/underdevelopment',
-      project: WTwo
+      github: "https://github.com/mustaphachqoubi/SOLJ",
+      live: "https://solj.vercel.app/underdevelopment",
+      project: WTwo,
     },
     {
       id: 2,
-      github: 'https://github.com/mustaphachqoubi/mustaphachqoubi-website',
-      project: WThree
+      github: "https://github.com/mustaphachqoubi/mustaphachqoubi-website",
+      project: WThree,
     },
     {
       id: 3,
-      github: 'https://github.com/mustaphachqoubi/carpetit',
-      live: 'https://carpetit.vercel.app/',
-      project: WOne
+      github: "https://github.com/mustaphachqoubi/carpetit",
+      live: "https://carpetit.vercel.app/",
+      project: WOne,
     },
-
-  ]
+  ];
 
   const handleMove = (m) => {
     const folder = document.getElementById("workfolder");
@@ -63,14 +61,20 @@ export const Work = () => {
           {isClicked ? (
             <div className="select-none grid gap-10 grid-cols-3 place-items-center absolute bottom-0 left-0">
               {MyWork.map((work, index) => (
-                <WorkCard key={work.id} id={work.id} github={work.github} live={work.live}>
-                  <img 
-                  id="myprojects" 
-                  width="500"
-                  height="500"
-                  loading="lazy"
-                  src={work.project} 
-                  alt="portfolio" />
+                <WorkCard
+                  key={work.id}
+                  id={work.id}
+                  github={work.github}
+                  live={work.live}
+                >
+                  <img
+                    id="myprojects"
+                    width="500"
+                    height="500"
+                    loading="lazy"
+                    src={work.project}
+                    alt="portfolio"
+                  />
                 </WorkCard>
               ))}
             </div>

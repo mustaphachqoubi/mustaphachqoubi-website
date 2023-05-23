@@ -1,5 +1,5 @@
-import { Pictures } from './Pictures'
-import { Work } from './Work.jsx'
+import { Pictures } from "./Pictures";
+import { Work } from "./Work.jsx";
 
 export const PicturesAndWork = () => {
   return (
@@ -11,5 +11,5 @@ export const PicturesAndWork = () => {
         <Work />
       </div>
     </div>
-  )
-}
+  );
+};
