@@ -3,12 +3,18 @@ import { useEffect } from "react";
 
 export const Meeting = () => {
 
-  useEffect(()=>{
-    (async function () {
+  useEffect(() => {
+    const test = async () => {
       const cal = await getCalApi();
       cal("ui", {"theme":"dark","styles":{"branding":{"brandColor":"#000000"}},"hideEventTypeDetails":false});
-    })();
+    }
+
+    test()
   }, [])
 
-  return <Cal calLink="mustaphachqoubi/let-s-talk" style={{width:"100%",height:"100%",overflow:"scroll"}} />;
+  return (
+  <div>
+    <Cal calLink="mustaphachqoubi/let-s-talk" style={{width:"100%",height:"100%",overflow:"scroll"}} />
+  </div>
+  ) 
 };
