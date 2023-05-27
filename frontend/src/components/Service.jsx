@@ -133,6 +133,7 @@ export const Service = () => {
                 </p>
               </div>
 
+              <a href="https://calendly.com/d/2nd-nkr-62k/let-s-talk" className="w-full flex justify-center items-center">
               <div className="cursor-pointer bg-black flex justify-center border-4 border-transparent hover:border-white overflow-hidden items-center w-full relative sm:w-96 h-20 rounded-lg text-white font-bold">
                 <video
                   className="absolute top-0 left-0 bottom-0 right-0"
@@ -144,6 +145,8 @@ export const Service = () => {
                 </video>
                 <p className="z-20">Let's talk</p>
               </div>
+
+                </a>
             </div>
           </div>
         )}
