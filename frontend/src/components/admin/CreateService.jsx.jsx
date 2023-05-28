@@ -6,24 +6,20 @@ export const CreateService = () => {
   const areaRef = useRef(null);
 
   const createService = async () => {
-    const body = await areaRef 
-    if(body.current.value){
-
-    const respense = await fetch("http://localhost:4000/api/services/", {
-      method: "POST",
-      body: JSON.stringify(),
-    });
-
-
+    const body = await areaRef;
+    if (body.current.value) {
+      const respense = await fetch("http://localhost:4000/api/services/", {
+        method: "POST",
+        body: JSON.stringify(),
+      });
     }
-
   };
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        createService()
+        createService();
       }}
       method="POST"
       className="h-screen w-full flex md:items-center justify-center p-10 flex-col pt-20 gap-10"

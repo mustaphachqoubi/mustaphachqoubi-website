@@ -7,6 +7,7 @@ const uri = process.env.MONGODBURI
 const port = process.env.PORT
 const services = require('./routes/services.js')
 const projects = require('./routes/projects.js')
+const clients = require('./routes/clients.js')
 const cors = require('cors')
 
 // middleWare
@@ -22,6 +23,8 @@ app.use(cors())
 app.use('/api/services', services)
 
 app.use('/api/projects', projects)
+
+app.use('api/clients', clients)
 
 mongoose.connect(uri)
 .then(() => {    

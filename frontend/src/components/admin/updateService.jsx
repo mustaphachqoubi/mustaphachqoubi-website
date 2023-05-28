@@ -1,7 +1,3 @@
 export const UpdateService = () => {
-  return (
-  <div>
-    
-  </div>
-  )
-}
+  return <div></div>;
+};
