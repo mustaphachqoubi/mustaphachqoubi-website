@@ -10,3 +10,4 @@ export { Services } from "./Services.jsx";
 export { Service } from "./Service.jsx";
 export { Admin } from "./admin/Admin.jsx";
 export { CreateService } from "./admin/CreateService.jsx";
+export { Meet } from "./Meet.jsx";

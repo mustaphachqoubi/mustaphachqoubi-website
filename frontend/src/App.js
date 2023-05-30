@@ -5,6 +5,7 @@ import {
   Service,
   Admin,
   CreateService,
+  Meet
 } from "./components";
 import Home from "./pages/Home";
 import { useDispatch } from "react-redux";
@@ -52,6 +53,7 @@ function App() {
           <Route path="/:serviceId/items/:itemId" element={<Service />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/postService" element={<CreateService />} />
+          <Route path="/meet" element={<Meet />} />
         </Routes>
       </BrowserRouter>
     </div>
