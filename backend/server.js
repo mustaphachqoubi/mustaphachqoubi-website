@@ -24,7 +24,7 @@ app.use('/api/services', services)
 
 app.use('/api/projects', projects)
 
-app.use('api/clients', clients)
+app.use('/api/clients', clients)
 
 mongoose.connect(uri)
 .then(() => {    

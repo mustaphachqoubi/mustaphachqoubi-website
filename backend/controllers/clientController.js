@@ -1,5 +1,13 @@
 const Clients = require('../models/clientsModel.js')
 
+
+// get all clients 
+const getClients = async (req, res) => {
+  const clients = await Clients.find({}).sort({ createdAt: -1 })
+
+  res.status(200).json(clients)
+}
+
 // create new client 
 const createClient = async (req, res) => {
   const { firstName, lastName, optionSelected, optionId, service } = req.body
@@ -12,4 +20,4 @@ const createClient = async (req, res) => {
   }
 }
 
-module.exports = { createClient }
+module.exports = { createClient, getClients }
