@@ -5,7 +5,7 @@ import {
   Service,
   Admin,
   CreateService,
-  Meet
+  Meet,
 } from "./components";
 import Home from "./pages/Home";
 import { useDispatch } from "react-redux";

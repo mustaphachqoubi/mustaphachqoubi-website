@@ -7,7 +7,7 @@ import starBackground from "../assets/starBackground.mp4";
 import { useLocation } from "react-router-dom";
 import { MdDone } from "react-icons/md";
 import Cal, { getCalApi } from "@calcom/embed-react";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 export const Service = () => {
   const { service, itemId } = useParams();
@@ -19,7 +19,7 @@ export const Service = () => {
   const [formData, setFormData] = useState({});
 
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getItemOfService = async () => {
@@ -37,16 +37,34 @@ export const Service = () => {
   const HandleRadio = () => {
     return <input type="radio" checked readOnly />;
   };
-  
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    console.log(JSON.stringify(formData))
-    navigate('/meet')
-  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const client = await fetch(`http://localhost:4000/api/clients/`, {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      console.log(formData)
+      navigate("/meet");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value, service: location.pathname, optionSelected: optionSelected, optionId: optionId});
+    setFormData({
+      ...formData,
+      [name]: value,
+      service: location.pathname,
+      optionSelected: optionSelected,
+      optionId: optionId,
+    });
   };
 
   return (
@@ -56,8 +74,6 @@ export const Service = () => {
           <div>Loading...</div>
         ) : (
           <div className="flex flex-col w-full gap-10 items-center">
-               
-
             <div className="overflow-hidden bg-white w-full sm:w-96 h-20 text-black rounded-lg flex gap-6 justify-center items-center font-bold tracking-wide text-sm md:text-lg">
               {itemOfService.title}
             </div>
@@ -135,7 +151,10 @@ export const Service = () => {
               ) : null}
             </div>
 
-            <form onSubmit={handleSubmit} className="flex flex-col items-center gap-16 w-full">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col items-center gap-16 w-full"
+            >
               <div className="font-bold bg-white h-20 sm:w-96 p-6 w-full rounded-lg flex flex-col gap-2 justify-center items-center text-center">
                 <p className="text-xs">Are you happy with this Total ?</p>
                 <p className="text-md">
@@ -153,18 +172,18 @@ export const Service = () => {
               <div className="font-bold bg-white sm:w-96 p-6 w-full rounded-lg flex flex-col gap-2 justify-center items-center text-center">
                 <div className="flex flex-col text-sm font-medium gap-4 w-full">
                   <input
-                      onChange={handleInputChange}
-                      name="firstName" 
-                      value={formData.firstName || ''}
+                    onChange={handleInputChange}
+                    name="firstName"
+                    value={formData.firstName || ""}
                     type="text"
                     placeholder="First name"
                     className="border-2 border-slate-200 focus:outline-black rounded-md p-2"
                     required
                   />
                   <input
-                      onChange={handleInputChange}
-                      name="lastName" 
-                      value={formData.lastName || ''}
+                    onChange={handleInputChange}
+                    name="lastName"
+                    value={formData.lastName || ""}
                     type="text"
                     placeholder="Last name"
                     className="border-2 border-slate-200 focus:outline-black rounded-md p-2"
@@ -173,24 +192,23 @@ export const Service = () => {
                 </div>
               </div>
 
-                  <button type="submit" className="cursor-pointer bg-black flex justify-center border-4 border-transparent hover:border-white overflow-hidden items-center w-full relative sm:w-96 h-20 rounded-lg text-white font-bold">
-                  <video
-                    className="absolute top-0 left-0 bottom-0 right-0"
-                    autoPlay
-                    muted
-                    loop
-                  >
-                    <source src={starBackground} type="video/mp4" />
-                  </video>
-                  <p className="z-20">Let's talk</p>
-                </button>
+              <button
+                type="submit"
+                className="cursor-pointer bg-black flex justify-center border-4 border-transparent hover:border-white overflow-hidden items-center w-full relative sm:w-96 h-20 rounded-lg text-white font-bold"
+              >
+                <video
+                  className="absolute top-0 left-0 bottom-0 right-0"
+                  autoPlay
+                  muted
+                  loop
+                >
+                  <source src={starBackground} type="video/mp4" />
+                </video>
+                <p className="z-20">Let's talk</p>
+              </button>
             </form>
-
-       
           </div>
         )}
-
-       
       </div>
     </div>
   );
