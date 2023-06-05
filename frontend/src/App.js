@@ -44,7 +44,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="thecontainer relative">
+    <div className="thecontainer relative bg-auto lg:bg-contain">
       <BrowserRouter>
         <Navbar />
         <Routes>
