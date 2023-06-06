@@ -20,4 +20,15 @@ const createClient = async (req, res) => {
   }
 }
 
+// delete client
+const deleteClient = async (req, res) => {
+  const clients = await Client.deleteMany({})
+
+  if(!clients){
+    res.status(404).json({ error: "the delete process failed" })
+  }
+
+  res.status(200).json(clients)
+}
+
 module.exports = { createClient, getClients }
