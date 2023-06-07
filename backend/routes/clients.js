@@ -3,11 +3,13 @@ const router = express.Router()
 
 const {
   createClient,
-  getClients
+  getClients,
+  deleteClients
 } = require('../controllers/clientController.js')
 
 
 router.post('/', createClient)
 router.get('/', getClients)
+router.delete('/', deleteClients)
 
 module.exports = router
