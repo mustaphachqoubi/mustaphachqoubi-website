@@ -33,5 +33,5 @@ app.listen(port, () => {
 })
 })
 .catch((err) => {
-  console.log("Failed to connect to mongodb", err)
+  console.log(err)
 })
