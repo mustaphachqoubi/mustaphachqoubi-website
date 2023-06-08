@@ -10,7 +10,7 @@ export const CreateService = () => {
     if (body.current.value) {
       const respense = await fetch("http://localhost:4000/api/services/", {
         method: "POST",
-        body: JSON.stringify(),
+        body: JSON.stringify(body),
       });
     }
   };
