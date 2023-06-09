@@ -8,6 +8,8 @@ export const CreateService = () => {
   const createService = async () => {
     const body = await areaRef;
     if (body.current.value) {
+            console.log(body)
+
       const respense = await fetch("http://localhost:4000/api/services/", {
         method: "POST",
         body: JSON.stringify(body),

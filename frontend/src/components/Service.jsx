@@ -49,7 +49,7 @@ export const Service = () => {
         },
         body: JSON.stringify(formData),
       });
-      console.log(formData)
+      console.log(JSON.stringify(formData))
       navigate("/meet");
     } catch (err) {
       console.log(err);
