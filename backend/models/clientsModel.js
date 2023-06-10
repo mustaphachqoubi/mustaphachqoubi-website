@@ -5,7 +5,7 @@ const clientSchema = new Schema({
   firstName: { type: String, require: true },
   lastName: { type: String, require: true },
   optionSelected: { type: Boolean, require: true },
-  optionId: { type: Number, require: true },
+  optionId: { type: String, require: true },
   service: { type: String, require: true }
 }, {timestamps: true})
 
