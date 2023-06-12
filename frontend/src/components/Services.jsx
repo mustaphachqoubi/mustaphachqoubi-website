@@ -9,7 +9,7 @@ export const Services = () => {
 
   useEffect(() => {
     const handleServices = async () => {
-      const response = await fetch("http://localhost:4000/api/services/");
+      const response = await fetch("https://backend-mustaphachqoubi-website.onrender.com/api/services/");
       const data = await response.json();
       if (response.ok) {
         setServices(data);

@@ -24,7 +24,7 @@ export const Service = () => {
   useEffect(() => {
     const getItemOfService = async () => {
       const item = await fetch(
-        `http://localhost:4000/api/services/${location.pathname}`
+        `https://backend-mustaphachqoubi-website.onrender.com/api/services/${location.pathname}`
       );
       const data = await item.json();
       if (item.ok) {
@@ -42,7 +42,7 @@ export const Service = () => {
     event.preventDefault();
 
     try {
-      const client = await fetch(`http://localhost:4000/api/clients/`, {
+      const client = await fetch(`https://backend-mustaphachqoubi-website.onrender.com/api/clients/`, {
         method: "POST",
         headers: {
         "Content-Type": "application/json",

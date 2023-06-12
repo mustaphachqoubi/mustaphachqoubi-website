@@ -12,7 +12,7 @@ export const AdminDashboard = () => {
 
   useEffect(() => {
     const getAllServices = async () => {
-      const response = await fetch("http://localhost:4000/api/services");
+      const response = await fetch("https://backend-mustaphachqoubi-website.onrender.com/api/services");
       const data = await response.json();
       if (response.ok) {
         setServices(data);
@@ -22,7 +22,7 @@ export const AdminDashboard = () => {
   }, []);
 
   const deleteService = async (id) => {
-    const response = await fetch(`http://localhost:4000/api/services/${id}`, {
+    const response = await fetch(`https://backend-mustaphachqoubi-website.onrender.com/api/services/${id}`, {
       method: "DELETE",
     });
     const data = await response.json();
