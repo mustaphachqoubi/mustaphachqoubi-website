@@ -12,7 +12,7 @@ export const AdminDashboard = () => {
 
   useEffect(() => {
     const getAllServices = async () => {
-      const response = await fetch("https://mc-backend.onrender.com/api/services");
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}}/api/services`);
       const data = await response.json();
       if (response.ok) {
         setServices(data);
@@ -22,7 +22,7 @@ export const AdminDashboard = () => {
   }, []);
 
   const deleteService = async (id) => {
-    const response = await fetch(`https://mc-backend.onrender.com/api/services/${id}`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}}/api/services/${id}`, {
       method: "DELETE",
     });
     const data = await response.json();

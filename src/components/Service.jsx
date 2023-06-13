@@ -24,7 +24,7 @@ export const Service = () => {
   useEffect(() => {
     const getItemOfService = async () => {
       const item = await fetch(
-        `https://mc-backend.onrender.com/api/services/${location.pathname}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/services/${location.pathname}`
       );
       const data = await item.json();
       if (item.ok) {
@@ -42,7 +42,7 @@ export const Service = () => {
     event.preventDefault();
 
     try {
-      const client = await fetch(`https://mc-backend.onrender.com/api/clients/`, {
+      const client = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/clients/`, {
         method: "POST",
         headers: {
         "Content-Type": "application/json",

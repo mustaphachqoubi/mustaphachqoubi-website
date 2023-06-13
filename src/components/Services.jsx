@@ -2,14 +2,14 @@ import { BsLightningCharge, BsLightningChargeFill } from "react-icons/bs";
 import { SiStarship } from "react-icons/si";
 import { MdDone } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
 export const Services = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
     const handleServices = async () => {
-      const response = await fetch("https://mc-backend.onrender.com/api/services/");
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/services/`);
       const data = await response.json();
       if (response.ok) {
         setServices(data);

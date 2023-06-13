@@ -1,7 +1,6 @@
-import { useEffect, useState, useRef } from "react";
+import { useRef } from "react";
 
 export const CreateService = () => {
-  const [serviceBody, setServiceBody] = useState({});
 
   const areaRef = useRef(null);
 
@@ -10,7 +9,7 @@ export const CreateService = () => {
     if (body.current.value) {
             console.log(body)
 
-      const respense = await fetch("https://mc-backend.onrender.com/api/services/", {
+      const respense = await fetch(`${process.env.REACT_APP_BACKEND_URL}}/api/services/`, {
         method: "POST",
         body: JSON.stringify(body),
       });
