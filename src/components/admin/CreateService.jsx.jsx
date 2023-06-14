@@ -9,7 +9,7 @@ export const CreateService = () => {
     if (body.current.value) {
             console.log(body)
 
-      const respense = await fetch(`${process.env.REACT_APP_BACKEND_URL}}/api/services/`, {
+      const respense = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/services/`, {
         method: "POST",
         body: JSON.stringify(body),
       });
