@@ -29,9 +29,9 @@ export const Services = () => {
                 <div
                   key={item._id}
                   className={`${
-                    item.number === "2" ? "w-80 h-[29rem]" : "w-72 h-[27rem]"
+                    item.number === 2 ? "w-80 h-[29rem]" : "w-72 h-[27rem]"
                   } flex flex-col gap-5 p-4 rounded-lg ${
-                    item.number === "2" ? "bg-black text-white" : "bg-white"
+                    item.number === 2 ? "bg-black text-white" : "bg-white"
                   } relative`}
                 >
                   <div>
@@ -52,7 +52,7 @@ export const Services = () => {
                       <div className="flex justify-center items-center bg-black text-white text-lg w-10 h-10 rounded-full border-2 border-white absolute -right-5 md:static ">
                         {item.number === "1" ? (
                           <BsLightningCharge />
-                        ) : item.number === "2" ? (
+                        ) : item.number === 2 ? (
                           <BsLightningChargeFill />
                         ) : (
                           <SiStarship />
@@ -82,7 +82,7 @@ export const Services = () => {
 
                         <div
                           className={`flex justify-between items-center ${
-                            item.number === "2" ? "py-4" : "py-2"
+                            item.number === 2 ? "py-4" : "py-2"
                           } text-xs `}
                         >
                           <div>
@@ -92,7 +92,7 @@ export const Services = () => {
 
                           <div
                             className={`${
-                              item.number === "2"
+                              item.number === 2
                                 ? "bg-gray-300/30 text-slate-300"
                                 : "bg-slate-200"
                             } text-gray-500 py-1 px-2 rounded-full`}
@@ -110,7 +110,7 @@ export const Services = () => {
 
                       <div
                         className={`flex justify-between items-center ${
-                          item.number === "2" ? "py-4" : "py-2"
+                          item.number === 2 ? "py-4" : "py-2"
                         } text-xs `}
                       >
                         <div>
@@ -119,7 +119,7 @@ export const Services = () => {
 
                         <div
                           className={`${
-                            item.number === "2"
+                            item.number === 2
                               ? "bg-gray-300/30 text-slate-300"
                               : "bg-slate-200"
                           } text-gray-500 py-1 px-2 rounded-full`}
