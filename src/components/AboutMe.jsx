@@ -69,7 +69,7 @@ const AboutMe = () => {
             style={{
               opacity: calculateOpacity(index),
             }}
-            className={`font-bold text-2xl tracking-wide `}
+            className={`font-bold text-2xl xl:text-4xl 2xl:text-7xl tracking-wide `}
           >
             {line.line}
           </h1>

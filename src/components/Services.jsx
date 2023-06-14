@@ -144,7 +144,7 @@ export const Services = () => {
           </div>
         ))
       ) : (
-        <div className="h-[75vh] font-bold flex items-center justify-center w-full">
+        <div className="h-screen font-bold flex items-center justify-center w-full ">
           Loading...
         </div>
       )}

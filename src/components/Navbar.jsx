@@ -58,7 +58,7 @@ const Navbar = () => {
       setVolumePosition(
         "fixed bottom-[-0.2rem] ml-[8rem] md:bottom-[2.1rem] md:ml-[6rem] volume"
       );
-      setNavListPosition("fixed bottom-12 -left-[0.1rem]");
+      setNavListPosition("absolute bottom-12 -left-[0.1rem]");
       setNavListStatus("hidden");
     } else {
       setmenuPosition("");
@@ -72,7 +72,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className={`flex gap-4 px-10 py-5 absolute top-0 left-0 right-0 `}>
+      <div className={`flex gap-4 px-10 py-5 absolute top-0 left-0 right-0`}>
         <div
           onClick={() => {
             play();
