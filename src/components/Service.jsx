@@ -34,10 +34,6 @@ export const Service = () => {
     getItemOfService();
   }, []);
 
-  const HandleRadio = () => {
-    return <input type="radio" checked readOnly />;
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -65,6 +61,10 @@ export const Service = () => {
       optionSelected: optionSelected,
       optionId: optionId,
     });
+  };
+
+  const HandleRadio = () => {
+    return <input type="radio" checked readOnly />;
   };
 
   return (
@@ -193,6 +193,7 @@ export const Service = () => {
               </div>
 
               <button
+                onClick={handleInputChange}
                 type="submit"
                 className="cursor-pointer bg-black flex justify-center border-4 border-transparent hover:border-white overflow-hidden items-center w-full relative sm:w-96 h-20 rounded-lg text-white font-bold"
               >
