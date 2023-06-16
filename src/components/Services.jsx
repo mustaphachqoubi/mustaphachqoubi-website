@@ -19,10 +19,10 @@ export const Services = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center p-10 gap-20 pt-36 max-w-[1536px] mx-auto">
+    <div className="flex flex-col justify-center items-center p-10 gap-20 max-w-[1536px] mx-auto ">
       {services.length > 0 ? (
         services.map((service) => (
-          <div key={service._id} className="flex flex-col gap-8 text-sm w-full">
+          <div key={service._id} className="flex flex-col gap-8 text-sm w-full pt-20">
             <h1 className="font-bold text-lg ">{service.title}</h1>
             <div className="flex flex-wrap gap-10 justify-center items-center">
               {service.items?.map((item) => (
@@ -144,7 +144,7 @@ export const Services = () => {
           </div>
         ))
       ) : (
-        <div className="h-screen font-bold flex items-center justify-center w-full ">
+        <div className="h-screen w-full flex justify-center items-center font-bold 2xl:text-4xl">
           Loading...
         </div>
       )}

@@ -1,17 +1,11 @@
-import { useParams } from "react-router-dom";
-import { services } from "../assets/dummy.js";
-import { useEffect, useState, useRef } from "react";
-import { FaGreaterThan } from "react-icons/fa";
+import { useEffect, useState} from "react";
 import { AiOutlineCaretDown, AiFillCaretRight } from "react-icons/ai";
 import starBackground from "../assets/starBackground.mp4";
 import { useLocation } from "react-router-dom";
 import { MdDone } from "react-icons/md";
-import Cal, { getCalApi } from "@calcom/embed-react";
 import { useNavigate } from "react-router-dom";
 
 export const Service = () => {
-  const { service, itemId } = useParams();
-  const [serviceItemId, setServiceItemId] = useState("");
   const [itemOfService, setItemOfService] = useState({});
   const [optionSelected, setIsOptionSelected] = useState(false);
   const [featuresOpened, setFeaturesOpened] = useState(false);
@@ -32,23 +26,21 @@ export const Service = () => {
       }
     };
     getItemOfService();
-  }, []);
+  }, [location.pathname]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const client = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/clients/`, {
+      await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/clients/`, {
         method: "POST",
         headers: {
         "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
-      console.log(formData)
       navigate("/meet");
     } catch (err) {
-      console.log(err);
     }
   };
 
