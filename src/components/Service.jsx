@@ -87,7 +87,7 @@ export const Service = () => {
                     }}
                     className={`${
                       optionSelected ? "border-black" : " border-transparent"
-                    } cursor-pointer border-4 overflow-hidden bg-white w-full sm:w-96 h-20 text-black rounded-lg flex text-xs sm:text-md gap-6 px-6 justify-between items-center font-bold tracking-wide`}
+                    } cursor-pointer border-4 overflow-hidden bg-white w-full sm:w-96 min-h-20 text-black rounded-lg flex text-xs sm:text-md gap-6 px-6 py-2 justify-between items-center font-bold tracking-wide`}
                   >
                     <div className="flex flex-col gap-1">
                       <p>{option.name}</p> <p>(+ ${option.price})</p>

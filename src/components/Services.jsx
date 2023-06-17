@@ -19,17 +19,17 @@ export const Services = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center p-10 gap-20 max-w-[1536px] mx-auto ">
+    <div className={`flex flex-col justify-center items-center gap-20 max-w-[1536px] mx-auto px-10 py-20`}>
       {services.length > 0 ? (
         services.map((service) => (
-          <div key={service._id} className="flex flex-col gap-8 text-sm w-full pt-20">
+          <div key={service._id} className="flex flex-col gap-8 text-sm w-full">
             <h1 className="font-bold text-lg ">{service.title}</h1>
             <div className="flex flex-wrap gap-10 justify-center items-center">
               {service.items?.map((item) => (
                 <div
                   key={item._id}
                   className={`${
-                    item.number === 2 ? "w-80 h-[29rem]" : "w-72 h-[27rem]"
+                    item.number === 2 ? "w-80 h-[29rem]" : "w-72 min-h-[27rem]"
                   } flex flex-col gap-5 p-4 rounded-lg ${
                     item.number === 2 ? "bg-black text-white" : "bg-white"
                   } relative`}

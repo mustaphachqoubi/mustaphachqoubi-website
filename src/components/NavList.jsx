@@ -25,7 +25,7 @@ export const NavList = () => {
   }, [selectedId]);
 
   return (
-    <div className="z-50 bg-[#e5ac73]/50 backdrop-blur border-2 border-black rounded-md overflow-hidden w-40 md:w-53">
+    <div className="z-50 bg-[#e5ac73]/50 backdrop-blur border-2 border-black rounded-md overflow-hidden w-40 md:w-53 ">
       {location.pathname !== "/"
         ? List.map((list) =>
             list.list === "Home" ? (
