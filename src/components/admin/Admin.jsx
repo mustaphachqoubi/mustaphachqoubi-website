@@ -1,4 +1,3 @@
-import { AdminLogin } from "./AdminLogin.jsx";
 import { AdminDashboard } from "./AdminDashboard.jsx";
 
 export const Admin = () => {

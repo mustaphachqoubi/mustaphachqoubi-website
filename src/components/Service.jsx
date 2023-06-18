@@ -4,6 +4,7 @@ import starBackground from "../assets/starBackground.mp4";
 import { useLocation } from "react-router-dom";
 import { MdDone } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { ClipLoader } from "react-spinners"
 
 export const Service = () => {
   const [itemOfService, setItemOfService] = useState({});
@@ -59,6 +60,12 @@ export const Service = () => {
   const HandleRadio = () => {
     return <input type="radio" checked readOnly />;
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLetsTalkClicked(false)
+    }, 1000)
+  }, [isLetsTalkCliked])
 
   return (
     <div className="flex justify-center items-center py-10 w-full ">
@@ -185,13 +192,13 @@ export const Service = () => {
                 </div>
               </div>
 
-              <button
+              <button 
                 onClick={() => {
                     setTimeout(() => {
                       setIsLetsTalkClicked(true)
-                    }, 2000)
+                    }, 100);
                   }}
-                type="submit"
+                  type="submit"
                 className="cursor-pointer bg-black flex justify-center border-4 border-transparent hover:border-white overflow-hidden items-center w-full relative sm:w-96 h-20 rounded-lg text-white font-bold"
               >
                 <video
@@ -203,8 +210,7 @@ export const Service = () => {
                   <source src={starBackground} type="video/mp4" />
                 </video>
                   {
-                    isLetsTalkCliked ? <ClipLoader color="#FFFFFF" /> : <p className="z-20">Let's talk</p>
-                  }
+                    !isLetsTalkCliked ? (<p className="z-20">Let's talk</p>) : <ClipLoader color="#FFFFFF" />}
                </button>
             </form>
           </div>
