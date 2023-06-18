@@ -11,6 +11,7 @@ export const Service = () => {
   const [featuresOpened, setFeaturesOpened] = useState(false);
   const [optionId, setOptionId] = useState(-1);
   const [formData, setFormData] = useState({});
+  const [isLetsTalkCliked, setIsLetsTalkClicked] = useState(false)
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -185,7 +186,11 @@ export const Service = () => {
               </div>
 
               <button
-                onClick={handleInputChange}
+                onClick={() => {
+                    setTimeout(() => {
+                      setIsLetsTalkClicked(true)
+                    }, 2000)
+                  }}
                 type="submit"
                 className="cursor-pointer bg-black flex justify-center border-4 border-transparent hover:border-white overflow-hidden items-center w-full relative sm:w-96 h-20 rounded-lg text-white font-bold"
               >
@@ -197,8 +202,10 @@ export const Service = () => {
                 >
                   <source src={starBackground} type="video/mp4" />
                 </video>
-                <p className="z-20">Let's talk</p>
-              </button>
+                  {
+                    isLetsTalkCliked ? <ClipLoader color="#FFFFFF" /> : <p className="z-20">Let's talk</p>
+                  }
+               </button>
             </form>
           </div>
         )}
