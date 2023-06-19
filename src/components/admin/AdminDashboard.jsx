@@ -9,6 +9,7 @@ export const AdminDashboard = () => {
   const [addWhatDisplay, setAddWhatDisplay] = useState("hidden");
   const [services, setServices] = useState(null);
   const [deleteId, setDeleteId] = useState(-1);
+  const [editDisplay, setEditDisplay] = useState("hidden")
 
   useEffect(() => {
     const getAllServices = async () => {
@@ -33,6 +34,16 @@ export const AdminDashboard = () => {
 
   return (
     <div className="flex flex-col items-center h-screen justify-center gap-8 w-full py-20 p-10 scroll-auto ">
+
+       <div
+        onClick={() => setAddWhatDisplay("hidden")}
+        className={`absolute top-0 bottom-0 left-0 right-0 bg-black/50 z-20 ${editDisplay}`}
+      >
+        <div className="w-full h-full relative">
+          kjhdfdskjh
+        </div>
+      </div>
+
       <div
         onClick={() => setAddWhatDisplay("hidden")}
         className={`absolute top-0 bottom-0 left-0 right-0 bg-black/50 z-20 ${addWhatDisplay}`}
@@ -132,6 +143,9 @@ export const AdminDashboard = () => {
             </div>
 
             <div
+              onClick={() => {
+                editDisplay === "hidden" ? setEditDisplay("flex") : setEditDisplay("hidden")
+              }}
               title="Edit a service"
               className="duration-300 absolute -left-5 border-4 border-white  hover:border-2 hover:border-green-500 hover:text-green-500 bg-black text-white w-10 h-10 flex justify-center items-center cursor-pointer border-transparent rounded-full"
             >
