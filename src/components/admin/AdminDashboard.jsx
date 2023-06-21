@@ -9,7 +9,8 @@ export const AdminDashboard = () => {
   const [addWhatDisplay, setAddWhatDisplay] = useState("hidden");
   const [services, setServices] = useState(null);
   const [deleteId, setDeleteId] = useState(-1);
-  const [editDisplay, setEditDisplay] = useState("hidden")
+  const [editDisplayConfirmation, setEditDisplayConfirmation] = useState("hidden")
+  const [editId, setEditId] = useState(-1)
 
   useEffect(() => {
     const getAllServices = async () => {
@@ -32,17 +33,48 @@ export const AdminDashboard = () => {
     }
   };
 
+  const updateService = async (id) => {
+    alert(id)
+  }
+
   return (
     <div className="flex flex-col items-center h-screen justify-center gap-8 w-full py-20 p-10 scroll-auto ">
 
-       <div
-        onClick={() => setAddWhatDisplay("hidden")}
-        className={`absolute top-0 bottom-0 left-0 right-0 bg-black z-20 text-white ${editDisplay}`}
+
+      <div
+        className={`z-50 text-white text-center p-10 flex flex-col gap-5 absolute top-0 bottom-0 right-0 left-0 bg-black flex justify-center items-center ${editDisplayConfirmation}`}
       >
-        <div className="z-30">
-          test test test
+        <div className="font-bold text-lg">
+          Let's Edit{" "}
+          <p className="underline">{serviceTitle}</p> service
+        </div>
+        <div className="flex flex-col md:flex-row gap-4 w-full items-center justify-center">
+          <button
+            onClick={() => {
+              editDisplayConfirmation === "hidden"
+                ? setDisplayConfirmation("flex")
+                : setDisplayConfirmation("hidden");
+              updateService(editId);
+            }}
+            className="duration-300 bg-red-500 w-full h-10 md:w-52 rounded-lg text-sm font-bold border-2 border-white hover:border-red-500 hover:bg-white hover:text-red-500"
+          >
+           Save 
+          </button>
+          <button
+            onClick={() => {
+              editDisplayConfirmation === "hidden"
+                ? setEditDisplayConfirmation("flex")
+                : setEditDisplayConfirmation("hidden");
+            }}
+            className="bg-green-500 w-full h-10 md:w-52 rounded-lg text-sm font-bold border-2 border-white hover:border-green-500 hover:bg-white hover:text-green-500 duration-300"
+          >
+           Cancel 
+          </button>
         </div>
       </div>
+
+
+
 
       <div
         onClick={() => setAddWhatDisplay("hidden")}
@@ -76,6 +108,8 @@ export const AdminDashboard = () => {
         </div>
       </div>
 
+
+
       <div
         onClick={() =>
           addWhatDisplay === "hidden"
@@ -87,6 +121,8 @@ export const AdminDashboard = () => {
       >
         <MdAdd />
       </div>
+
+
 
       <div
         className={`z-50 text-white text-center p-10 flex flex-col gap-5 absolute top-0 bottom-0 right-0 left-0 bg-black flex justify-center items-center ${displayConfirmation}`}
@@ -144,7 +180,9 @@ export const AdminDashboard = () => {
 
             <div
               onClick={() => {
-                editDisplay === "hidden" ? setEditDisplay("flex") : setEditDisplay("hidden")
+                setServiceTitle(service.title);
+                setEditId(service._id);
+                editDisplayConfirmation === "hidden" ? setEditDisplayConfirmation("flex") : setEditDisplayConfirmation("hidden")
               }}
               title="Edit a service"
               className="duration-300 absolute -left-5 border-4 border-white  hover:border-2 hover:border-green-500 hover:text-green-500 bg-black text-white w-10 h-10 flex justify-center items-center cursor-pointer border-transparent rounded-full"
