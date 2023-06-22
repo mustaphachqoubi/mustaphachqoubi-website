@@ -34,7 +34,17 @@ export const AdminDashboard = () => {
   };
 
   const updateService = async (id) => {
-    alert(id)
+    const res = await fetch (`${process.env.REACT_APP_BACKEND_URL}/api/services/${id}`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    const data = await res.json()
+    if(res.ok){
+      alert("the service has been updated")
+    }
   }
 
   return (
@@ -52,8 +62,8 @@ export const AdminDashboard = () => {
           <button
             onClick={() => {
               editDisplayConfirmation === "hidden"
-                ? setDisplayConfirmation("flex")
-                : setDisplayConfirmation("hidden");
+                ? setEditDisplayConfirmation("flex")
+                : setEditDisplayConfirmation("hidden");
               updateService(editId);
             }}
             className="duration-300 bg-red-500 w-full h-10 md:w-52 rounded-lg text-sm font-bold border-2 border-white hover:border-red-500 hover:bg-white hover:text-red-500"
