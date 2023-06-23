@@ -11,6 +11,7 @@ export const AdminDashboard = () => {
   const [deleteId, setDeleteId] = useState(-1);
   const [editDisplayConfirmation, setEditDisplayConfirmation] = useState("hidden")
   const [editId, setEditId] = useState(-1)
+  const [body, setBody] = useState("")
 
   useEffect(() => {
     const getAllServices = async () => {
@@ -33,38 +34,41 @@ export const AdminDashboard = () => {
     }
   };
 
-  const updateService = async (id) => {
-    const res = await fetch (`${process.env.REACT_APP_BACKEND_URL}/api/services/${id}`, {
-      method: "PUT",
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
 
-    const data = await res.json()
-    if(res.ok){
-      alert("the service has been updated")
-    }
-  }
+const updateService = async (id, b) => {
+  const bodyReq = await body;
+  const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/services/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(bodyReq)
+  });
+
+};
+
 
   return (
     <div className="flex flex-col items-center h-screen justify-center gap-8 w-full py-20 p-10 scroll-auto ">
 
 
       <div
-        className={`z-50 text-white text-center p-10 flex flex-col gap-5 absolute top-0 bottom-0 right-0 left-0 bg-black flex justify-center items-center ${editDisplayConfirmation}`}
+        className={`z-50 text-white overflow-auto text-center p-10 flex flex-col gap-5 absolute top-0 bottom-0 right-0 left-0 bg-black flex justify-center items-center ${editDisplayConfirmation}`}
       >
         <div className="font-bold text-lg">
           Let's Edit{" "}
           <p className="underline">{serviceTitle}</p> service
         </div>
         <div className="flex flex-col md:flex-row gap-4 w-full items-center justify-center">
+          <div className="flex flex-col justify-center items-center gap-4 w-full">
+          <textarea placeholder="body" className="w-full rounded-lg p-2 border-2 boreder-white bg-black placeholder:text-sm text-white" ></textarea>           
+          </div>
           <button
             onClick={() => {
               editDisplayConfirmation === "hidden"
                 ? setEditDisplayConfirmation("flex")
                 : setEditDisplayConfirmation("hidden");
-              updateService(editId);
+              updateService(editId, body);
             }}
             className="duration-300 bg-red-500 w-full h-10 md:w-52 rounded-lg text-sm font-bold border-2 border-white hover:border-red-500 hover:bg-white hover:text-red-500"
           >
